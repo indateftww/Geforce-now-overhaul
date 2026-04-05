@@ -1,0 +1,5 @@
+flask
+pyautogui
+Pillow
+pytesseract
+opencv-python

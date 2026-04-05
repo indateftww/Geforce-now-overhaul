@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NC Companion - Cyberpunk 2077</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root{
+  --bg:#0a0a0f;--bg2:#0f1118;--sidebar:#0c0e16;--card:#12141f;--card-hover:#181b2a;
+  --border:#1e2235;--border-hover:#2e3355;
+  --yellow:#fcee09;--yellow-dim:rgba(252,238,9,0.12);
+  --cyan:#00f0ff;--cyan-dim:rgba(0,240,255,0.10);
+  --red:#ff003c;--red-dim:rgba(255,0,60,0.10);
+  --green:#00e676;--green-dim:rgba(0,230,118,0.1);
+  --text:#e0e4ec;--dim:#5c6378;--muted:#2a2f42;
+  --font-d:'Rajdhani',sans-serif;--font-b:'Inter',sans-serif;--font-m:'JetBrains Mono',monospace;
+  --r:10px;--rs:6px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-b);background:var(--bg);color:var(--text);display:flex;height:100vh;overflow:hidden;}
+::selection{background:var(--yellow);color:#000;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--muted);border-radius:3px;}
+
+/* == SCANLINE OVERLAY == */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:999;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);
+}
+
+/* == GLITCH EFFECT == */
+@keyframes glitch{
+  0%,90%,100%{text-shadow:none;}
+  91%{text-shadow:-2px 0 var(--cyan),2px 0 var(--red);}
+  92%{text-shadow:2px 0 var(--cyan),-2px 0 var(--red);}
+  93%{text-shadow:none;}
+  94%{text-shadow:-1px 0 var(--yellow),1px 0 var(--cyan);}
+}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+@keyframes solvePulse{
+  0%,100%{box-shadow:0 0 12px var(--yellow-dim);}
+  50%{box-shadow:0 0 28px rgba(252,238,9,0.35),0 0 60px rgba(252,238,9,0.1);}
+}
+@keyframes borderScan{
+  0%{background-position:0% 0%;}
+  100%{background-position:200% 0%;}
+}
+
+/* == SIDEBAR == */
+.sidebar{
+  width:260px;min-width:260px;background:var(--sidebar);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;height:100vh;overflow:hidden;
+}
+.sb-logo{padding:20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);}
+.sb-logo-icon{
+  width:34px;height:34px;border-radius:9px;
+  background:linear-gradient(135deg,var(--yellow),#c4b800);
+  display:grid;place-content:center;font-family:var(--font-d);font-weight:700;font-size:15px;color:#000;
+  box-shadow:0 0 20px var(--yellow-dim);
+}
+.sb-logo-text{font-family:var(--font-d);font-weight:700;font-size:16px;animation:glitch 8s infinite;}
+.sb-logo-text span{color:var(--yellow);}
+
+.sb-section{padding:16px 12px 8px;font-family:var(--font-d);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+.sb-nav{flex:1;overflow-y:auto;padding:0 8px;}
+.sb-item{
+  display:flex;align-items:center;gap:10px;padding:9px 12px;margin:2px 0;border-radius:var(--rs);
+  cursor:pointer;color:var(--dim);font-size:13px;font-weight:500;transition:all 0.15s;
+}
+.sb-item:hover{background:var(--card);color:var(--text);}
+.sb-item.active{background:var(--yellow-dim);color:var(--yellow);}
+.sb-item svg{width:18px;height:18px;opacity:0.6;flex-shrink:0;}
+.sb-item.active svg{opacity:1;}
+
+.sb-overwatch{
+  margin:12px 8px;padding:12px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+}
+.sb-overwatch-title{font-family:var(--font-d);font-weight:600;font-size:12px;margin-bottom:6px;letter-spacing:0.8px;text-transform:uppercase;color:var(--dim);}
+.sb-overwatch-row{display:flex;align-items:center;justify-content:space-between;}
+.sb-overwatch-status{font-size:11px;font-family:var(--font-m);}
+.sb-overwatch-status.on{color:var(--green);}
+.sb-overwatch-status.off{color:var(--dim);}
+.sb-overwatch-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px;}
+.sb-overwatch-dot.on{background:var(--green);animation:pulse 2s infinite;}
+.sb-overwatch-dot.off{background:var(--dim);}
+
+/* == MAIN == */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+.topbar{
+  padding:14px 24px;border-bottom:1px solid var(--border);background:var(--bg2);
+  display:flex;align-items:center;justify-content:space-between;min-height:52px;
+}
+.topbar-title{font-family:var(--font-d);font-weight:700;font-size:16px;letter-spacing:0.3px;}
+.topbar-actions{display:flex;gap:8px;}
+
+.view{flex:1;overflow-y:auto;padding:20px 24px;}
+.tab-content{display:none;animation:fadeIn 0.25s ease;}
+.tab-content.active{display:block;}
+
+/* == CARDS == */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:12px;}
+.card:hover{border-color:var(--border-hover);}
+.card-title{font-family:var(--font-d);font-weight:700;font-size:15px;margin-bottom:8px;letter-spacing:0.3px;}
+.card-desc{font-size:12px;color:var(--dim);line-height:1.5;}
+
+/* == INPUTS == */
+input[type="text"],select,textarea{
+  width:100%;padding:8px 12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);
+  color:var(--text);font-family:var(--font-b);font-size:13px;outline:none;transition:border 0.2s;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--yellow);box-shadow:0 0 0 2px var(--yellow-dim);}
+label{display:block;font-family:var(--font-d);font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;color:var(--dim);margin-bottom:4px;}
+.field{margin-bottom:12px;}
+
+/* == BUTTONS == */
+.btn{
+  padding:7px 14px;border:none;border-radius:var(--rs);cursor:pointer;
+  font-family:var(--font-d);font-weight:600;font-size:11px;letter-spacing:0.4px;
+  transition:all 0.15s;display:inline-flex;align-items:center;gap:5px;
+}
+.btn-yellow{background:var(--yellow);color:#000;box-shadow:0 0 12px var(--yellow-dim);}
+.btn-yellow:hover{filter:brightness(1.15);transform:translateY(-1px);}
+.btn-yellow.pulse{animation:solvePulse 2s infinite;}
+.btn-cyan{background:rgba(0,240,255,0.1);color:var(--cyan);border:1px solid rgba(0,240,255,0.2);}
+.btn-cyan:hover{background:rgba(0,240,255,0.18);}
+.btn-ghost{background:var(--card);color:var(--text);border:1px solid var(--border);}
+.btn-ghost:hover{border-color:var(--border-hover);}
+.btn-red{background:var(--red-dim);color:var(--red);border:1px solid rgba(255,0,60,0.2);}
+.btn-green{background:var(--green-dim);color:var(--green);border:1px solid rgba(0,230,118,0.2);}
+.btn-sm{padding:5px 10px;font-size:10px;}
+.btn-lg{padding:10px 24px;font-size:13px;letter-spacing:0.6px;}
+
+/* == TOGGLE SWITCH == */
+.toggle{position:relative;width:38px;height:20px;flex-shrink:0;}
+.toggle input{opacity:0;width:0;height:0;position:absolute;}
+.toggle-track{
+  position:absolute;inset:0;border-radius:10px;background:var(--muted);
+  transition:background 0.25s;cursor:pointer;
+}
+.toggle-track::after{
+  content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;
+  background:#fff;transition:transform 0.25s;box-shadow:0 1px 4px rgba(0,0,0,0.3);
+}
+.toggle input:checked + .toggle-track{background:var(--green);box-shadow:0 0 10px var(--green-dim);}
+.toggle input:checked + .toggle-track::after{transform:translateX(18px);}
+
+/* == BREACH PROTOCOL == */
+.bp-controls{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;align-items:flex-end;}
+.bp-btn-group{display:flex;gap:4px;}
+.bp-btn-group .btn{min-width:38px;justify-content:center;}
+.bp-btn-group .btn.active{background:var(--yellow);color:#000;box-shadow:0 0 10px var(--yellow-dim);}
+
+.bp-layout{display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start;}
+@media(max-width:900px){.bp-layout{grid-template-columns:1fr;}}
+
+.bp-matrix-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;position:relative;overflow:hidden;}
+.bp-matrix-wrap::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+  animation:borderScan 3s linear infinite;background-size:200% 100%;
+}
+.bp-matrix-label{font-family:var(--font-d);font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;}
+.bp-matrix{display:grid;gap:4px;justify-content:center;}
+.bp-cell{
+  width:48px;height:48px;display:grid;place-content:center;
+  background:var(--bg);border:1px solid var(--border);border-radius:4px;
+  font-family:var(--font-m);font-size:14px;font-weight:700;color:var(--cyan);
+  cursor:pointer;transition:all 0.15s;user-select:none;position:relative;
+}
+.bp-cell:hover{border-color:var(--cyan);background:var(--cyan-dim);z-index:2;}
+.bp-cell.row-highlight{background:rgba(0,240,255,0.04);border-color:rgba(0,240,255,0.15);}
+.bp-cell.col-highlight{background:rgba(0,240,255,0.04);border-color:rgba(0,240,255,0.15);}
+.bp-cell.path-cell{
+  border-color:var(--yellow);background:var(--yellow-dim);color:var(--yellow);
+  box-shadow:0 0 10px var(--yellow-dim);
+}
+.bp-cell .path-num{
+  position:absolute;top:-6px;right:-6px;width:16px;height:16px;border-radius:50%;
+  background:var(--yellow);color:#000;font-size:9px;font-weight:700;
+  display:grid;place-content:center;z-index:3;
+}
+.bp-cell input{
+  width:100%;height:100%;background:transparent;border:none;text-align:center;
+  font-family:var(--font-m);font-size:14px;font-weight:700;color:var(--cyan);
+  outline:none;cursor:pointer;
+}
+
+/* Sequences panel */
+.bp-sequences{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;}
+.bp-seq-label{font-family:var(--font-d);font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--yellow);margin-bottom:10px;}
+.bp-seq-row{
+  display:flex;align-items:center;gap:8px;padding:8px 10px;margin-bottom:6px;
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);transition:all 0.15s;
+}
+.bp-seq-row.matched{border-color:var(--green);background:var(--green-dim);}
+.bp-seq-row.failed{border-color:rgba(255,0,60,0.2);background:var(--red-dim);}
+.bp-seq-check{width:16px;height:16px;accent-color:var(--yellow);cursor:pointer;}
+.bp-seq-name{
+  width:90px;padding:4px 6px;background:transparent;border:1px solid transparent;
+  border-radius:3px;color:var(--dim);font-family:var(--font-d);font-size:11px;font-weight:600;
+  outline:none;transition:border 0.2s;
+}
+.bp-seq-name:focus{border-color:var(--border);background:var(--card);}
+.bp-seq-cells{display:flex;gap:3px;flex:1;}
+.bp-seq-cell{
+  width:36px;height:30px;display:grid;place-content:center;
+  background:var(--card);border:1px solid var(--border);border-radius:3px;
+  font-family:var(--font-m);font-size:12px;font-weight:700;color:var(--yellow);
+  cursor:pointer;transition:all 0.15s;
+}
+.bp-seq-cell:hover{border-color:var(--yellow);}
+.bp-seq-cell input{
+  width:100%;height:100%;background:transparent;border:none;text-align:center;
+  font-family:var(--font-m);font-size:12px;font-weight:700;color:var(--yellow);outline:none;
+}
+.bp-seq-result{font-size:14px;flex-shrink:0;width:20px;text-align:center;}
+
+.bp-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
+
+/* Solution display */
+.bp-solution{
+  margin-top:16px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:16px;display:none;
+}
+.bp-solution.show{display:block;animation:fadeIn 0.3s ease;}
+.bp-solution-title{font-family:var(--font-d);font-weight:700;font-size:14px;color:var(--green);margin-bottom:10px;letter-spacing:0.5px;}
+.bp-steps{margin-top:10px;}
+.bp-step{
+  display:flex;align-items:center;gap:10px;padding:6px 10px;
+  border-left:2px solid var(--yellow);margin-bottom:4px;font-size:12px;
+}
+.bp-step-num{
+  width:22px;height:22px;border-radius:50%;background:var(--yellow);color:#000;
+  font-family:var(--font-d);font-weight:700;font-size:11px;display:grid;place-content:center;flex-shrink:0;
+}
+.bp-step-val{font-family:var(--font-m);font-weight:700;color:var(--cyan);}
+.bp-step-pos{color:var(--dim);font-size:11px;}
+
+.bp-matched-seqs{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;}
+.bp-matched-tag{
+  padding:4px 10px;border-radius:var(--rs);font-family:var(--font-d);font-size:11px;font-weight:600;
+  display:inline-flex;align-items:center;gap:5px;
+}
+.bp-matched-tag.ok{background:var(--green-dim);color:var(--green);}
+.bp-matched-tag.fail{background:var(--red-dim);color:var(--red);}
+
+/* OCR drop zone */
+.bp-ocr-zone{
+  border:2px dashed var(--border);border-radius:var(--r);padding:30px;text-align:center;
+  margin-top:16px;transition:all 0.2s;cursor:pointer;
+}
+.bp-ocr-zone:hover,.bp-ocr-zone.dragover{border-color:var(--cyan);background:var(--cyan-dim);}
+.bp-ocr-zone-icon{font-size:28px;margin-bottom:6px;opacity:0.4;}
+.bp-ocr-zone-text{font-family:var(--font-d);font-size:12px;color:var(--dim);letter-spacing:0.5px;}
+.bp-ocr-preview{margin-top:12px;display:none;}
+.bp-ocr-preview.show{display:block;}
+.bp-ocr-preview img{max-width:100%;max-height:200px;border-radius:var(--rs);border:1px solid var(--border);}
+.bp-ocr-status{font-family:var(--font-m);font-size:11px;color:var(--cyan);margin-top:8px;}
+
+/* == MAP TAB == */
+.map-placeholder{
+  height:600px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  display:grid;place-content:center;position:relative;overflow:hidden;
+}
+.map-placeholder::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 40%,rgba(0,240,255,0.05) 0%,transparent 50%),
+             radial-gradient(circle at 70% 60%,rgba(252,238,9,0.03) 0%,transparent 50%);
+}
+.map-filters{
+  width:220px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:16px;height:fit-content;
+}
+
+/* == DATABASE TAB == */
+.db-subtabs{display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap;}
+.db-subtab{
+  padding:6px 14px;border-radius:var(--rs);cursor:pointer;
+  font-family:var(--font-d);font-weight:600;font-size:11px;letter-spacing:0.4px;
+  color:var(--dim);background:var(--card);border:1px solid var(--border);transition:all 0.15s;
+}
+.db-subtab:hover{color:var(--text);border-color:var(--border-hover);}
+.db-subtab.active{background:var(--yellow-dim);color:var(--yellow);border-color:rgba(252,238,9,0.25);}
+
+.weapon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;}
+.weapon-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:16px;transition:all 0.2s;position:relative;overflow:hidden;
+}
+.weapon-card:hover{border-color:var(--yellow);transform:translateY(-2px);box-shadow:0 6px 20px rgba(252,238,9,0.06);}
+.weapon-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--yellow),var(--cyan));opacity:0;transition:opacity 0.2s;}
+.weapon-card:hover::before{opacity:1;}
+.weapon-icon{font-size:28px;margin-bottom:8px;display:block;}
+.weapon-name{font-family:var(--font-d);font-weight:700;font-size:14px;margin-bottom:3px;}
+.weapon-type{font-size:10px;color:var(--dim);font-family:var(--font-m);text-transform:uppercase;letter-spacing:0.5px;}
+.weapon-stats{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;}
+.weapon-stat{font-size:10px;padding:2px 6px;border-radius:3px;background:var(--bg);color:var(--cyan);font-family:var(--font-m);}
+.rarity-legendary{border-left:3px solid #ff8c00;}
+.rarity-epic{border-left:3px solid #a855f7;}
+.rarity-rare{border-left:3px solid var(--cyan);}
+.rarity-uncommon{border-left:3px solid var(--green);}
+
+/* == GUIDES TAB == */
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
+.guide-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:20px;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;
+}
+.guide-card:hover{border-color:var(--cyan);transform:translateY(-2px);}
+.guide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--cyan);opacity:0;transition:opacity 0.2s;}
+.guide-card:hover::before{opacity:1;}
+.guide-icon{font-size:28px;margin-bottom:8px;display:block;}
+.guide-name{font-family:var(--font-d);font-weight:700;font-size:15px;margin-bottom:4px;}
+.guide-desc{font-size:12px;color:var(--dim);line-height:1.5;}
+.guide-badge{
+  position:absolute;top:12px;right:12px;font-family:var(--font-m);font-size:9px;
+  padding:2px 8px;border-radius:3px;background:var(--cyan-dim);color:var(--cyan);
+}
+
+/* == CHEATS TAB == */
+.warning-banner{
+  background:var(--red-dim);border:1px solid rgba(255,0,60,0.25);border-radius:var(--r);
+  padding:14px 18px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px;
+}
+.warning-banner-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.warning-banner-text{font-size:12px;color:var(--red);line-height:1.5;}
+.warning-banner-title{font-family:var(--font-d);font-weight:700;font-size:13px;margin-bottom:2px;}
+
+.workaround-item{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;
+  background:var(--card);border:1px solid var(--border);border-radius:var(--rs);
+  margin-bottom:6px;transition:all 0.15s;
+}
+.workaround-item:hover{border-color:var(--border-hover);}
+.workaround-icon{font-size:20px;flex-shrink:0;width:36px;height:36px;border-radius:8px;background:var(--bg);display:grid;place-content:center;}
+.workaround-info{flex:1;}
+.workaround-name{font-family:var(--font-d);font-weight:600;font-size:13px;margin-bottom:2px;}
+.workaround-desc{font-size:11px;color:var(--dim);line-height:1.4;}
+.workaround-tag{font-size:9px;padding:2px 6px;border-radius:3px;font-family:var(--font-m);background:var(--bg);color:var(--dim);}
+
+/* == QUEST TAB == */
+.quest-item{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:14px 16px;margin-bottom:8px;transition:all 0.15s;
+}
+.quest-item:hover{border-color:var(--border-hover);}
+.quest-header{display:flex;align-items:center;justify-content:space-between;}
+.quest-name{font-family:var(--font-d);font-weight:700;font-size:14px;}
+.quest-type{font-size:9px;padding:2px 8px;border-radius:3px;font-family:var(--font-m);font-weight:600;}
+.quest-type-main{background:var(--yellow-dim);color:var(--yellow);}
+.quest-type-side{background:var(--cyan-dim);color:var(--cyan);}
+.quest-type-gig{background:rgba(168,139,250,0.1);color:#a78bfa;}
+.quest-desc{font-size:12px;color:var(--dim);margin-top:4px;line-height:1.5;}
+.quest-reward{font-size:11px;color:var(--green);margin-top:6px;font-family:var(--font-m);}
+
+/* == COMING SOON PLACEHOLDER == */
+.phase-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--font-m);font-size:10px;color:var(--dim);
+  background:var(--bg);padding:4px 10px;border-radius:var(--rs);margin-top:10px;
+}
+
+/* == TOAST == */
+.toast{
+  position:fixed;bottom:20px;right:20px;background:var(--card);border:1px solid var(--border);
+  color:var(--text);padding:10px 18px;border-radius:var(--r);font-size:13px;
+  opacity:0;transform:translateY(8px);transition:all 0.3s;pointer-events:none;z-index:100;
+  box-shadow:0 8px 30px rgba(0,0,0,0.5);max-width:360px;font-family:var(--font-b);
+}
+.toast.show{opacity:1;transform:translateY(0);}
+
+/* == MODAL == */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(10,10,15,0.85);backdrop-filter:blur(6px);z-index:60;place-items:center;}
+.modal-bg.show{display:grid;}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;width:90%;max-width:480px;}
+.modal h3{font-family:var(--font-d);font-size:15px;margin-bottom:14px;}
+
+.section-head{font-family:var(--font-d);font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.alert{padding:8px 14px;border-radius:var(--rs);margin-bottom:10px;font-size:12px;}
+.alert-ok{background:var(--green-dim);color:var(--green);}
+.alert-err{background:var(--red-dim);color:#ff7b7b;}
+
+/* == MAP == */
+.map-container{display:flex;height:calc(100vh - 52px);margin:-20px -24px;}
+.map-sidebar{width:240px;min-width:240px;background:var(--bg2);border-right:1px solid var(--border);overflow-y:auto;padding:12px;}
+.map-area{flex:1;position:relative;}
+#nc-map{width:100%;height:100%;background:var(--bg);}
+.map-filter-group{margin-bottom:8px;}
+.map-filter-header{display:flex;align-items:center;justify-content:space-between;padding:6px 0;cursor:pointer;user-select:none;}
+.map-filter-label{font-family:var(--font-d);font-weight:600;font-size:11px;letter-spacing:0.8px;text-transform:uppercase;color:var(--dim);}
+.map-filter-items{padding-left:4px;}
+.map-filter-item{display:flex;align-items:center;gap:8px;padding:3px 0;font-size:12px;cursor:pointer;}
+.map-filter-item input[type="checkbox"]{accent-color:var(--yellow);}
+.map-filter-count{font-family:var(--font-m);font-size:9px;color:var(--muted);margin-left:auto;}
+.map-progress{padding:10px 0;border-top:1px solid var(--border);margin-top:8px;}
+.map-progress-bar{height:4px;background:var(--muted);border-radius:2px;overflow:hidden;margin-top:4px;}
+.map-progress-fill{height:100%;background:var(--green);transition:width 0.3s;}
+.leaflet-popup-content-wrapper{background:var(--card)!important;color:var(--text)!important;border:1px solid var(--border)!important;border-radius:var(--rs)!important;box-shadow:0 8px 30px rgba(0,0,0,0.5)!important;}
+.leaflet-popup-tip{background:var(--card)!important;}
+.leaflet-popup-content{font-family:var(--font-b);font-size:12px;}
+.poi-popup-title{font-family:var(--font-d);font-weight:700;font-size:14px;margin-bottom:4px;}
+.poi-popup-cat{font-size:10px;color:var(--dim);margin-bottom:6px;}
+.poi-popup-desc{font-size:11px;color:var(--text);margin-bottom:8px;line-height:1.4;}
+.poi-popup-btn{padding:4px 10px;border:none;border-radius:var(--rs);cursor:pointer;font-family:var(--font-d);font-weight:600;font-size:10px;}
+.poi-popup-btn.complete{background:var(--green-dim);color:var(--green);}
+.poi-popup-btn.complete.done{background:var(--green);color:#000;}
+.leaflet-container{background:var(--bg)!important;}
+</style>
+</head>
+<body>
+
+<!-- == SIDEBAR == -->
+<div class="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-icon">NC</div>
+    <div class="sb-logo-text">NC <span>COMPANION</span></div>
+  </div>
+  <div class="sb-section">Navigation</div>
+  <div class="sb-nav">
+    <div class="sb-item active" onclick="go('solver')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 7h20M2 17h20"/><circle cx="12" cy="12" r="1.5"/></svg>
+      Solver
+    </div>
+    <div class="sb-item" onclick="go('map')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Map
+    </div>
+    <div class="sb-item" onclick="go('quests')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg>
+      Quests
+    </div>
+    <div class="sb-item" onclick="go('database')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      Database
+    </div>
+    <div class="sb-item" onclick="go('guides')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
+      Guides
+    </div>
+    <div class="sb-item" onclick="go('cheats')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+      Cheats
+    </div>
+  </div>
+  <div class="sb-overwatch">
+    <div class="sb-overwatch-title">Overwatch</div>
+    <div class="sb-overwatch-row">
+      <div class="sb-overwatch-status off" id="ow-status">
+        <span class="sb-overwatch-dot off" id="ow-dot"></span>
+        <span id="ow-text">OFFLINE</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="ow-toggle" onchange="toggleOverwatch(this)">
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+    <div id="ow-details" style="display:none;margin-top:8px;">
+      <div style="font-size:10px;color:var(--dim);font-family:var(--font-m);margin-bottom:4px;">
+        State: <span id="ow-state-label" style="color:var(--yellow);">—</span>
+      </div>
+      <div style="font-size:10px;color:var(--dim);font-family:var(--font-m);margin-bottom:6px;">
+        Last: <span id="ow-last-time">—</span>
+      </div>
+      <div id="ow-thumbnail" style="display:none;margin-bottom:6px;">
+        <img id="ow-thumb-img" style="width:100%;border-radius:4px;border:1px solid var(--border);opacity:0.8;">
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="takeSnapshot()" style="width:100%;font-size:9px;">
+        TAKE SNAPSHOT
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- == MAIN == -->
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-title" id="topbar-title">Breach Protocol Solver</div>
+    <div class="topbar-actions" id="topbar-actions"></div>
+  </div>
+  <div class="view">
+
+    <!-- ============ TAB: SOLVER ============ -->
+    <div id="solver" class="tab-content active">
+
+      <!-- Controls Row -->
+      <div class="bp-controls">
+        <div>
+          <label>Matrix Size</label>
+          <div class="bp-btn-group" id="bp-size-btns">
+            <button class="btn btn-ghost btn-sm" onclick="setMatrixSize(5)">5x5</button>
+            <button class="btn btn-ghost btn-sm active" onclick="setMatrixSize(6)">6x6</button>
+            <button class="btn btn-ghost btn-sm" onclick="setMatrixSize(7)">7x7</button>
+          </div>
+        </div>
+        <div>
+          <label>Buffer Size</label>
+          <div class="bp-btn-group" id="bp-buf-btns">
+            <button class="btn btn-ghost btn-sm" onclick="setBufferSize(4)">4</button>
+            <button class="btn btn-ghost btn-sm" onclick="setBufferSize(5)">5</button>
+            <button class="btn btn-ghost btn-sm" onclick="setBufferSize(6)">6</button>
+            <button class="btn btn-ghost btn-sm active" onclick="setBufferSize(7)">7</button>
+            <button class="btn btn-ghost btn-sm" onclick="setBufferSize(8)">8</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Matrix + Sequences Layout -->
+      <div class="bp-layout">
+        <!-- Code Matrix -->
+        <div class="bp-matrix-wrap">
+          <div class="bp-matrix-label">Code Matrix</div>
+          <div class="bp-matrix" id="bp-matrix"></div>
+        </div>
+
+        <!-- Target Sequences -->
+        <div class="bp-sequences">
+          <div class="bp-seq-label">Target Sequences</div>
+          <div id="bp-seq-list"></div>
+          <div style="display:flex;gap:6px;margin-top:10px;">
+            <button class="btn btn-ghost btn-sm" onclick="addSequence()">+ Add Sequence</button>
+            <button class="btn btn-ghost btn-sm" onclick="removeSequence()">- Remove</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="bp-actions">
+        <button class="btn btn-yellow btn-lg pulse" onclick="solvePuzzle()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          SOLVE
+        </button>
+        <button class="btn btn-ghost" onclick="clearMatrix()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+          CLEAR
+        </button>
+        <button class="btn btn-cyan" onclick="randomizeMatrix()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+          RANDOM
+        </button>
+      </div>
+
+      <!-- Solution Display -->
+      <div class="bp-solution" id="bp-solution">
+        <div class="bp-solution-title">// SOLUTION FOUND</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div>
+            <div class="section-head" style="margin-top:0;">Path on Matrix</div>
+            <div class="bp-matrix" id="bp-solution-matrix" style="gap:3px;"></div>
+          </div>
+          <div>
+            <div class="section-head" style="margin-top:0;">Step-by-Step</div>
+            <div class="bp-steps" id="bp-steps"></div>
+          </div>
+        </div>
+        <div class="section-head" style="margin-top:14px;">Sequence Results</div>
+        <div class="bp-matched-seqs" id="bp-matched-seqs"></div>
+      </div>
+
+      <!-- OCR Zone -->
+      <div class="bp-ocr-zone" id="bp-ocr-zone" ondrop="handleOCRDrop(event)" ondragover="handleOCRDragOver(event)" ondragleave="handleOCRDragLeave(event)" onclick="triggerOCRPaste()">
+        <div class="bp-ocr-zone-icon">&#128247;</div>
+        <div class="bp-ocr-zone-text">Drop screenshot or Cmd+V to paste</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;font-family:var(--font-m);">Supports PNG / JPG screenshots from the game</div>
+      </div>
+      <div class="bp-ocr-preview" id="bp-ocr-preview">
+        <img id="bp-ocr-img" src="">
+        <div class="bp-ocr-status" id="bp-ocr-status"></div>
+        <div style="display:flex;gap:6px;margin-top:8px;">
+          <button class="btn btn-cyan btn-sm" onclick="runOCR()">Process OCR</button>
+          <button class="btn btn-yellow btn-sm" onclick="solvePuzzle()" style="display:none;" id="bp-ocr-solve-btn">Verify & Solve</button>
+          <button class="btn btn-ghost btn-sm" onclick="clearOCR()">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ TAB: MAP ============ -->
+    <div id="map" class="tab-content">
+      <div class="map-container">
+        <div class="map-sidebar">
+          <div style="margin-bottom:10px;">
+            <input type="text" id="map-search" placeholder="Search locations..." oninput="searchMap()" style="font-size:12px;">
+          </div>
+          <div style="display:flex;gap:4px;margin-bottom:10px;">
+            <button class="btn btn-ghost btn-sm" onclick="toggleAllFilters(true)" style="flex:1;font-size:9px;">Show All</button>
+            <button class="btn btn-ghost btn-sm" onclick="toggleAllFilters(false)" style="flex:1;font-size:9px;">Hide All</button>
+          </div>
+          <div id="map-filters"></div>
+          <div class="map-progress">
+            <div style="font-family:var(--font-d);font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;color:var(--dim);">Progress</div>
+            <div id="map-progress-text" style="font-family:var(--font-m);font-size:12px;color:var(--green);margin-top:2px;">0 / 0</div>
+            <div class="map-progress-bar"><div id="map-progress-fill" class="map-progress-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="map-area">
+          <div id="nc-map"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ TAB: QUESTS ============ -->
+    <div id="quests" class="tab-content">
+      <div class="card" style="border-color:var(--cyan);margin-bottom:16px;">
+        <div class="card-title" style="color:var(--cyan);">Quest Helper & Dialogue Coach</div>
+        <div class="card-desc">Track quest progress, view optimal dialogue choices, and never miss a hidden reward. Full quest database with outcome previews.</div>
+        <div class="phase-badge">Coming in Phase 4</div>
+      </div>
+
+      <div class="field" style="margin-bottom:16px;">
+        <input type="text" id="quest-search" placeholder="Search quests..." oninput="filterQuests()">
+      </div>
+
+      <div id="quest-list">
+        <div class="quest-item">
+          <div class="quest-header">
+            <div class="quest-name">The Heist</div>
+            <span class="quest-type quest-type-main">Main Job</span>
+          </div>
+          <div class="quest-desc">Break into Konpeki Plaza with Jackie to steal the Relic, a prototype biochip. This mission marks the end of Act 1 and changes everything.</div>
+          <div class="quest-reward">+ 7,200 eddies / Street Cred +1,400</div>
+        </div>
+        <div class="quest-item">
+          <div class="quest-header">
+            <div class="quest-name">I Fought the Law</div>
+            <span class="quest-type quest-type-side">Side Job</span>
+          </div>
+          <div class="quest-desc">Help River Ward investigate the death of Mayor Rhyne. Multiple leads to follow across Night City, with consequences that ripple through later missions.</div>
+          <div class="quest-reward">+ 3,700 eddies / River Ward relationship</div>
+        </div>
+        <div class="quest-item">
+          <div class="quest-header">
+            <div class="quest-name">Kold Mirage</div>
+            <span class="quest-type quest-type-gig">Gig</span>
+          </div>
+          <div class="quest-desc">Rogue asks you to find the remains of a legendary runner. Head to the Badlands and search through the wreckage of a cold case gone colder.</div>
+          <div class="quest-reward">+ 2,100 eddies / Unique weapon</div>
+        </div>
+        <div class="quest-item">
+          <div class="quest-header">
+            <div class="quest-name">Chippin' In</div>
+            <span class="quest-type quest-type-main">Main Job</span>
+          </div>
+          <div class="quest-desc">Join forces with Rogue to track down Smasher and the remnants of what once was. Johnny's past becomes your present in the fight to survive.</div>
+          <div class="quest-reward">+ 5,500 eddies / Porsche 911 II (930)</div>
+        </div>
+        <div class="quest-item">
+          <div class="quest-header">
+            <div class="quest-name">The Hunt</div>
+            <span class="quest-type quest-type-side">Side Job</span>
+          </div>
+          <div class="quest-desc">River needs your help tracking down his nephew Randy. Dive into braindance recordings and piece together the trail of a serial killer before time runs out.</div>
+          <div class="quest-reward">+ 4,200 eddies / Street Cred +980</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ TAB: DATABASE ============ -->
+    <div id="database" class="tab-content">
+      <div class="card" style="border-color:var(--yellow);margin-bottom:16px;">
+        <div class="card-title" style="color:var(--yellow);">Game Database</div>
+        <div class="card-desc">Complete database of all weapons, cyberware, quickhacks, vehicles, and character builds in Cyberpunk 2077 including Phantom Liberty DLC.</div>
+        <div class="phase-badge">Coming in Phase 5</div>
+      </div>
+
+      <div class="db-subtabs" id="db-subtabs">
+        <div class="db-subtab active" onclick="setDbTab('weapons')">Weapons</div>
+        <div class="db-subtab" onclick="setDbTab('cyberware')">Cyberware</div>
+        <div class="db-subtab" onclick="setDbTab('quickhacks')">Quickhacks</div>
+        <div class="db-subtab" onclick="setDbTab('vehicles')">Vehicles</div>
+        <div class="db-subtab" onclick="setDbTab('builds')">Builds</div>
+      </div>
+
+      <div id="db-content">
+        <div class="weapon-grid">
+          <div class="weapon-card rarity-legendary">
+            <span class="weapon-icon">&#128299;</span>
+            <div class="weapon-name">Skippy</div>
+            <div class="weapon-type">Smart Pistol / Iconic</div>
+            <div class="weapon-stats">
+              <span class="weapon-stat">DPS 412</span>
+              <span class="weapon-stat">+15% Crit</span>
+              <span class="weapon-stat">Smart</span>
+            </div>
+          </div>
+          <div class="weapon-card rarity-legendary">
+            <span class="weapon-icon">&#9876;</span>
+            <div class="weapon-name">Satori</div>
+            <div class="weapon-type">Katana / Iconic</div>
+            <div class="weapon-stats">
+              <span class="weapon-stat">DPS 587</span>
+              <span class="weapon-stat">+500% Crit DMG</span>
+              <span class="weapon-stat">Blade</span>
+            </div>
+          </div>
+          <div class="weapon-card rarity-epic">
+            <span class="weapon-icon">&#128299;</span>
+            <div class="weapon-name">Overwatch</div>
+            <div class="weapon-type">Sniper Rifle / Iconic</div>
+            <div class="weapon-stats">
+              <span class="weapon-stat">DPS 903</span>
+              <span class="weapon-stat">Silenced</span>
+              <span class="weapon-stat">Power</span>
+            </div>
+          </div>
+          <div class="weapon-card rarity-rare">
+            <span class="weapon-icon">&#128299;</span>
+            <div class="weapon-name">Comrade's Hammer</div>
+            <div class="weapon-type">Tech Revolver / Iconic</div>
+            <div class="weapon-stats">
+              <span class="weapon-stat">DPS 1,247</span>
+              <span class="weapon-stat">Charge</span>
+              <span class="weapon-stat">Tech</span>
+            </div>
+          </div>
+          <div class="weapon-card rarity-legendary">
+            <span class="weapon-icon">&#9876;</span>
+            <div class="weapon-name">Errata</div>
+            <div class="weapon-type">Thermal Katana / Iconic</div>
+            <div class="weapon-stats">
+              <span class="weapon-stat">DPS 640</span>
+              <span class="weapon-stat">Burn +30%</span>
+              <span class="weapon-stat">Blade</span>
+            </div>
+          </div>
+          <div class="weapon-card rarity-uncommon">
+            <span class="weapon-icon">&#128299;</span>
+            <div class="weapon-name">Shingen Mark V</div>
+            <div class="weapon-type">Smart SMG / Iconic</div>
+            <div class="weapon-stats">
+              <span class="weapon-stat">DPS 328</span>
+              <span class="weapon-stat">3-burst</span>
+              <span class="weapon-stat">Smart</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ TAB: GUIDES ============ -->
+    <div id="guides" class="tab-content">
+      <div class="card" style="border-color:var(--cyan);margin-bottom:16px;">
+        <div class="card-title" style="color:var(--cyan);">Guides & Trackers</div>
+        <div class="card-desc">Comprehensive guides for every romance, ending, money-making strategy, and completionist run. Track your progress across all collectibles.</div>
+        <div class="phase-badge">Coming in Phase 6</div>
+      </div>
+
+      <div class="guide-grid">
+        <div class="guide-card">
+          <div class="guide-badge">17 paths</div>
+          <span class="guide-icon">&#10084;&#65039;</span>
+          <div class="guide-name">Romance Guide</div>
+          <div class="guide-desc">Complete romance paths for Judy, Panam, River, and Kerry. Includes all dialogue choices, point-of-no-return triggers, and Phantom Liberty romances.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-badge">7 endings</div>
+          <span class="guide-icon">&#127919;</span>
+          <div class="guide-name">Endings Guide</div>
+          <div class="guide-desc">All endings explained with exact requirements. Includes the secret ending, Phantom Liberty branches, and how your choices through the game affect each outcome.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-badge">Updated 2.1</div>
+          <span class="guide-icon">&#128176;</span>
+          <div class="guide-name">Money Making Guide</div>
+          <div class="guide-desc">Best farming routes, high-paying gigs, crafting economy exploits, and NCPD scanner hustle routes. Go from broke to millionaire V efficiently.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-badge">155 items</div>
+          <span class="guide-icon">&#128506;</span>
+          <div class="guide-name">Collectibles Tracker</div>
+          <div class="guide-desc">Track all tarot cards, iconic weapons, cyberpsycho sightings, and hidden gems. Mark items as found and see what you are missing by district.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-badge">Tier S-F</div>
+          <span class="guide-icon">&#128170;</span>
+          <div class="guide-name">Build Optimizer</div>
+          <div class="guide-desc">Meta builds for every playstyle: Netrunner, Solo, Ninja, and Hybrid. Perk trees, cyberware synergies, and weapon loadouts for Very Hard difficulty.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-badge">DLC</div>
+          <span class="guide-icon">&#127757;</span>
+          <div class="guide-name">Phantom Liberty Guide</div>
+          <div class="guide-desc">Complete walkthrough for the Dogtown expansion. All new endings, Relic skill trees, unique rewards, and the Songbird vs. Reed decision tree.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ TAB: CHEATS ============ -->
+    <div id="cheats" class="tab-content">
+      <div class="warning-banner">
+        <div class="warning-banner-icon">&#9888;&#65039;</div>
+        <div>
+          <div class="warning-banner-title warning-banner-text">Memory cheats (WeMod-style) are not possible on GeForce Now</div>
+          <div class="warning-banner-text">Cloud gaming streams the game from remote servers. Memory injection tools like WeMod, Cheat Engine, or Cyber Engine Tweaks cannot access the remote process. The workarounds below use different approaches.</div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:20px;">Available Workarounds</div>
+
+      <div class="workaround-item">
+        <div class="workaround-icon">&#128187;</div>
+        <div class="workaround-info">
+          <div class="workaround-name">Save File Editor</div>
+          <div class="workaround-desc">Edit save files locally before syncing back to the cloud. Modify eddies, attribute points, inventory items, and quest flags directly.</div>
+        </div>
+        <span class="workaround-tag">Works on GFN</span>
+      </div>
+      <div class="workaround-item">
+        <div class="workaround-icon">&#128268;</div>
+        <div class="workaround-info">
+          <div class="workaround-name">Cyber Engine Tweaks (Local Only)</div>
+          <div class="workaround-desc">Console commands and Lua scripting for local installs. Spawn items, teleport, god mode, and more via an in-game overlay.</div>
+        </div>
+        <span class="workaround-tag">Local only</span>
+      </div>
+      <div class="workaround-item">
+        <div class="workaround-icon">&#128295;</div>
+        <div class="workaround-info">
+          <div class="workaround-name">Mod Manager (Vortex / Manual)</div>
+          <div class="workaround-desc">Install mods that alter game behavior like enhanced crafting, unlimited carry weight, or adjusted difficulty scaling. Works with redMod framework.</div>
+        </div>
+        <span class="workaround-tag">Local only</span>
+      </div>
+      <div class="workaround-item">
+        <div class="workaround-icon">&#127922;</div>
+        <div class="workaround-info">
+          <div class="workaround-name">In-Game Exploits</div>
+          <div class="workaround-desc">Known duplication glitches, XP farming loops, and infinite money methods that work even on cloud gaming. Patch-version dependent.</div>
+        </div>
+        <span class="workaround-tag">Works on GFN</span>
+      </div>
+      <div class="workaround-item">
+        <div class="workaround-icon">&#128190;</div>
+        <div class="workaround-info">
+          <div class="workaround-name">Cloud Save Manipulation</div>
+          <div class="workaround-desc">Download cloud saves, modify with hex editor or specialized tools, re-upload. Works across all platforms that support cloud sync.</div>
+        </div>
+        <span class="workaround-tag">Works on GFN</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- OCR Modal -->
+<div class="modal-bg" id="ocr-modal">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+      <h3 style="margin:0;">OCR Result</h3>
+      <button class="btn btn-ghost btn-sm" onclick="closeModal('ocr-modal')">Close</button>
+    </div>
+    <div id="ocr-modal-body" style="font-family:var(--font-m);font-size:12px;color:var(--dim);white-space:pre-wrap;max-height:300px;overflow-y:auto;background:var(--bg);padding:10px;border-radius:var(--rs);"></div>
+  </div>
+</div>
+
+<!-- Solution Modal (alternative) -->
+<div class="modal-bg" id="solution-modal">
+  <div class="modal" style="max-width:560px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+      <h3 style="margin:0;color:var(--green);">Solution</h3>
+      <button class="btn btn-ghost btn-sm" onclick="closeModal('solution-modal')">Close</button>
+    </div>
+    <div id="solution-modal-body"></div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════
+   NC COMPANION - Cyberpunk 2077
+   ══════════════════════════════════════════ */
+
+const HEX_VALUES = ['1C','55','BD','E9','FF','7A'];
+const tabs = ['solver','map','quests','database','guides','cheats'];
+const tabTitles = {
+  solver:'Breach Protocol Solver', map:'Interactive Map', quests:'Quest Helper',
+  database:'Game Database', guides:'Guides & Trackers', cheats:'Cheat Workarounds'
+};
+
+let matrixSize = 6;
+let bufferSize = 7;
+let sequences = [
+  { enabled:true, name:'DATAMINE_V1', cells:['BD','1C','BD','55','',''] },
+  { enabled:true, name:'DATAMINE_V2', cells:['BD','55','BD','55','',''] },
+  { enabled:true, name:'DATAMINE_V3', cells:['55','1C','FF','BD','',''] }
+];
+let matrixData = [];
+let ocrImage = null;
+let tesseractWorker = null;
+let overwatchOn = false;
+
+// ── TOAST / MODAL ──
+function toast(m, d=2500) {
+  const t = document.getElementById('toast');
+  t.textContent = m;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), d);
+}
+function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+
+// ── NAV ──
+function go(name) {
+  document.querySelectorAll('.sb-item').forEach((s, i) =>
+    s.classList.toggle('active', tabs[i] === name)
+  );
+  document.querySelectorAll('.tab-content').forEach(c =>
+    c.classList.toggle('active', c.id === name)
+  );
+  document.getElementById('topbar-title').textContent = tabTitles[name] || name;
+  if (name === 'map') { setTimeout(() => { if (!mapInitialized) initMap(); else if (ncMap) ncMap.invalidateSize(); }, 100); }
+}
+
+// ── OVERWATCH / SCREEN MONITOR ──
+let owPollTimer = null;
+let lastOwState = null;
+
+async function toggleOverwatch(el) {
+  overwatchOn = el.checked;
+  const dot = document.getElementById('ow-dot');
+  const txt = document.getElementById('ow-text');
+  const status = document.getElementById('ow-status');
+  const details = document.getElementById('ow-details');
+
+  if (overwatchOn) {
+    // Start the backend monitor
+    const res = await fetch('/api/monitor/start', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ interval: 2.0 })
+    });
+    const data = await res.json();
+
+    if (data.ok) {
+      dot.className = 'sb-overwatch-dot on';
+      status.className = 'sb-overwatch-status on';
+      txt.textContent = 'SCANNING';
+      details.style.display = 'block';
+      toast('Overwatch online — scanning game screen');
+      // Start polling for state updates
+      startOwPolling();
+    } else {
+      el.checked = false;
+      overwatchOn = false;
+      toast(data.error || 'Failed to start monitor', 4000);
+    }
+  } else {
+    // Stop the backend monitor
+    await fetch('/api/monitor/stop', { method: 'POST' });
+    dot.className = 'sb-overwatch-dot off';
+    status.className = 'sb-overwatch-status off';
+    txt.textContent = 'OFFLINE';
+    details.style.display = 'none';
+    stopOwPolling();
+    toast('Overwatch offline');
+  }
+}
+
+function startOwPolling() {
+  stopOwPolling();
+  owPollTimer = setInterval(pollOwState, 2500);
+}
+
+function stopOwPolling() {
+  if (owPollTimer) {
+    clearInterval(owPollTimer);
+    owPollTimer = null;
+  }
+}
+
+async function pollOwState() {
+  if (!overwatchOn) return;
+  try {
+    const res = await fetch('/api/monitor/state');
+    const state = await res.json();
+    updateOwDisplay(state);
+
+    // Auto-react to detected states
+    if (state.state !== lastOwState) {
+      onOwStateChange(state);
+      lastOwState = state.state;
+    }
+  } catch (e) {
+    // Network error — keep polling
+  }
+}
+
+function updateOwDisplay(state) {
+  const stateLabel = document.getElementById('ow-state-label');
+  const lastTime = document.getElementById('ow-last-time');
+  const thumbDiv = document.getElementById('ow-thumbnail');
+  const thumbImg = document.getElementById('ow-thumb-img');
+  const txt = document.getElementById('ow-text');
+
+  // State label with color coding
+  const stateColors = {
+    breach_protocol: 'var(--green)',
+    map_open: 'var(--cyan)',
+    dialogue: 'var(--yellow)',
+    gameplay: 'var(--dim)',
+    idle: 'var(--dim)',
+    unknown: 'var(--dim)',
+  };
+  const stateNames = {
+    breach_protocol: 'BREACH DETECTED',
+    map_open: 'MAP OPEN',
+    dialogue: 'DIALOGUE',
+    gameplay: 'GAMEPLAY',
+    idle: 'IDLE',
+    unknown: 'SCANNING...',
+  };
+
+  stateLabel.textContent = stateNames[state.state] || state.state;
+  stateLabel.style.color = stateColors[state.state] || 'var(--dim)';
+  txt.textContent = stateNames[state.state] || 'ONLINE';
+
+  // Last capture time
+  if (state.last_capture) {
+    const t = new Date(state.last_capture);
+    lastTime.textContent = t.toLocaleTimeString();
+  }
+
+  // Thumbnail
+  if (state.thumbnail) {
+    thumbImg.src = 'data:image/jpeg;base64,' + state.thumbnail;
+    thumbDiv.style.display = 'block';
+  }
+}
+
+function onOwStateChange(state) {
+  switch (state.state) {
+    case 'breach_protocol':
+      toast('BREACH PROTOCOL DETECTED', 3000);
+      // If breach data was extracted, auto-populate the solver
+      if (state.breach_data && state.breach_data.extracted) {
+        autoPopulateFromOverwatch(state.breach_data);
+      }
+      // Switch to solver tab
+      go('solver');
+      break;
+
+    case 'dialogue':
+      if (state.dialogue_data && state.dialogue_data.extracted) {
+        showDialogueNotification(state.dialogue_data);
+      }
+      break;
+
+    case 'map_open':
+      toast('Map detected — switch to Map tab for reference', 2500);
+      break;
+  }
+}
+
+function autoPopulateFromOverwatch(breachData) {
+  if (!breachData.matrix || !breachData.matrix.length) return;
+
+  // Set matrix size
+  const size = breachData.grid_size || breachData.matrix.length;
+  setMatrixSize(size);
+
+  // Populate matrix
+  for (let r = 0; r < breachData.matrix.length; r++) {
+    for (let c = 0; c < breachData.matrix[r].length; c++) {
+      if (matrixData[r]) matrixData[r][c] = breachData.matrix[r][c];
+    }
+  }
+  renderMatrix();
+
+  // Populate sequences
+  if (breachData.sequences) {
+    for (let i = 0; i < breachData.sequences.length && i < seqData.length; i++) {
+      seqData[i].enabled = true;
+      seqData[i].name = 'DAEMON_' + (i + 1);
+      for (let j = 0; j < breachData.sequences[i].length && j < 6; j++) {
+        seqData[i].cells[j] = breachData.sequences[i][j];
+      }
+    }
+    renderSequences();
+  }
+
+  toast('Breach matrix auto-populated from screen capture! Verify and hit SOLVE.', 4000);
+}
+
+function showDialogueNotification(dialogueData) {
+  if (!dialogueData.options || !dialogueData.options.length) return;
+
+  // Show dialogue options as a toast notification
+  const optionsText = dialogueData.options.slice(0, 4).join(' | ');
+  toast('Dialogue: ' + optionsText, 5000);
+
+  // TODO: Phase 4 will add dialogue coaching here
+  // Match detected text against dialogues.json for recommendations
+}
+
+async function takeSnapshot() {
+  toast('Taking snapshot...');
+  try {
+    const res = await fetch('/api/monitor/snapshot', { method: 'POST' });
+    const data = await res.json();
+    if (data.ok) {
+      toast('Snapshot: ' + (data.state || 'analyzed'), 3000);
+      // Refresh the state display
+      const stateRes = await fetch('/api/monitor/state');
+      const state = await stateRes.json();
+      updateOwDisplay(state);
+
+      if (data.state === 'breach_protocol' && data.breach_data && data.breach_data.extracted) {
+        autoPopulateFromOverwatch(data.breach_data);
+        go('solver');
+      }
+    } else {
+      toast(data.error || 'Snapshot failed', 3000);
+    }
+  } catch (e) {
+    toast('Snapshot error: ' + e.message, 3000);
+  }
+}
+
+async function checkOwCapabilities() {
+  try {
+    const res = await fetch('/api/monitor/capabilities');
+    const caps = await res.json();
+    if (!caps.screenshot) {
+      // Disable overwatch toggle if no screenshot capability
+      document.getElementById('ow-toggle').disabled = true;
+      document.getElementById('ow-text').textContent = 'NO PYAUTOGUI';
+    }
+  } catch (e) {}
+}
+
+// ════════════════════════════════════════
+// BREACH PROTOCOL SOLVER
+// ════════════════════════════════════════
+
+function setMatrixSize(s) {
+  matrixSize = s;
+  document.querySelectorAll('#bp-size-btns .btn').forEach(b =>
+    b.classList.toggle('active', b.textContent.trim() === s+'x'+s)
+  );
+  initMatrix();
+}
+
+function setBufferSize(b) {
+  bufferSize = b;
+  document.querySelectorAll('#bp-buf-btns .btn').forEach(btn =>
+    btn.classList.toggle('active', btn.textContent.trim() === String(b))
+  );
+}
+
+function initMatrix() {
+  matrixData = [];
+  for (let r = 0; r < matrixSize; r++) {
+    matrixData[r] = [];
+    for (let c = 0; c < matrixSize; c++) {
+      matrixData[r][c] = '00';
+    }
+  }
+  renderMatrix();
+  hideSolution();
+}
+
+function renderMatrix() {
+  const el = document.getElementById('bp-matrix');
+  el.style.gridTemplateColumns = `repeat(${matrixSize}, 48px)`;
+  let html = '';
+  for (let r = 0; r < matrixSize; r++) {
+    for (let c = 0; c < matrixSize; c++) {
+      html += `<div class="bp-cell" data-r="${r}" data-c="${c}"
+        onmouseenter="highlightRC(${r},${c})" onmouseleave="clearHighlight()"
+        onclick="cycleCell(${r},${c})">
+        <input type="text" value="${matrixData[r][c]}" maxlength="2"
+          onfocus="this.select()"
+          oninput="typedCell(${r},${c},this)"
+          onclick="event.stopPropagation()">
+      </div>`;
+    }
+  }
+  el.innerHTML = html;
+}
+
+function highlightRC(row, col) {
+  document.querySelectorAll('#bp-matrix .bp-cell').forEach(cell => {
+    const r = +cell.dataset.r, c = +cell.dataset.c;
+    cell.classList.toggle('row-highlight', r === row && c !== col);
+    cell.classList.toggle('col-highlight', c === col && r !== row);
+  });
+}
+
+function clearHighlight() {
+  document.querySelectorAll('#bp-matrix .bp-cell').forEach(cell => {
+    cell.classList.remove('row-highlight', 'col-highlight');
+  });
+}
+
+function cycleCell(r, c) {
+  const cur = matrixData[r][c];
+  const idx = HEX_VALUES.indexOf(cur);
+  matrixData[r][c] = HEX_VALUES[(idx + 1) % HEX_VALUES.length];
+  const cell = document.querySelector(`#bp-matrix .bp-cell[data-r="${r}"][data-c="${c}"] input`);
+  if (cell) cell.value = matrixData[r][c];
+}
+
+function typedCell(r, c, input) {
+  let v = input.value.toUpperCase().replace(/[^0-9A-F]/g, '');
+  if (v.length > 2) v = v.slice(0, 2);
+  input.value = v;
+  matrixData[r][c] = v.padStart(2, '0');
+}
+
+function clearMatrix() {
+  initMatrix();
+  hideSolution();
+  toast('Matrix cleared');
+}
+
+function randomizeMatrix() {
+  for (let r = 0; r < matrixSize; r++) {
+    for (let c = 0; c < matrixSize; c++) {
+      matrixData[r][c] = HEX_VALUES[Math.floor(Math.random() * HEX_VALUES.length)];
+    }
+  }
+  renderMatrix();
+  hideSolution();
+  toast('Matrix randomized');
+}
+
+// ── SEQUENCES ──
+function renderSequences() {
+  const el = document.getElementById('bp-seq-list');
+  let html = '';
+  for (let i = 0; i < sequences.length; i++) {
+    const s = sequences[i];
+    html += `<div class="bp-seq-row" id="bp-seq-${i}">
+      <input type="checkbox" class="bp-seq-check" ${s.enabled ? 'checked' : ''}
+        onchange="sequences[${i}].enabled=this.checked">
+      <input type="text" class="bp-seq-name" value="${s.name}"
+        oninput="sequences[${i}].name=this.value"
+        placeholder="Daemon ${i+1}">
+      <div class="bp-seq-cells">`;
+    for (let j = 0; j < 6; j++) {
+      html += `<div class="bp-seq-cell">
+        <input type="text" value="${s.cells[j] || ''}" maxlength="2"
+          onfocus="this.select()"
+          oninput="seqTyped(${i},${j},this)"
+          onclick="event.stopPropagation()">
+      </div>`;
+    }
+    html += `</div><span class="bp-seq-result" id="bp-seq-result-${i}"></span></div>`;
+  }
+  el.innerHTML = html;
+}
+
+function seqTyped(seqIdx, cellIdx, input) {
+  let v = input.value.toUpperCase().replace(/[^0-9A-F]/g, '');
+  if (v.length > 2) v = v.slice(0, 2);
+  input.value = v;
+  sequences[seqIdx].cells[cellIdx] = v;
+}
+
+function addSequence() {
+  if (sequences.length >= 6) { toast('Maximum 6 sequences'); return; }
+  sequences.push({ enabled: true, name: `DAEMON_${sequences.length + 1}`, cells: ['','','','','',''] });
+  renderSequences();
+}
+
+function removeSequence() {
+  if (sequences.length <= 1) { toast('Need at least 1 sequence'); return; }
+  sequences.pop();
+  renderSequences();
+}
+
+// ── SOLVER ──
+function getMatrixValues() {
+  const m = [];
+  for (let r = 0; r < matrixSize; r++) {
+    m[r] = [];
+    for (let c = 0; c < matrixSize; c++) {
+      m[r][c] = matrixData[r][c] || '00';
+    }
+  }
+  return m;
+}
+
+function getSequences() {
+  return sequences
+    .filter(s => s.enabled)
+    .map(s => ({
+      name: s.name,
+      sequence: s.cells.filter(c => c && c.length === 2)
+    }))
+    .filter(s => s.sequence.length > 0);
+}
+
+function getBufferSizeVal() {
+  return bufferSize;
+}
+
+async function solvePuzzle() {
+  const matrix = getMatrixValues();
+  const seqs = getSequences();
+
+  if (seqs.length === 0) {
+    toast('Add at least one target sequence');
+    return;
+  }
+
+  // Check matrix has values
+  let hasValues = false;
+  for (let r = 0; r < matrixSize; r++) {
+    for (let c = 0; c < matrixSize; c++) {
+      if (matrix[r][c] !== '00') hasValues = true;
+    }
+  }
+  if (!hasValues) {
+    toast('Fill in the matrix first');
+    return;
+  }
+
+  toast('Solving...');
+
+  try {
+    const res = await fetch('/api/solve', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        matrix: matrix,
+        sequences: seqs,
+        buffer_size: bufferSize
+      })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      showSolution(data);
+      toast('Solution found!', 3000);
+    } else {
+      toast('No solution: ' + (data.error || 'try different parameters'), 4000);
+    }
+  } catch (e) {
+    // Fallback: try local solve
+    toast('Server unavailable, trying local solve...', 2000);
+    const result = localSolve(matrix, seqs, bufferSize);
+    if (result) {
+      showSolution(result);
+      toast('Solved locally!', 3000);
+    } else {
+      toast('No solution found', 3000);
+    }
+  }
+}
+
+// Local brute-force solver fallback
+function localSolve(matrix, seqs, bufSize) {
+  const n = matrix.length;
+  let bestPath = null;
+  let bestScore = -1;
+
+  function checkSequences(path) {
+    const pathValues = path.map(p => matrix[p[0]][p[1]]);
+    let matched = [];
+    for (const seq of seqs) {
+      let found = false;
+      const sv = seq.sequence;
+      for (let start = 0; start <= pathValues.length - sv.length; start++) {
+        let ok = true;
+        for (let k = 0; k < sv.length; k++) {
+          if (pathValues[start + k] !== sv[k]) { ok = false; break; }
+        }
+        if (ok) { found = true; break; }
+      }
+      matched.push({ name: seq.name, matched: found });
+    }
+    return matched;
+  }
+
+  function score(matched) {
+    return matched.filter(m => m.matched).length;
+  }
+
+  function solve(path, isRow, used) {
+    const matched = checkSequences(path);
+    const s = score(matched);
+    if (s > bestScore) {
+      bestScore = s;
+      bestPath = { path: [...path], matched: [...matched] };
+    }
+    if (path.length >= bufSize) return;
+    if (bestScore === seqs.length) return; // all matched
+
+    const last = path.length > 0 ? path[path.length - 1] : null;
+    for (let i = 0; i < n; i++) {
+      let r, c;
+      if (last === null) {
+        // First move must be from row 0
+        r = 0; c = i;
+      } else if (isRow) {
+        r = last[0]; c = i;
+      } else {
+        r = i; c = last[1];
+      }
+      const key = r * n + c;
+      if (used.has(key)) continue;
+      used.add(key);
+      path.push([r, c]);
+      solve(path, !isRow, used);
+      path.pop();
+      used.delete(key);
+      if (bestScore === seqs.length) return;
+    }
+  }
+
+  solve([], true, new Set());
+
+  if (!bestPath || bestScore === 0) return null;
+
+  return {
+    ok: true,
+    path: bestPath.path.map((p, i) => ({
+      row: p[0], col: p[1], value: matrix[p[0]][p[1]], step: i + 1
+    })),
+    matched: bestPath.matched,
+    buffer_used: bestPath.path.length
+  };
+}
+
+function showSolution(data) {
+  const el = document.getElementById('bp-solution');
+  el.classList.add('show');
+
+  // Render solution matrix
+  const matEl = document.getElementById('bp-solution-matrix');
+  matEl.style.gridTemplateColumns = `repeat(${matrixSize}, 42px)`;
+  const pathMap = {};
+  if (data.path) {
+    data.path.forEach(p => {
+      pathMap[p.row + ',' + p.col] = p.step;
+    });
+  }
+
+  let mhtml = '';
+  for (let r = 0; r < matrixSize; r++) {
+    for (let c = 0; c < matrixSize; c++) {
+      const key = r + ',' + c;
+      const isPath = pathMap[key] !== undefined;
+      mhtml += `<div class="bp-cell${isPath ? ' path-cell' : ''}" style="width:42px;height:42px;font-size:12px;cursor:default;">
+        ${matrixData[r][c]}
+        ${isPath ? '<span class="path-num">' + pathMap[key] + '</span>' : ''}
+      </div>`;
+    }
+  }
+  matEl.innerHTML = mhtml;
+
+  // Render steps
+  const stepsEl = document.getElementById('bp-steps');
+  if (data.path) {
+    stepsEl.innerHTML = data.path.map(p =>
+      `<div class="bp-step">
+        <span class="bp-step-num">${p.step}</span>
+        <span class="bp-step-val">${p.value}</span>
+        <span class="bp-step-pos">Row ${p.row}, Col ${p.col}</span>
+      </div>`
+    ).join('');
+  }
+
+  // Render matched sequences
+  const matchEl = document.getElementById('bp-matched-seqs');
+  if (data.matched) {
+    matchEl.innerHTML = data.matched.map(m =>
+      `<div class="bp-matched-tag ${m.matched ? 'ok' : 'fail'}">
+        ${m.matched ? '&#10003;' : '&#10007;'} ${m.name}
+      </div>`
+    ).join('');
+
+    // Also update the sequence rows
+    data.matched.forEach((m, i) => {
+      const row = document.getElementById('bp-seq-' + i);
+      if (row) {
+        row.classList.remove('matched', 'failed');
+        row.classList.add(m.matched ? 'matched' : 'failed');
+      }
+      const result = document.getElementById('bp-seq-result-' + i);
+      if (result) {
+        result.innerHTML = m.matched ? '<span style="color:var(--green);">&#10003;</span>' : '<span style="color:var(--red);">&#10007;</span>';
+      }
+    });
+  }
+}
+
+function hideSolution() {
+  document.getElementById('bp-solution').classList.remove('show');
+  // Clear seq results
+  sequences.forEach((_, i) => {
+    const row = document.getElementById('bp-seq-' + i);
+    if (row) row.classList.remove('matched', 'failed');
+    const result = document.getElementById('bp-seq-result-' + i);
+    if (result) result.innerHTML = '';
+  });
+}
+
+// ── OCR ──
+function handleOCRDragOver(e) {
+  e.preventDefault();
+  e.currentTarget.classList.add('dragover');
+}
+
+function handleOCRDragLeave(e) {
+  e.currentTarget.classList.remove('dragover');
+}
+
+function handleOCRDrop(e) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('dragover');
+  const files = e.dataTransfer.files;
+  if (files.length > 0 && files[0].type.startsWith('image/')) {
+    loadOCRImage(files[0]);
+  }
+}
+
+function triggerOCRPaste() {
+  // Fallback: create a file input
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/*';
+  input.onchange = () => {
+    if (input.files.length > 0) {
+      loadOCRImage(input.files[0]);
+    }
+  };
+  input.click();
+}
+
+// Listen for paste globally
+document.addEventListener('paste', (e) => {
+  const items = e.clipboardData?.items;
+  if (!items) return;
+  for (const item of items) {
+    if (item.type.startsWith('image/')) {
+      const blob = item.getAsFile();
+      loadOCRImage(blob);
+      break;
+    }
+  }
+});
+
+function loadOCRImage(file) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    ocrImage = e.target.result;
+    const img = document.getElementById('bp-ocr-img');
+    img.src = ocrImage;
+    document.getElementById('bp-ocr-preview').classList.add('show');
+    document.getElementById('bp-ocr-status').textContent = 'Image loaded. Click "Process OCR" to extract matrix.';
+  };
+  reader.readAsDataURL(file);
+}
+
+async function runOCR() {
+  if (!ocrImage) { toast('No image loaded'); return; }
+
+  const statusEl = document.getElementById('bp-ocr-status');
+  statusEl.textContent = 'Loading Tesseract.js...';
+
+  try {
+    // Dynamically load Tesseract if not loaded
+    if (typeof Tesseract === 'undefined') {
+      await loadScript('https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js');
+    }
+
+    statusEl.textContent = 'Processing image (this may take a moment)...';
+
+    const result = await Tesseract.recognize(ocrImage, 'eng', {
+      logger: m => {
+        if (m.status === 'recognizing text') {
+          statusEl.textContent = `Recognizing... ${Math.round((m.progress || 0) * 100)}%`;
+        }
+      }
+    });
+
+    const text = result.data.text;
+    statusEl.textContent = 'OCR complete. Parsing results...';
+
+    // Try to parse hex values from OCR text
+    const hexPattern = /\b([0-9A-Fa-f]{2})\b/g;
+    const matches = [...text.matchAll(hexPattern)].map(m => m[1].toUpperCase());
+
+    // Show raw OCR in modal
+    document.getElementById('ocr-modal-body').textContent =
+      `Raw OCR:\n${text}\n\nExtracted hex values (${matches.length}):\n${matches.join(' ')}`;
+
+    if (matches.length >= matrixSize * matrixSize) {
+      // Fill matrix with extracted values
+      let idx = 0;
+      for (let r = 0; r < matrixSize; r++) {
+        for (let c = 0; c < matrixSize; c++) {
+          if (idx < matches.length) {
+            // Filter to known hex values
+            let val = matches[idx];
+            if (!HEX_VALUES.includes(val)) {
+              // Find closest match
+              val = findClosestHex(val);
+            }
+            matrixData[r][c] = val;
+            idx++;
+          }
+        }
+      }
+      renderMatrix();
+      statusEl.textContent = `Populated ${matrixSize}x${matrixSize} matrix from OCR. Verify values and solve!`;
+      document.getElementById('bp-ocr-solve-btn').style.display = 'inline-flex';
+      toast('Matrix populated from OCR - please verify!', 4000);
+    } else {
+      statusEl.textContent = `Found ${matches.length} hex values, need ${matrixSize * matrixSize}. Showing raw results.`;
+      openModal('ocr-modal');
+    }
+  } catch (err) {
+    statusEl.textContent = 'OCR failed: ' + err.message;
+    toast('OCR failed: ' + err.message, 4000);
+  }
+}
+
+function findClosestHex(val) {
+  // Simple closest-match for OCR errors
+  const mapping = {
+    '1C': '1C', 'IC': '1C', '1c': '1C',
+    '55': '55',
+    'BD': 'BD', '8D': 'BD', 'B0': 'BD',
+    'E9': 'E9', 'E8': 'E9', 'F9': 'E9',
+    'FF': 'FF', 'FE': 'FF',
+    '7A': '7A', '74': '7A', '7B': '7A'
+  };
+  return mapping[val] || HEX_VALUES[0];
+}
+
+function clearOCR() {
+  ocrImage = null;
+  document.getElementById('bp-ocr-preview').classList.remove('show');
+  document.getElementById('bp-ocr-status').textContent = '';
+  document.getElementById('bp-ocr-solve-btn').style.display = 'none';
+}
+
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+
+// ── DATABASE SUB-TABS ──
+function setDbTab(tab) {
+  document.querySelectorAll('#db-subtabs .db-subtab').forEach(t =>
+    t.classList.toggle('active', t.textContent.trim().toLowerCase() === tab)
+  );
+  // For now, all show the same placeholder weapons
+  toast(`${tab.charAt(0).toUpperCase() + tab.slice(1)} database coming soon`);
+}
+
+// ── QUEST FILTER ──
+function filterQuests() {
+  const q = document.getElementById('quest-search').value.toLowerCase();
+  document.querySelectorAll('#quest-list .quest-item').forEach(item => {
+    const name = item.querySelector('.quest-name').textContent.toLowerCase();
+    const desc = item.querySelector('.quest-desc').textContent.toLowerCase();
+    item.style.display = (name.includes(q) || desc.includes(q)) ? '' : 'none';
+  });
+}
+
+// ── INIT ──
+// ════════════════════════════════════════
+// INTERACTIVE MAP
+// ════════════════════════════════════════
+
+let ncMap = null;
+let mapMarkers = [];
+let mapLocations = [];
+let mapCategories = [];
+let mapProgress = new Set();
+let activeFilters = new Set();
+let mapInitialized = false;
+
+async function initMap() {
+  if (mapInitialized) return;
+  mapInitialized = true;
+
+  const [locRes, catRes, progRes] = await Promise.all([
+    fetch('/api/locations'),
+    fetch('/api/categories'),
+    fetch('/api/progress')
+  ]);
+  mapLocations = await locRes.json();
+  mapCategories = await catRes.json();
+  const prog = await progRes.json();
+  mapProgress = new Set(prog.completed || []);
+
+  mapCategories.forEach(c => activeFilters.add(c.id));
+
+  ncMap = L.map('nc-map', {
+    crs: L.CRS.Simple,
+    minZoom: -2,
+    maxZoom: 3,
+    zoomControl: false,
+    attributionControl: false
+  });
+
+  const bounds = [[0, 0], [8192, 8192]];
+
+  L.rectangle(bounds, {
+    color: '#1e2235', weight: 1,
+    fillColor: '#0c0e16', fillOpacity: 1
+  }).addTo(ncMap);
+
+  const districts = [
+    {name:'WATSON',pos:[2500,3000]},{name:'CITY CENTER',pos:[3800,4200]},
+    {name:'WESTBROOK',pos:[3500,5500]},{name:'HEYWOOD',pos:[5500,4200]},
+    {name:'PACIFICA',pos:[6500,2800]},{name:'SANTO DOMINGO',pos:[6000,5800]},
+    {name:'BADLANDS',pos:[1500,6500]},{name:'DOGTOWN',pos:[3000,2000]}
+  ];
+  districts.forEach(d => {
+    L.marker(d.pos, {
+      icon: L.divIcon({
+        className: 'district-label',
+        html: '<div style="font-family:var(--font-d);font-size:14px;font-weight:700;color:rgba(252,238,9,0.15);letter-spacing:3px;white-space:nowrap;text-transform:uppercase;">'+d.name+'</div>',
+        iconSize: [200, 30], iconAnchor: [100, 15]
+      })
+    }).addTo(ncMap);
+  });
+
+  for (let i = 1000; i < 8192; i += 1000) {
+    L.polyline([[i,0],[i,8192]], {color:'#1e2235',weight:0.5,opacity:0.5}).addTo(ncMap);
+    L.polyline([[0,i],[8192,i]], {color:'#1e2235',weight:0.5,opacity:0.5}).addTo(ncMap);
+  }
+
+  ncMap.fitBounds(bounds);
+  L.control.zoom({position:'topright'}).addTo(ncMap);
+  renderMapFilters();
+  renderMapMarkers();
+  updateMapProgress();
+}
+
+function renderMapFilters() {
+  const container = document.getElementById('map-filters');
+  const groups = {};
+  mapCategories.forEach(c => {
+    if (!groups[c.group]) groups[c.group] = [];
+    groups[c.group].push(c);
+  });
+  let html = '';
+  for (const [group, cats] of Object.entries(groups)) {
+    const count = cats.reduce((s, c) => s + mapLocations.filter(l => l.category === c.id).length, 0);
+    html += '<div class="map-filter-group"><div class="map-filter-header" onclick="this.nextElementSibling.classList.toggle(\'hidden\')"><span class="map-filter-label">'+group+'</span><span class="map-filter-count">'+count+'</span></div><div class="map-filter-items">';
+    cats.forEach(c => {
+      const n = mapLocations.filter(l => l.category === c.id).length;
+      html += '<label class="map-filter-item"><input type="checkbox" checked onchange="toggleMapFilter(\''+c.id+'\',this.checked)"><span>'+c.icon+' '+c.name+'</span><span class="map-filter-count">'+n+'</span></label>';
+    });
+    html += '</div></div>';
+  }
+  container.innerHTML = html;
+}
+
+function toggleMapFilter(catId, enabled) {
+  if (enabled) activeFilters.add(catId); else activeFilters.delete(catId);
+  renderMapMarkers();
+}
+
+function toggleAllFilters(on) {
+  document.querySelectorAll('#map-filters input[type="checkbox"]').forEach(cb => cb.checked = on);
+  if (on) mapCategories.forEach(c => activeFilters.add(c.id)); else activeFilters.clear();
+  renderMapMarkers();
+}
+
+function renderMapMarkers() {
+  mapMarkers.forEach(m => ncMap.removeLayer(m));
+  mapMarkers = [];
+  const q = (document.getElementById('map-search')?.value || '').toLowerCase();
+  mapLocations.forEach(loc => {
+    if (!activeFilters.has(loc.category)) return;
+    if (q && !loc.name.toLowerCase().includes(q) && !(loc.description||'').toLowerCase().includes(q)) return;
+    const cat = mapCategories.find(c => c.id === loc.category) || {};
+    const done = mapProgress.has(loc.id);
+    const m = L.circleMarker([loc.lat, loc.lng], {
+      radius: 6,
+      fillColor: done ? '#00e676' : (cat.color||'#fff'),
+      color: done ? '#00e676' : (cat.color||'#fff'),
+      weight: 1, opacity: done ? 0.5 : 0.8, fillOpacity: done ? 0.3 : 0.6
+    });
+    m.bindPopup(
+      '<div class="poi-popup-title">'+(cat.icon||'')+' '+loc.name+'</div>'+
+      '<div class="poi-popup-cat">'+(cat.name||loc.category)+' — '+(loc.district||'')+
+      (loc.subdistrict?' / '+loc.subdistrict:'')+'</div>'+
+      (loc.description?'<div class="poi-popup-desc">'+loc.description+'</div>':'')+
+      (loc.tips?'<div style="font-size:10px;color:var(--yellow);margin-bottom:6px;">Tip: '+loc.tips+'</div>':'')+
+      '<button class="poi-popup-btn complete '+(done?'done':'')+'" onclick="toggleMapComplete(\''+loc.id+'\')">'+
+      (done?'✓ COMPLETED':'MARK COMPLETE')+'</button>',
+      {maxWidth:250}
+    );
+    m.addTo(ncMap);
+    mapMarkers.push(m);
+  });
+}
+
+async function toggleMapComplete(locId) {
+  const res = await fetch('/api/progress/toggle', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({location_id: locId})
+  });
+  const data = await res.json();
+  if (data.ok) {
+    mapProgress = new Set(data.completed);
+    renderMapMarkers();
+    updateMapProgress();
+    toast(mapProgress.has(locId) ? 'Marked complete' : 'Unmarked');
+  }
+}
+
+function updateMapProgress() {
+  const total = mapLocations.length;
+  const done = mapProgress.size;
+  const pct = total > 0 ? (done / total * 100) : 0;
+  const el = document.getElementById('map-progress-text');
+  const bar = document.getElementById('map-progress-fill');
+  if (el) el.textContent = done + ' / ' + total + ' collected';
+  if (bar) bar.style.width = pct + '%';
+}
+
+function searchMap() { renderMapMarkers(); }
+
+// ── INIT ──
+function init() {
+  initMatrix();
+  renderSequences();
+  checkOwCapabilities();
+}
+
+init();
+</script>
+</body>
+</html>
