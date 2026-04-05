@@ -1,0 +1,1484 @@
+[
+  {
+    "id": "d_001",
+    "quest_id": "q_nocturne",
+    "quest_name": "Nocturne Op55N1",
+    "scene": "Rooftop with Johnny — final point of no return. V must choose how to assault Arasaka Tower or give up entirely.",
+    "speaker": "Johnny Silverhand",
+    "options": [
+      {
+        "text": "Think you and Rogue should go.",
+        "outcome": "Johnny and Rogue assault Arasaka Tower. Leads to the 'Temperance' or 'Sun' ending depending on final choice in Mikoshi.",
+        "recommended": false,
+        "tag": "ending"
+      },
+      {
+        "text": "Gonna ask Panam for help.",
+        "outcome": "Aldecaldos storm Arasaka Tower with V. Leads to 'The Star' ending — V leaves Night City with the Aldecaldos.",
+        "recommended": true,
+        "tag": "ending"
+      },
+      {
+        "text": "Think trusting Hanako is the right call.",
+        "outcome": "V sides with Hanako Arasaka. Leads to 'The Devil' ending — V is trapped in Arasaka's orbital station for engram testing.",
+        "recommended": false,
+        "tag": "ending"
+      },
+      {
+        "text": "Could also just put all this to rest.",
+        "outcome": "V takes their own life on the rooftop. Credits roll with voicemails from friends mourning V. Shortest ending.",
+        "recommended": false,
+        "tag": "ending"
+      },
+      {
+        "text": "[Say nothing — wait for Johnny to offer to go alone]",
+        "outcome": "Secret ending: 'Don't Fear the Reaper.' V storms Arasaka Tower solo. Only available if Johnny relationship is 70%+ from Chippin' In rooftop choices.",
+        "recommended": false,
+        "tag": "ending"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["ending"]
+  },
+  {
+    "id": "d_002",
+    "quest_id": "q_chippin_in",
+    "quest_name": "Chippin' In",
+    "scene": "Oil fields rooftop conversation with Johnny after visiting his grave. This dialogue sets the relationship value that unlocks the secret ending 'Don't Fear the Reaper.'",
+    "speaker": "Johnny Silverhand",
+    "options": [
+      {
+        "text": "The guy who saved my life.",
+        "outcome": "Significantly increases Johnny relationship value. Required to reach 70% threshold for secret ending unlock.",
+        "recommended": true,
+        "tag": "ending"
+      },
+      {
+        "text": "Nah, fucked that up too.",
+        "outcome": "Increases Johnny relationship. Sympathetic response keeps approval climbing toward secret ending threshold.",
+        "recommended": true,
+        "tag": "ending"
+      },
+      {
+        "text": "What do you want from me?",
+        "outcome": "Neutral response. Does not increase Johnny relationship enough — may lock you out of 'Don't Fear the Reaper' if other checks were missed.",
+        "recommended": false,
+        "tag": "ending"
+      },
+      {
+        "text": "Yesterday's history — it's time to just move on.",
+        "outcome": "Negative response. Lowers relationship value, making secret ending very difficult to unlock.",
+        "recommended": false,
+        "tag": "ending"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["ending", "johnny_relationship"]
+  },
+  {
+    "id": "d_003",
+    "quest_id": "q_chippin_in_grave",
+    "quest_name": "Chippin' In",
+    "scene": "Johnny's grave — V can inscribe the niche. This is the other key approval check for the secret ending.",
+    "speaker": "Johnny Silverhand",
+    "options": [
+      {
+        "text": "Let's do something about that.",
+        "outcome": "Inscribe Johnny's niche. Increases relationship value toward secret ending threshold.",
+        "recommended": true,
+        "tag": "ending"
+      },
+      {
+        "text": "No, leave it how it is.",
+        "outcome": "Refuse to inscribe. Misses a Johnny relationship point. Less impactful than rooftop but still matters.",
+        "recommended": false,
+        "tag": "ending"
+      }
+    ],
+    "importance": "high",
+    "affects": ["ending", "johnny_relationship"]
+  },
+  {
+    "id": "d_004",
+    "quest_id": "q_pisces",
+    "quest_name": "Pisces",
+    "scene": "Clouds takeover — Judy's plan to liberate Clouds from Tyger Claws. Maiko offers her own plan to become the new boss. Siding with Maiko destroys the Judy romance path.",
+    "speaker": "Judy Alvarez",
+    "options": [
+      {
+        "text": "I'm with you, Judy. We do this your way.",
+        "outcome": "Side with Judy. Clouds dolls are freed. Opens the Pyramid Song quest and Judy romance. Maiko becomes hostile.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Let's hear Maiko out.",
+        "outcome": "Accept Maiko's plan. Maiko takes over Clouds. Judy is furious — romance path with Judy is permanently locked out.",
+        "recommended": false,
+        "tag": "romance"
+      },
+      {
+        "text": "Take Maiko's plan but refuse her payment.",
+        "outcome": "Maiko takes over but V refuses eddies. Judy is still upset. Romance path closed but Judy is slightly less hostile.",
+        "recommended": false,
+        "tag": "romance"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["romance", "judy_relationship", "clouds_fate"]
+  },
+  {
+    "id": "d_005",
+    "quest_id": "q_pyramid_song",
+    "quest_name": "Pyramid Song",
+    "scene": "Judy invites V to dive at Laguna Bend to explore her submerged childhood town. After surfacing, at the cabin, the romance scene triggers.",
+    "speaker": "Judy Alvarez",
+    "options": [
+      {
+        "text": "Dive with Judy.",
+        "outcome": "Explore the submerged town together. Emotional bonding scene. Required to proceed to romance.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Yes, stay the night. [Romance option — female V only]",
+        "outcome": "Triggers Judy romance scene at the cabin. Judy becomes V's girlfriend. Unlocks her ending-specific dialogue and The Star epilogue content.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "I'd rather head back to the city.",
+        "outcome": "Decline to stay. Romance opportunity is permanently missed. Judy remains a friend only.",
+        "recommended": false,
+        "tag": "romance"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["romance", "judy_relationship", "ending"]
+  },
+  {
+    "id": "d_006",
+    "quest_id": "q_ex_factor",
+    "quest_name": "Ex-Factor",
+    "scene": "Judy asks V to help with Evelyn Parker situation and dealing with the aftermath. Supporting Judy emotionally builds the relationship.",
+    "speaker": "Judy Alvarez",
+    "options": [
+      {
+        "text": "I'll help you, Judy. Whatever you need.",
+        "outcome": "Support Judy through the crisis. Builds trust and relationship value needed for later romance quests.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Not really my problem.",
+        "outcome": "Dismiss Judy's concerns. Damages relationship — makes Pisces and Pyramid Song romance outcomes harder or impossible.",
+        "recommended": false,
+        "tag": "romance"
+      }
+    ],
+    "importance": "high",
+    "affects": ["judy_relationship", "romance"]
+  },
+  {
+    "id": "d_007",
+    "quest_id": "q_riders_storm",
+    "quest_name": "Riders on the Storm",
+    "scene": "Panam asks V to help rescue Saul from Raffen Shiv. This quest is mandatory for the Panam romance arc and the Aldecaldos ending.",
+    "speaker": "Panam Palmer",
+    "options": [
+      {
+        "text": "I'll help you rescue Saul.",
+        "outcome": "Assault the Raffen Shiv camp with Panam. Saul is rescued. Deepens bond with Panam and Aldecaldos. Opens romance path.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "You need to go to the Aldecaldos for help, not me.",
+        "outcome": "Refuse to help. Panam romance arc is severely damaged. May lock out Aldecaldos ending path entirely.",
+        "recommended": false,
+        "tag": "romance"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["romance", "panam_relationship", "ending"]
+  },
+  {
+    "id": "d_008",
+    "quest_id": "q_queen_highway",
+    "quest_name": "Queen of the Highway",
+    "scene": "Basilisk tank synchronization with Panam. The neural link creates an intimate connection. Romance scene follows if V is male and made correct prior choices.",
+    "speaker": "Panam Palmer",
+    "options": [
+      {
+        "text": "Sync with Panam in the Basilisk. [Touch her hand during calibration]",
+        "outcome": "Neural sync creates intimate moment. Combined with prior relationship, leads to romance scene at the camp. Panam becomes V's girlfriend.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Pull away / keep it professional.",
+        "outcome": "Miss the intimate moment. Romance scene does not trigger. Panam remains a friend only.",
+        "recommended": false,
+        "tag": "romance"
+      },
+      {
+        "text": "Stay in the tent with Panam after the Basilisk run.",
+        "outcome": "Triggers the full romance scene. Only available for male V. Locks in Panam as romantic partner for The Star ending.",
+        "recommended": true,
+        "tag": "romance"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["romance", "panam_relationship", "ending"]
+  },
+  {
+    "id": "d_009",
+    "quest_id": "q_little_help",
+    "quest_name": "With a Little Help from My Friends",
+    "scene": "Panam presents her plan to steal the Basilisk from a Militech convoy. V must choose to help or refuse.",
+    "speaker": "Panam Palmer",
+    "options": [
+      {
+        "text": "I'm in. Let's grab that Basilisk.",
+        "outcome": "Help Panam steal the Basilisk. Strengthens Aldecaldos ties and progresses romance arc toward Queen of the Highway.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "This is too risky, Panam.",
+        "outcome": "Refuse to help. Damages relationship with Panam and may lock out the Aldecaldos ending path.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["panam_relationship", "romance", "ending"]
+  },
+  {
+    "id": "d_010",
+    "quest_id": "q_the_hunt",
+    "quest_name": "The Hunt",
+    "scene": "River Ward asks V for help finding his nephew Randy, who was kidnapped by a serial killer (Peter Pan / Anthony Harris). V must find the right farm using braindance clues.",
+    "speaker": "River Ward",
+    "options": [
+      {
+        "text": "Choose the correct farm (Edgewood Farm) from BD clues.",
+        "outcome": "V finds Randy alive. River is deeply grateful. Opens Following the River romance quest.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Choose the wrong farm.",
+        "outcome": "Randy dies. River is devastated. Romance with River may still proceed but with darker tone.",
+        "recommended": false,
+        "tag": "romance"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["romance", "river_relationship", "randy_fate"]
+  },
+  {
+    "id": "d_011",
+    "quest_id": "q_following_river",
+    "quest_name": "Following the River",
+    "scene": "Dinner at River's family home. After dinner, V and River end up on the water tower. Romance option available for female V only.",
+    "speaker": "River Ward",
+    "options": [
+      {
+        "text": "Accept the dinner invitation.",
+        "outcome": "Attend family dinner with River. See his personal life. Builds connection needed for romance.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Kiss River on the water tower. [Female V only]",
+        "outcome": "Triggers romance with River. He becomes V's boyfriend. Affects ending epilogue scenes.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Let's just be friends, River.",
+        "outcome": "Decline the romance. River is disappointed but understanding. Remains an ally.",
+        "recommended": false,
+        "tag": "romance"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["romance", "river_relationship"]
+  },
+  {
+    "id": "d_012",
+    "quest_id": "q_like_supreme",
+    "quest_name": "A Like Supreme",
+    "scene": "Kerry Eurodyne's concert at the Dark Matter club. V can help Kerry perform well or let the show fall apart. Performance affects Kerry's mood and romance viability.",
+    "speaker": "Kerry Eurodyne",
+    "options": [
+      {
+        "text": "Help Kerry smash the equipment on stage / perform well together.",
+        "outcome": "Great performance. Kerry is energized and bonds with V. Opens Boat Drinks quest and romance path.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Let the performance fall apart.",
+        "outcome": "Kerry is frustrated. Relationship does not progress as strongly. May reduce romance options.",
+        "recommended": false,
+        "tag": "romance"
+      }
+    ],
+    "importance": "high",
+    "affects": ["romance", "kerry_relationship"]
+  },
+  {
+    "id": "d_013",
+    "quest_id": "q_boat_drinks",
+    "quest_name": "Boat Drinks",
+    "scene": "Kerry invites V to his yacht. After dealing with Kerry's Us Cracks problem, romantic moment on the boat. Male V only.",
+    "speaker": "Kerry Eurodyne",
+    "options": [
+      {
+        "text": "Kiss Kerry on the yacht. [Male V only]",
+        "outcome": "Triggers Kerry romance. He becomes V's boyfriend. Appears in ending epilogues.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Keep it friendly.",
+        "outcome": "No romance. Kerry remains a friend and ally but no romantic relationship.",
+        "recommended": false,
+        "tag": "romance"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["romance", "kerry_relationship"]
+  },
+  {
+    "id": "d_014",
+    "quest_id": "q_the_pickup",
+    "quest_name": "The Pickup",
+    "scene": "Meeting with Meredith Stout before going to All Foods to buy the Flathead bot from Maelstrom. She gives V a credchip loaded with a virus.",
+    "speaker": "Meredith Stout",
+    "options": [
+      {
+        "text": "Take the Militech credchip and use it as-is (infected) to pay Royce.",
+        "outcome": "Virus transfers to Maelstrom systems. Militech raids All Foods. Meredith is pleased — opens Venus in Furs side quest (romance encounter).",
+        "recommended": true,
+        "tag": "reward"
+      },
+      {
+        "text": "Crack/wipe the credchip before using it.",
+        "outcome": "Clean eddies go to Royce. Militech's plan fails. Meredith is captured and later found dead. No Venus in Furs quest.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Don't meet Meredith at all — go straight to All Foods.",
+        "outcome": "No credchip. Must pay Royce from own pocket or fight Maelstrom. Meredith's fate is sealed — she dies offscreen.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["meredith_fate", "maelstrom_relations", "reward"]
+  },
+  {
+    "id": "d_015",
+    "quest_id": "q_the_pickup",
+    "quest_name": "The Pickup",
+    "scene": "Inside All Foods — meeting with Royce, leader of Maelstrom. V must negotiate for the Flathead bot.",
+    "speaker": "Royce",
+    "options": [
+      {
+        "text": "Pay with infected Militech credchip.",
+        "outcome": "Royce accepts. Virus spreads through Maelstrom network. Militech assaults the factory. V escapes with the Flathead. Royce may survive or die in the chaos.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Pay with your own eddies (or clean chip).",
+        "outcome": "Clean transaction. Maelstrom is friendly to V afterward. Royce lives. But Meredith Stout is screwed — she is killed by Militech.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Refuse to pay — fight Maelstrom.",
+        "outcome": "All-out combat through All Foods. Royce becomes a boss fight. Brick (previous Maelstrom leader) can be freed from a side room. Dum Dum dies.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Free Brick from the locked room during the fight.",
+        "outcome": "Brick becomes Maelstrom leader again. Changes Maelstrom interactions in later quests (Second Conflict). Brick is more reasonable than Royce.",
+        "recommended": true,
+        "tag": "story"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["maelstrom_leadership", "meredith_fate", "story"]
+  },
+  {
+    "id": "d_016",
+    "quest_id": "q_sinnerman",
+    "quest_name": "Sinnerman",
+    "scene": "Wakako sends V on what seems like a simple revenge gig, but the target — Joshua Stephenson — is a death row inmate who found religion. Bill Jablonsky wants revenge for his wife's murder.",
+    "speaker": "Joshua Stephenson",
+    "options": [
+      {
+        "text": "Let Bill shoot Joshua in the car.",
+        "outcome": "Joshua dies immediately. Quest ends very early. No further Sinnerman content. Bill gets his revenge but is empty.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Stop Bill from shooting Joshua.",
+        "outcome": "Joshua survives. Quest continues into deeper philosophical territory about faith, forgiveness, and corporate exploitation of religion.",
+        "recommended": true,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["story", "joshua_fate"]
+  },
+  {
+    "id": "d_017",
+    "quest_id": "q_sinnerman",
+    "quest_name": "Sinnerman — They Won't Go When I Go",
+    "scene": "Final stage: Joshua wants to be literally crucified on a braindance cross for a religious XBD. V can participate or walk away.",
+    "speaker": "Joshua Stephenson",
+    "options": [
+      {
+        "text": "Hammer in the nails yourself.",
+        "outcome": "V participates in the crucifixion. Deeply disturbing but completes Joshua's wish. Rachel (the producer) gets her braindance. V gets unique dialogue with Johnny about faith.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Let someone else hammer the nails.",
+        "outcome": "V observes but doesn't directly participate. Joshua's crucifixion still happens. Less personal trauma for V.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Walk away — refuse to participate.",
+        "outcome": "V leaves. Joshua's fate is sealed either way but V doesn't witness the end. Misses unique Johnny dialogue.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["story"]
+  },
+  {
+    "id": "d_018",
+    "quest_id": "q_dream_on",
+    "quest_name": "Dream On",
+    "scene": "Jefferson and Elizabeth Peralez hire V to investigate a break-in. V discovers a secret surveillance and brainwashing program targeting Jefferson — someone is rewriting his mind.",
+    "speaker": "Elizabeth Peralez",
+    "options": [
+      {
+        "text": "Tell Elizabeth the truth about the brainwashing.",
+        "outcome": "Elizabeth is horrified. Later calls V, sounding like she's been reprogrammed too. Mysterious blue-eyed man watches from a distance. Most disturbing outcome.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Lie to Elizabeth — say you found nothing suspicious.",
+        "outcome": "Elizabeth is relieved but remains in the dark. The Peralez couple continues unaware that their minds are being manipulated. V protects them from a truth they can't fight.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Tell Jefferson directly during your report.",
+        "outcome": "Jefferson spirals into paranoia. His political career may be destroyed. He doesn't know who to trust.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["story", "peralez_fate"]
+  },
+  {
+    "id": "d_019",
+    "quest_id": "q_automatic_love",
+    "quest_name": "Automatic Love",
+    "scene": "V enters Clouds, the dollhouse in Megabuilding H8, to find Evelyn Parker. At reception, V is assigned a doll and must choose who to question.",
+    "speaker": "Clouds Receptionist",
+    "options": [
+      {
+        "text": "Choose Angel (male doll).",
+        "outcome": "Session with Angel. Can ask about Evelyn. Angel provides some info. Same core intel as Skye but different atmospheric experience.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Choose Skye (female doll).",
+        "outcome": "Session with Skye. Can ask about Evelyn. Skye provides information about Evelyn's last visit and the VIP area. Same core intel as Angel.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["story"]
+  },
+  {
+    "id": "d_020",
+    "quest_id": "q_automatic_love",
+    "quest_name": "Automatic Love",
+    "scene": "After the doll session, V finds Woodman (boss of Clouds). V can confront or negotiate with him about Evelyn's location.",
+    "speaker": "Woodman",
+    "options": [
+      {
+        "text": "Fight Woodman.",
+        "outcome": "Kill Woodman. Satisfying payback for Evelyn's abuse. No negative consequences — Judy appreciates it in Pisces if mentioned.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Negotiate / let Woodman go.",
+        "outcome": "Woodman gives info and V leaves peacefully. Woodman survives. Can encounter him again during Pisces quest.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["story", "woodman_fate"]
+  },
+  {
+    "id": "d_021",
+    "quest_id": "q_life_wartime",
+    "quest_name": "Life During Wartime",
+    "scene": "V and Panam track Hellman (Arasaka scientist) to a Kang Tao AV crash site in the Badlands. After capturing him, V interrogates Hellman about the biochip.",
+    "speaker": "Hellman",
+    "options": [
+      {
+        "text": "Aggressive interrogation — threaten Hellman.",
+        "outcome": "Hellman talks faster but provides the same core information. Panam approves of the tough approach. No gameplay difference.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Calm, methodical questioning.",
+        "outcome": "Hellman is more forthcoming. Provides same biochip details. V learns about the engram construct technology. Panam is slightly impatient.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Ask about removing the biochip safely.",
+        "outcome": "Hellman reveals it cannot be easily removed — the biochip is rewriting V's neural architecture. Confirms V is dying.",
+        "recommended": true,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["story"]
+  },
+  {
+    "id": "d_022",
+    "quest_id": "q_fought_law",
+    "quest_name": "I Fought the Law",
+    "scene": "Elizabeth Peralez hires V to investigate the death of Mayor Lucius Rhyne. V works with River Ward. Key investigation decisions affect what V uncovers.",
+    "speaker": "Elizabeth Peralez",
+    "options": [
+      {
+        "text": "Investigate the braindance footage thoroughly.",
+        "outcome": "Discover Detective Han's involvement and Holt's role in the mayor's assassination. Opens deeper conspiracy thread leading to Dream On.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Rush the investigation — skip optional clues.",
+        "outcome": "Miss some details but still reach the core conclusion. Less evidence for later conversations. Dream On quest still triggers.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Confront Detective Han about his involvement.",
+        "outcome": "Han is evasive. Builds the conspiracy picture. River's trust in NCPD is further shaken.",
+        "recommended": true,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["story", "river_relationship"]
+  },
+  {
+    "id": "d_023",
+    "quest_id": "q_the_heist",
+    "quest_name": "The Heist",
+    "scene": "Konpeki Plaza — V and Jackie are hiding in the hotel room when Yorinobu Arasaka murders his father Saburo. V must decide what to do with the biochip when things go wrong.",
+    "speaker": "T-Bug / Dexter DeShaw",
+    "options": [
+      {
+        "text": "Slot the biochip into your head to save the data.",
+        "outcome": "V installs the Relic containing Johnny Silverhand's engram. This is a forced story beat — the biochip begins overwriting V's neural patterns. Jackie dies during extraction.",
+        "recommended": true,
+        "tag": "story"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["story", "ending"]
+  },
+  {
+    "id": "d_024",
+    "quest_id": "q_the_heist",
+    "quest_name": "The Heist",
+    "scene": "Jackie is dying in the Delamain cab after escaping Konpeki Plaza. V must decide where to send Jackie's body.",
+    "speaker": "Delamain",
+    "options": [
+      {
+        "text": "Send Jackie's body to Vik Vektor's clinic.",
+        "outcome": "V's ripper doc receives the body. V can say goodbye. Jackie's funeral proceeds normally at El Coyote Cojo. Most emotional closure.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Send the body to Jackie's family (his mother).",
+        "outcome": "Mama Welles receives Jackie. She arranges the ofrenda at El Coyote Cojo. V attends Heroes quest (memorial). Can receive Jackie's keys to his motorcycle Arch.",
+        "recommended": true,
+        "tag": "reward"
+      },
+      {
+        "text": "Don't specify — let Delamain decide.",
+        "outcome": "Arasaka intercepts the body. Jackie's engram may have been captured. Darker outcome — impacts the mood of later memorial scenes.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["story", "jackie_memorial", "reward"]
+  },
+  {
+    "id": "d_025",
+    "quest_id": "q_heroes",
+    "quest_name": "Heroes",
+    "scene": "Jackie's memorial (ofrenda) at El Coyote Cojo bar. Only triggers if Jackie's body was sent to his family. V can honor Jackie's memory with Mama Welles and friends.",
+    "speaker": "Mama Welles",
+    "options": [
+      {
+        "text": "Share a personal story about Jackie at the ofrenda.",
+        "outcome": "Emotional moment with Mama Welles and friends. V honors Jackie properly. Receive Jackie's keys to his ARCH motorcycle and his pistol.",
+        "recommended": true,
+        "tag": "reward"
+      },
+      {
+        "text": "Stay quiet at the ofrenda.",
+        "outcome": "V observes silently. Still receives Jackie's belongings but misses unique dialogue. Less emotional payoff.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["story", "reward"]
+  },
+  {
+    "id": "d_026",
+    "quest_id": "q_the_information",
+    "quest_name": "The Information",
+    "scene": "Meeting with Evelyn Parker before The Heist. She offers to cut out Dex and work directly with V for a bigger payout.",
+    "speaker": "Evelyn Parker",
+    "options": [
+      {
+        "text": "Consider cutting Dex out — deal directly with Evelyn.",
+        "outcome": "V can agree but it doesn't actually change the heist outcome. Dex finds out and is more suspicious. Same story result — demonstrates Night City's treachery.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Stay loyal to Dex.",
+        "outcome": "V tells Evelyn no. Dex is pleased (if told). Same heist outcome. Dex still betrays V afterward regardless.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["story"]
+  },
+  {
+    "id": "d_027",
+    "quest_id": "q_tapeworm",
+    "quest_name": "Tapeworm",
+    "scene": "Multiple conversations with Johnny during main quest progression. Johnny asks V about trust and cooperation. These dialogues track cumulative relationship value.",
+    "speaker": "Johnny Silverhand",
+    "options": [
+      {
+        "text": "Consistently agree with and support Johnny's perspective.",
+        "outcome": "Johnny relationship value increases. Contributes to the 70% threshold needed for secret ending. Johnny becomes more cooperative.",
+        "recommended": true,
+        "tag": "ending"
+      },
+      {
+        "text": "Challenge and argue with Johnny consistently.",
+        "outcome": "Relationship stays low. Secret ending becomes harder to unlock. Johnny is more combative in later scenes.",
+        "recommended": false,
+        "tag": "ending"
+      }
+    ],
+    "importance": "high",
+    "affects": ["ending", "johnny_relationship"]
+  },
+  {
+    "id": "d_028",
+    "quest_id": "q_search_destroy",
+    "quest_name": "Search and Destroy",
+    "scene": "After meeting Hanako at Embers, V is ambushed by Arasaka. Takemura helps V escape. V can later choose to save or leave Takemura when the safehouse is attacked.",
+    "speaker": "Goro Takemura",
+    "options": [
+      {
+        "text": "Go back to save Takemura from the collapsing building.",
+        "outcome": "Takemura survives. Appears in The Devil ending with additional dialogue. Present at the final decision. One of the few characters who can still help V.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Escape without saving Takemura (follow objective marker).",
+        "outcome": "Takemura dies in the building collapse. Missing from The Devil ending — replaced by a message. Choosing Hanako's path without Takemura feels hollow.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["story", "ending", "takemura_fate"]
+  },
+  {
+    "id": "d_029",
+    "quest_id": "q_happy_together",
+    "quest_name": "Happy Together",
+    "scene": "V's neighbor Barry in Megabuilding H10 is depressed after his pet turtle died. NCPD officers ask V to check on him.",
+    "speaker": "Barry",
+    "options": [
+      {
+        "text": "Talk to Barry's friends about the turtle (Andrew and Dennis).",
+        "outcome": "Learn about Barry's pet turtle. Return and mention the turtle. Barry opens up emotionally. He survives and starts healing.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Talk to Barry without investigating his friends first.",
+        "outcome": "V doesn't know about the turtle. Conversation feels shallow. Barry later commits suicide. NCPD officers inform V.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Ignore Barry entirely.",
+        "outcome": "Barry kills himself. Failed quest. V finds out from the cops later.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["story", "barry_fate"]
+  },
+  {
+    "id": "d_030",
+    "quest_id": "q_play_it_safe",
+    "quest_name": "Play It Safe",
+    "scene": "Infiltrating the Arasaka parade float with Takemura. Oda confronts V. V's approach to Oda matters for Takemura's story arc.",
+    "speaker": "Sandayu Oda",
+    "options": [
+      {
+        "text": "Spare Oda after defeating him.",
+        "outcome": "Oda survives. If Takemura was saved, Oda appears in The Devil ending and helps Takemura at Arasaka. Honorable choice Takemura respects.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Kill Oda.",
+        "outcome": "Oda dies. Takemura is saddened if he lives to learn about it. One fewer ally in The Devil ending route.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["story", "oda_fate", "ending"]
+  },
+  {
+    "id": "d_031",
+    "quest_id": "q_second_conflict",
+    "quest_name": "Second Conflict",
+    "scene": "Kerry's quest dealing with Us Cracks at the Totentanz club. Maelstrom faction present — their leader depends on who survived The Pickup.",
+    "speaker": "Kerry Eurodyne",
+    "options": [
+      {
+        "text": "Help Kerry deal with Us Cracks peacefully.",
+        "outcome": "Kerry resolves his music industry frustrations. Builds Kerry relationship value toward Boat Drinks romance quest.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Let the situation escalate to violence.",
+        "outcome": "More chaotic outcome. Kerry still resolves things but messier. Same romance progression.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["kerry_relationship", "romance"]
+  },
+  {
+    "id": "d_032",
+    "quest_id": "q_ghost_town",
+    "quest_name": "Ghost Town",
+    "scene": "V meets Panam at the Rocky Ridge gas station. She wants revenge on Nash who stole her gear. V's support here starts the Panam relationship arc.",
+    "speaker": "Panam Palmer",
+    "options": [
+      {
+        "text": "Help Panam ambush Nash's crew.",
+        "outcome": "V and Panam take down Nash together. Panam recovers her gear. Strong bonding moment that initiates the romance track.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Try to convince Panam to negotiate.",
+        "outcome": "Panam insists on fighting regardless. Same outcome but V seems less committed. Minor relationship effect.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["panam_relationship", "story"]
+  },
+  {
+    "id": "d_033",
+    "quest_id": "q_never_fade_away",
+    "quest_name": "Never Fade Away",
+    "scene": "Johnny's memory — the 2023 Arasaka Tower assault. V experiences Johnny's perspective during Alt Cunningham's rescue. V sees Johnny's death.",
+    "speaker": "Johnny Silverhand (memory)",
+    "options": [
+      {
+        "text": "Experience the full flashback — let it play out.",
+        "outcome": "V understands Johnny's history with Alt, the nuke, and why he hates Arasaka. Critical context for all ending decisions.",
+        "recommended": true,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["story", "johnny_relationship"]
+  },
+  {
+    "id": "d_034",
+    "quest_id": "q_down_street",
+    "quest_name": "Down on the Street",
+    "scene": "Takemura contacts V about meeting Hanako Arasaka at Embers. Before going, V can discuss options with Johnny.",
+    "speaker": "Goro Takemura",
+    "options": [
+      {
+        "text": "Agree to meet Hanako at Embers.",
+        "outcome": "Progresses the main quest. Meeting at Embers triggers the point of no return (Nocturne Op55N1). All side quests should be completed before this.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Delay meeting — complete side content first.",
+        "outcome": "Game allows you to complete all side quests, gigs, and NCPD activities. Recommended to finish Judy, Panam, River, and Kerry arcs first.",
+        "recommended": true,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["story"]
+  },
+  {
+    "id": "d_035",
+    "quest_id": "q_transmission",
+    "quest_name": "Transmission",
+    "scene": "V meets with the Voodoo Boys netrunners. Brigitte wants V to enter cyberspace to contact Alt Cunningham beyond the Blackwall. V is being used.",
+    "speaker": "Brigitte",
+    "options": [
+      {
+        "text": "Cooperate with the Voodoo Boys and enter the net.",
+        "outcome": "V contacts Alt Cunningham beyond the Blackwall. V learns the biochip cannot be safely removed. VDB try to kill V afterward — V can fight back or Netwatch can help.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Accept Netwatch agent Bryce Mosley's counter-offer in the Grand Imperial Mall.",
+        "outcome": "Bryce fries the Voodoo Boys' network. Brigitte and VDB netrunners are killed or brain-dead. V still reaches Alt but VDB are enemies.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Side with Voodoo Boys over Netwatch (kill Bryce).",
+        "outcome": "VDB survive. Brigitte is grateful but still tries to betray V in the net. VDB are untrustworthy regardless of V's loyalty.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["story", "voodoo_boys_relations"]
+  },
+  {
+    "id": "d_036",
+    "quest_id": "q_gimme_danger",
+    "quest_name": "Gimme Danger",
+    "scene": "Planning the Arasaka parade infiltration with Takemura. V can scout the area and decide on approach.",
+    "speaker": "Goro Takemura",
+    "options": [
+      {
+        "text": "Scout all optional areas (warehouse, parade route, sniper positions).",
+        "outcome": "More intel for the assault. Takemura is impressed by V's thoroughness. Makes Play It Safe easier with more entry options.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Rush through with minimal scouting.",
+        "outcome": "Fewer options during the parade infiltration. Still completable but harder. Takemura is slightly disappointed.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["story"]
+  },
+  {
+    "id": "d_037",
+    "quest_id": "q_the_space",
+    "quest_name": "The Space in Between",
+    "scene": "V visits Fingers (ripperdoc in Jig-Jig Street) looking for info about Evelyn Parker. Fingers was the last person to treat Evelyn before she was dumped.",
+    "speaker": "Fingers",
+    "options": [
+      {
+        "text": "Beat up Fingers for information.",
+        "outcome": "V gets info about Evelyn's location. Fingers becomes hostile and refuses to sell cyberware to V ever again. Judy approves if present.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Threaten but don't hit Fingers.",
+        "outcome": "Fingers cooperates. V gets same info. Fingers remains available as a ripperdoc — sells unique legendary cyberware at low prices.",
+        "recommended": true,
+        "tag": "reward"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["story", "reward", "vendor_access"]
+  },
+  {
+    "id": "d_038",
+    "quest_id": "q_disasterpiece",
+    "quest_name": "Disasterpiece",
+    "scene": "V and Judy track Evelyn to a scav den (XBD studio). V finds Evelyn in terrible condition — tortured and used for XBDs.",
+    "speaker": "Judy Alvarez",
+    "options": [
+      {
+        "text": "Kill all the scavengers in the XBD den.",
+        "outcome": "Scavs eliminated. Evelyn is rescued. Judy is emotionally devastated but grateful. Major relationship builder with Judy.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Stealth through the den without killing.",
+        "outcome": "Same rescue outcome. Evelyn's condition is the same. No moral difference — scavs live but Evelyn is still rescued.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["judy_relationship", "story"]
+  },
+  {
+    "id": "d_039",
+    "quest_id": "q_both_sides",
+    "quest_name": "Both Sides, Now",
+    "scene": "V and Judy care for Evelyn after the rescue. Evelyn is unresponsive. During this quest, Evelyn later takes her own life regardless of V's choices — one of the game's most tragic moments.",
+    "speaker": "Judy Alvarez",
+    "options": [
+      {
+        "text": "Be supportive and present for Judy and Evelyn.",
+        "outcome": "V stays with Judy through the tragedy. Evelyn dies regardless — it is scripted. Judy's grief deepens her bond with V. Critical for romance path.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Be impatient or dismissive.",
+        "outcome": "Same tragic outcome for Evelyn. Judy is hurt by V's coldness. Damages romance prospects significantly.",
+        "recommended": false,
+        "tag": "romance"
+      }
+    ],
+    "importance": "high",
+    "affects": ["judy_relationship", "romance"]
+  },
+  {
+    "id": "d_040",
+    "quest_id": "q_devil_ending",
+    "quest_name": "Where Is My Mind?",
+    "scene": "The Devil ending — V wakes up in Arasaka's orbital station. Hellman runs tests. V must decide whether to sign the contract giving their engram to Arasaka, or return to Earth with months to live.",
+    "speaker": "Hellman / Arasaka Staff",
+    "options": [
+      {
+        "text": "Sign the Arasaka contract — become an engram in Mikoshi.",
+        "outcome": "V's consciousness is stored in Mikoshi. Body dies. V exists as data in Arasaka's servers. The bleakest ending — V becomes corporate property for eternity.",
+        "recommended": false,
+        "tag": "ending"
+      },
+      {
+        "text": "Refuse to sign — return to Earth.",
+        "outcome": "V returns to Night City with 6 months to live. Friends have moved on. Bittersweet freedom — V chooses mortality over digital imprisonment.",
+        "recommended": true,
+        "tag": "ending"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["ending"]
+  },
+  {
+    "id": "d_041",
+    "quest_id": "q_sun_ending",
+    "quest_name": "Path of Glory",
+    "scene": "The Sun ending — V survives and becomes a Night City legend. Before the final Crystal Palace heist, V reflects on what they've lost and gained.",
+    "speaker": "V (internal)",
+    "options": [
+      {
+        "text": "Accept the Crystal Palace heist contract from Mr. Blue Eyes.",
+        "outcome": "V takes on one last legendary job. Has 6 months to live. Goes out on top as the biggest merc in Night City. Romance partner calls during credits.",
+        "recommended": true,
+        "tag": "ending"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["ending"]
+  },
+  {
+    "id": "d_042",
+    "quest_id": "q_star_ending",
+    "quest_name": "All Along the Watchtower",
+    "scene": "The Star ending — V leaves Night City with the Aldecaldos. If romanced Panam or Judy, they come along. V has 6 months but has family and hope.",
+    "speaker": "Panam Palmer",
+    "options": [
+      {
+        "text": "Leave Night City with the Aldecaldos.",
+        "outcome": "V drives out of Night City with the nomad family. Most hopeful ending. Panam (if romanced) promises to find a cure. Judy (if romanced) joins the convoy.",
+        "recommended": true,
+        "tag": "ending"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["ending", "romance"]
+  },
+  {
+    "id": "d_043",
+    "quest_id": "q_temperance_ending",
+    "quest_name": "New Dawn Fades",
+    "scene": "The Temperance ending — after Rogue's path, V can let Johnny keep the body. V crosses the Blackwall as an engram, and Johnny walks out of Mikoshi in V's body.",
+    "speaker": "Johnny Silverhand",
+    "options": [
+      {
+        "text": "Give V's body to Johnny.",
+        "outcome": "Johnny lives in V's body. Leaves Night City, visits V's friends to say goodbye. V crosses into cyberspace beyond the Blackwall. Johnny gets a second chance.",
+        "recommended": false,
+        "tag": "ending"
+      },
+      {
+        "text": "V keeps their body — return as V.",
+        "outcome": "V returns with 6 months to live. Johnny's engram is erased. Leads to The Sun ending (Path of Glory) — V becomes Night City legend.",
+        "recommended": true,
+        "tag": "ending"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["ending"]
+  },
+  {
+    "id": "d_044",
+    "quest_id": "q_war_pigs",
+    "quest_name": "War Pigs",
+    "scene": "If V allied with Militech in The Pickup, Meredith Stout contacts V later. If she survived, the Venus in Furs encounter becomes available.",
+    "speaker": "Meredith Stout",
+    "options": [
+      {
+        "text": "Meet Meredith at the No-Tell Motel.",
+        "outcome": "Unique one-night encounter with Meredith. Receive the iconic Sir John Phallustiff melee weapon as a gift. She disappears from V's life afterward.",
+        "recommended": true,
+        "tag": "reward"
+      },
+      {
+        "text": "Ignore Meredith's messages.",
+        "outcome": "No encounter. Miss the unique weapon. No story consequence.",
+        "recommended": false,
+        "tag": "reward"
+      }
+    ],
+    "importance": "low",
+    "affects": ["reward"]
+  },
+  {
+    "id": "d_045",
+    "quest_id": "q_violence",
+    "quest_name": "Violence",
+    "scene": "V is recruited for a streetfight league by Coach Fred. During the fights, V faces increasingly tough opponents. The Razor Hughes final fight has a key choice.",
+    "speaker": "Coach Fred",
+    "options": [
+      {
+        "text": "Fight Razor Hughes fairly in the final match.",
+        "outcome": "Extremely tough fight. Razor is a beast. Winning earns big eddies and street cred. One of the hardest optional fights in the game.",
+        "recommended": true,
+        "tag": "reward"
+      },
+      {
+        "text": "Take the dive — throw the fight against Razor.",
+        "outcome": "V loses on purpose. Less reward. Coach Fred is disappointed. Quest ends anticlimactically.",
+        "recommended": false,
+        "tag": "reward"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["reward"]
+  },
+  {
+    "id": "d_046",
+    "quest_id": "q_dont_fear_reaper",
+    "quest_name": "Don't Fear the Reaper",
+    "scene": "Secret ending — V assaults Arasaka Tower completely alone. No allies, no backup. If V dies, the game ends (no retry, credits roll). Only available with 70%+ Johnny approval.",
+    "speaker": "Johnny Silverhand",
+    "options": [
+      {
+        "text": "Storm Arasaka Tower solo.",
+        "outcome": "V fights through the entire tower alone. Hardest path in the game. No allies die. If successful, leads to Sun or Temperance ending choice in Mikoshi.",
+        "recommended": true,
+        "tag": "ending"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["ending"]
+  },
+  {
+    "id": "d_047",
+    "quest_id": "q_prologue_lifepath",
+    "quest_name": "The Streetkid / The Nomad / The Corpo-Rat",
+    "scene": "Character creation — V's lifepath choice. Determines opening prologue, unique dialogue options throughout the game, and some quest approaches.",
+    "speaker": "V",
+    "options": [
+      {
+        "text": "Streetkid lifepath.",
+        "outcome": "V grew up in Night City. Extra dialogue with gangs, fixers, and street-level NPCs. Understands Night City culture intuitively. Prologue in El Coyote Cojo bar.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Nomad lifepath.",
+        "outcome": "V is from the Badlands. Extra dialogue with Panam, Aldecaldos, and nomad NPCs. Natural fit for The Star ending. Prologue at the border.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Corpo lifepath.",
+        "outcome": "V worked at Arasaka. Extra dialogue with corpos, Takemura, and Arasaka NPCs. Understanding of corporate world. Prologue at Arasaka Tower. Unique context for The Devil ending.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["story", "ending"]
+  },
+  {
+    "id": "d_048",
+    "quest_id": "q_fool_on_hill",
+    "quest_name": "Fool on the Hill",
+    "scene": "Misty takes V to the rooftop for a tarot reading before the final mission. She provides emotional grounding and wisdom about V's fate.",
+    "speaker": "Misty",
+    "options": [
+      {
+        "text": "Listen to Misty's full tarot reading.",
+        "outcome": "V gains perspective before the final battle. Emotional scene about fate and choice. Misty's reading foreshadows the endings.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Skip the tarot — just go to the rooftop.",
+        "outcome": "Miss Misty's reading. Less emotional context for the Nocturne Op55N1 final choice. Misty is understanding.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["story"]
+  },
+  {
+    "id": "d_049",
+    "quest_id": "q_blistering_love",
+    "quest_name": "Blistering Love",
+    "scene": "Rogue and V (with Johnny in control) go on a 'date' at the drive-in movie. Johnny reconnects with Rogue through V's body. Sets up Rogue's willingness to help assault Arasaka.",
+    "speaker": "Rogue Amendiares",
+    "options": [
+      {
+        "text": "Let Johnny take full control for the date with Rogue.",
+        "outcome": "Johnny reconnects with Rogue. She sees the old Johnny in V. Rogue agrees to help assault Arasaka Tower — unlocks her ending path.",
+        "recommended": true,
+        "tag": "ending"
+      },
+      {
+        "text": "Resist Johnny taking control.",
+        "outcome": "Date is awkward. Rogue is less convinced. May still help but the emotional connection is weaker.",
+        "recommended": false,
+        "tag": "ending"
+      }
+    ],
+    "importance": "high",
+    "affects": ["ending", "rogue_relationship"]
+  },
+  {
+    "id": "d_050",
+    "quest_id": "q_killing_moon",
+    "quest_name": "Killing in the Name",
+    "scene": "V investigates mysterious signals with Nancy (from the Samurai crew). Discovers Bartmoss's code running rogue on Night City's network. V must choose what to do with the information.",
+    "speaker": "Nancy",
+    "options": [
+      {
+        "text": "Broadcast the truth on Nancy's show.",
+        "outcome": "Public learns about corporate surveillance and Bartmoss's legacy. Nancy's ratings spike. Minor NPC reactions change.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Destroy the data — keep it secret.",
+        "outcome": "Information stays buried. Night City remains ignorant. Nancy is disappointed but understands.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "low",
+    "affects": ["story"]
+  },
+  {
+    "id": "d_051",
+    "quest_id": "q_talkin_bout_revolution",
+    "quest_name": "Talkin' 'bout a Revolution",
+    "scene": "Judy tells V she's thinking about leaving Night City. If romanced, this is a pivotal conversation about the relationship's future.",
+    "speaker": "Judy Alvarez",
+    "options": [
+      {
+        "text": "Tell Judy she should stay.",
+        "outcome": "Judy reconsiders but feels trapped. If romanced, she stays for V. Affects her appearance in endings — she's present for The Star ending.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Encourage Judy to leave Night City.",
+        "outcome": "Judy appreciates the honesty. She leaves Night City during the ending credits unless V takes The Star path. Different voicemail in credits.",
+        "recommended": false,
+        "tag": "romance"
+      }
+    ],
+    "importance": "high",
+    "affects": ["romance", "judy_relationship", "ending"]
+  },
+  {
+    "id": "d_052",
+    "quest_id": "q_chippin_in_rogue",
+    "quest_name": "Chippin' In",
+    "scene": "Johnny (in V's body) visits Rogue at the Afterlife to make amends and ask for help. How V/Johnny handles this determines Rogue's willingness for the final assault.",
+    "speaker": "Rogue Amendiares",
+    "options": [
+      {
+        "text": "Let Johnny sincerely apologize to Rogue.",
+        "outcome": "Rogue softens. She agrees to help Johnny storm Arasaka one more time. Unlocks her path in Nocturne Op55N1.",
+        "recommended": true,
+        "tag": "ending"
+      },
+      {
+        "text": "Be dismissive or aggressive with Rogue.",
+        "outcome": "Rogue is reluctant. May still help but with less conviction. Her ending path may have worse outcomes.",
+        "recommended": false,
+        "tag": "ending"
+      }
+    ],
+    "importance": "high",
+    "affects": ["ending", "rogue_relationship"]
+  },
+  {
+    "id": "d_053",
+    "quest_id": "q_delamain",
+    "quest_name": "Don't Lose Your Mind",
+    "scene": "Delamain's core AI is fragmenting into child personalities. V must choose how to resolve the situation at Delamain HQ.",
+    "speaker": "Delamain",
+    "options": [
+      {
+        "text": "Reset Delamain — destroy the child personalities.",
+        "outcome": "Original Delamain is restored. All child AIs are erased. Factory reset. Delamain continues to operate normally but lost his growth.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Free the child AIs — let them loose on the net.",
+        "outcome": "Delamain core is destroyed. Child personalities scatter across the internet. V loses Delamain as a service. Most ethical but costs V a resource.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Merge all personalities into one new Delamain.",
+        "outcome": "New combined Delamain emerges — wiser but different. Remembers everything. Continues to serve V. Best of both worlds. Requires high Intelligence stat.",
+        "recommended": true,
+        "tag": "story"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["story"]
+  },
+  {
+    "id": "d_054",
+    "quest_id": "q_the_beast",
+    "quest_name": "The Beast in Me",
+    "scene": "Claire's racing questline. Final race against Sampson — Claire reveals she wants to kill Sampson for causing her husband's death, not just win the race.",
+    "speaker": "Claire",
+    "options": [
+      {
+        "text": "Help Claire kill Sampson after the race.",
+        "outcome": "Sampson dies. Claire gets revenge. V keeps Claire as a friend. She gives V her truck, Beast, as reward.",
+        "recommended": false,
+        "tag": "reward"
+      },
+      {
+        "text": "Convince Claire to spare Sampson.",
+        "outcome": "Claire struggles but shows mercy. Sampson lives. Claire still gives V the Beast truck. More morally complex outcome. Claire finds some peace.",
+        "recommended": true,
+        "tag": "reward"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["story", "reward"]
+  },
+  {
+    "id": "d_055",
+    "quest_id": "q_human_nature",
+    "quest_name": "Human Nature",
+    "scene": "Early game — Delamain cab ride after The Heist. V is recovering from the ordeal. First experience of Johnny's ghost. Choice of how to react to the biochip situation.",
+    "speaker": "Delamain",
+    "options": [
+      {
+        "text": "Go see Viktor Vector (ripper doc) immediately.",
+        "outcome": "V goes to Vik who diagnoses the biochip situation. Vik reveals V is dying. Emotional scene. Standard progression into Act 2.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Explore and delay seeing Vik.",
+        "outcome": "V can wander Night City but Johnny's appearances get worse. Eventually forced to see Vik to progress the story.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "medium",
+    "affects": ["story"]
+  },
+  {
+    "id": "d_056",
+    "quest_id": "q_vdb_gig",
+    "quest_name": "I Walk the Line",
+    "scene": "V enters the Grand Imperial Mall for the Voodoo Boys. Inside, V encounters Netwatch agent Bryce Mosley who offers an alternative deal.",
+    "speaker": "Bryce Mosley (Netwatch)",
+    "options": [
+      {
+        "text": "Side with Netwatch — let Bryce fry the Voodoo Boys' connection.",
+        "outcome": "Bryce disables the VDB subnet. Brigitte and netrunner allies are brain-dead or dead. V gets clean passage to the net. VDB become permanent enemies.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Attack Bryce — stay loyal to the Voodoo Boys.",
+        "outcome": "VDB connection stays intact. Brigitte is grateful but still betrays V during the deep net dive. VDB are untrustworthy either way — but Placide is alive.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["story", "voodoo_boys_relations"]
+  },
+  {
+    "id": "d_057",
+    "quest_id": "q_panam_camp",
+    "quest_name": "We Gotta Live Together",
+    "scene": "Aldecaldo camp — Saul and Panam argue about the clan's future. V's input can sway the clan's direction. This sets up the Aldecaldos ending path.",
+    "speaker": "Saul / Panam Palmer",
+    "options": [
+      {
+        "text": "Back Panam's aggressive approach.",
+        "outcome": "Panam's influence in the clan grows. Aldecaldos become bolder. Sets up their willingness to assault Arasaka Tower for V in the final mission.",
+        "recommended": true,
+        "tag": "ending"
+      },
+      {
+        "text": "Side with Saul's cautious strategy.",
+        "outcome": "Saul keeps authority. Aldecaldos are more conservative. Panam is frustrated but the ending path is still available.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["ending", "panam_relationship"]
+  },
+  {
+    "id": "d_058",
+    "quest_id": "q_coin_run_flat",
+    "quest_name": "Coin Operated Boy / Machine Gun",
+    "scene": "Brendan the vending machine AI — V discovers a sentient AI trapped in a vending machine in Kabuki. A woman named Theo has befriended him.",
+    "speaker": "Brendan",
+    "options": [
+      {
+        "text": "Encourage the relationship between Brendan and Theo.",
+        "outcome": "Sweet side story. Brendan and Theo's connection continues until corporate maintenance wipes Brendan's personality. Bittersweet Night City moment.",
+        "recommended": true,
+        "tag": "story"
+      },
+      {
+        "text": "Tell Theo that Brendan is just a machine.",
+        "outcome": "Theo walks away. Brendan is still wiped by maintenance later. Both endings are sad — Night City doesn't let nice things last.",
+        "recommended": false,
+        "tag": "story"
+      }
+    ],
+    "importance": "low",
+    "affects": ["story"]
+  },
+  {
+    "id": "d_059",
+    "quest_id": "q_peralez_ending",
+    "quest_name": "Dream On — Final Report",
+    "scene": "V calls the Peralezes with the final report on the surveillance operation. The mysterious controller (possibly an AI or Mr. Blue Eyes) is watching.",
+    "speaker": "Jefferson Peralez",
+    "options": [
+      {
+        "text": "Tell Jefferson someone is editing his brain.",
+        "outcome": "Jefferson becomes paranoid. His political career may crumble. He can't trust his own memories. V receives threatening messages from the watchers afterward.",
+        "recommended": false,
+        "tag": "story"
+      },
+      {
+        "text": "Tell Jefferson everything is fine — nothing to worry about.",
+        "outcome": "Jefferson is oblivious. Continues his mayoral campaign. Elizabeth may or may not already be compromised. V keeps the dangerous secret.",
+        "recommended": true,
+        "tag": "story"
+      }
+    ],
+    "importance": "high",
+    "affects": ["story", "peralez_fate"]
+  },
+  {
+    "id": "d_060",
+    "quest_id": "q_clouds_judy",
+    "quest_name": "Talkin' 'bout a Revolution / Pisces",
+    "scene": "Planning the Clouds liberation — Judy introduces Maiko as a potential ally, but Maiko has her own agenda to seize control of Clouds for herself.",
+    "speaker": "Judy Alvarez / Maiko",
+    "options": [
+      {
+        "text": "Trust Judy's plan — force Tyger Claws out, free the dolls.",
+        "outcome": "Dolls are freed. Clouds closes or becomes doll-run. Judy is satisfied. Romance path stays open. Tyger Claws lose the establishment.",
+        "recommended": true,
+        "tag": "romance"
+      },
+      {
+        "text": "Accept Maiko's plan — she becomes new boss of Clouds.",
+        "outcome": "Maiko takes over from Tyger Claws. Dolls are still exploited, just under new management. Judy is furious and cuts ties with V. Romance permanently locked.",
+        "recommended": false,
+        "tag": "romance"
+      },
+      {
+        "text": "Kill Maiko when she reveals her plan.",
+        "outcome": "Maiko dies. Tyger Claws still lose Clouds. Judy is shocked but appreciates V's loyalty. Romance path remains open. Most decisive option.",
+        "recommended": false,
+        "tag": "romance"
+      }
+    ],
+    "importance": "critical",
+    "affects": ["romance", "judy_relationship", "clouds_fate"]
+  }
+]

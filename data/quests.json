@@ -1,0 +1,1292 @@
+[
+  {
+    "id": "q_the_rescue",
+    "name": "The Rescue",
+    "type": "main_job",
+    "act": 1,
+    "giver": "Jackie Welles",
+    "district": "Watson",
+    "description": "V and Jackie take on a job from the fixer T-Bug to rescue Sandra Dorsett from a Scavenger hideout in Watson.",
+    "objectives": [
+      "Meet Jackie in the alley",
+      "Enter the Scavenger hideout",
+      "Find Sandra Dorsett",
+      "Neutralize the Scavengers",
+      "Take Sandra to the Delamain cab",
+      "Wait for the trauma team or leave"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Progression to The Ripperdoc"],
+    "point_of_no_return": false,
+    "tips": "Search the apartment thoroughly for loot and shards. You can find a floor safe with extra gear. Choosing stealth or combat here has no long-term consequences.",
+    "related_quests": ["q_the_ripperdoc"]
+  },
+  {
+    "id": "q_the_ripperdoc",
+    "name": "The Ripperdoc",
+    "type": "main_job",
+    "act": 1,
+    "giver": "Jackie Welles",
+    "district": "Watson",
+    "description": "Jackie takes V to visit Viktor Vektor, a ripperdoc in Little China, to get new cyberware installed including a Kiroshi optical scanner and a ballistic coprocessor.",
+    "objectives": [
+      "Follow Jackie to Viktor's clinic",
+      "Sit in the ripperdoc chair",
+      "Get your new optics installed",
+      "Get the ballistic coprocessor installed",
+      "Test out the new Kiroshi optics",
+      "Practice shooting with the new coprocessor"
+    ],
+    "rewards": ["Kiroshi Optics Mk.1", "Ballistic Coprocessor"],
+    "point_of_no_return": false,
+    "tips": "Viktor gives you cyberware on credit. You can pay him back later for street cred and a thank-you gift. Explore his shop for items.",
+    "related_quests": ["q_the_rescue", "q_the_ride"]
+  },
+  {
+    "id": "q_the_ride",
+    "name": "The Ride",
+    "type": "main_job",
+    "act": 1,
+    "giver": "Dexter DeShawn",
+    "district": "Watson",
+    "description": "V meets with the legendary fixer Dexter DeShawn to discuss the details of a major heist. Dex sends V to meet with Evelyn Parker at Lizzie's Bar.",
+    "objectives": [
+      "Get in the Delamain cab",
+      "Talk to Dexter DeShawn",
+      "Go to the Afterlife with Dex",
+      "Talk to Dex in the Afterlife",
+      "Leave the Afterlife"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Progression to The Pickup and The Information"],
+    "point_of_no_return": false,
+    "tips": "Talk to Rogue at the Afterlife for extra lore. Your dialogue choices with Dex shape how much you know about the heist.",
+    "related_quests": ["q_the_ripperdoc", "q_the_pickup", "q_the_information"]
+  },
+  {
+    "id": "q_the_pickup",
+    "name": "The Pickup",
+    "type": "main_job",
+    "act": 1,
+    "giver": "Dexter DeShawn",
+    "district": "Watson",
+    "description": "V must acquire the Flathead bot from the Maelstrom gang at the All Foods plant. Meredith Stout of Militech may offer a deal that complicates things.",
+    "objectives": [
+      "Optional: Meet with Meredith Stout",
+      "Go to the All Foods plant",
+      "Talk to the Maelstrom gang",
+      "Acquire the Flathead bot",
+      "Leave the All Foods plant"
+    ],
+    "rewards": ["Flathead bot", "Street Cred", "Eurodollars", "Chaos Tech Pistol (if you side with Maelstrom)", "Meredith Stout romance opportunity (if you side with Militech)"],
+    "point_of_no_return": false,
+    "tips": "This quest has many branching outcomes. You can pay with your own eddies, use the Militech credchip (hacked or clean), or fight Maelstrom. Calling Meredith Stout before the mission opens more options. If you use the infected credchip, Militech raids the plant.",
+    "related_quests": ["q_the_ride", "q_the_information", "q_the_heist"]
+  },
+  {
+    "id": "q_the_information",
+    "name": "The Information",
+    "type": "main_job",
+    "act": 1,
+    "giver": "Evelyn Parker",
+    "district": "Watson",
+    "description": "V meets Evelyn Parker at Lizzie's Bar and braindances into a recording of Yorinobu Arasaka's penthouse suite at Konpeki Plaza to plan the heist.",
+    "objectives": [
+      "Go to Lizzie's Bar",
+      "Talk to Evelyn Parker",
+      "Braindance into the recording with Judy",
+      "Analyze the braindance for entry points",
+      "Identify the Relic's location",
+      "Report findings to Evelyn"
+    ],
+    "rewards": ["Street Cred", "Heist intel", "Optional: Evelyn's side deal"],
+    "point_of_no_return": false,
+    "tips": "Evelyn offers to cut out Dex and split the profits directly. Accepting or refusing this deal has consequences later. Pay close attention during the braindance; scanning all clues helps during The Heist.",
+    "related_quests": ["q_the_ride", "q_the_pickup", "q_the_heist"]
+  },
+  {
+    "id": "q_the_heist",
+    "name": "The Heist",
+    "type": "main_job",
+    "act": 1,
+    "giver": "Dexter DeShawn",
+    "district": "City Center",
+    "description": "V and Jackie infiltrate Konpeki Plaza to steal the Relic biochip from Yorinobu Arasaka's penthouse. The plan goes catastrophically wrong when Saburo Arasaka arrives and is murdered by his son.",
+    "objectives": [
+      "Meet Jackie at the Delamain cab",
+      "Go to Konpeki Plaza",
+      "Get to Yorinobu's suite",
+      "Steal the Relic",
+      "Escape Konpeki Plaza",
+      "Get to the Delamain cab"
+    ],
+    "rewards": ["The Relic biochip", "Progression to Act 2"],
+    "point_of_no_return": false,
+    "tips": "This is a pivotal quest. Jackie's fate is sealed here. Where you tell the Delamain to send Jackie's body matters for later quests: Mama Welles leads to the 'Heroes' side job, Viktor's clinic has different consequences. Grab Saburo's katana from the AV for a legendary weapon.",
+    "related_quests": ["q_the_pickup", "q_the_information", "q_love_like_fire"]
+  },
+  {
+    "id": "q_love_like_fire",
+    "name": "Love Like Fire",
+    "type": "main_job",
+    "act": 1,
+    "giver": "Johnny Silverhand",
+    "district": "City Center",
+    "description": "A flashback to 2023 where V experiences Johnny Silverhand's memories of the assault on Arasaka Tower, including detonating a nuclear device in the building.",
+    "objectives": [
+      "Experience Johnny's memories",
+      "Fight through Arasaka Tower as Johnny",
+      "Plant the nuke in Arasaka Tower",
+      "Confront Adam Smasher",
+      "Witness the aftermath"
+    ],
+    "rewards": ["Lore", "Johnny Silverhand backstory", "Progression to Playing for Time"],
+    "point_of_no_return": false,
+    "tips": "This is a flashback mission. Enjoy the Johnny Silverhand gameplay. You cannot fail this mission. Pay attention to the story for context on Johnny's motivations.",
+    "related_quests": ["q_the_heist", "q_playing_for_time"]
+  },
+  {
+    "id": "q_playing_for_time",
+    "name": "Playing for Time",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Takemura",
+    "district": "Watson",
+    "description": "V wakes up in a junkyard after being shot by Dex. The Relic has saved V's life but Johnny Silverhand now shares V's consciousness. Takemura, Saburo's former bodyguard, rescues V and proposes an alliance.",
+    "objectives": [
+      "Meet with Takemura",
+      "Go to Viktor's clinic",
+      "Get examined by Viktor",
+      "Talk to Takemura about the plan",
+      "Meet the Voodoo Boys or follow other leads"
+    ],
+    "rewards": ["Street Cred", "Access to Act 2 storylines"],
+    "point_of_no_return": false,
+    "tips": "This quest opens up Act 2 and all its branching paths. Visit Viktor first for important story context. Takemura becomes a key ally; your choices with him matter for the ending.",
+    "related_quests": ["q_love_like_fire", "q_automatic_love", "q_life_during_wartime", "q_map_tann_pelen"]
+  },
+  {
+    "id": "q_automatic_love",
+    "name": "Automatic Love",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Johnny Silverhand",
+    "district": "Westbrook",
+    "description": "V searches for Evelyn Parker by visiting Clouds, a high-end dollhouse in Westbrook run by the Tyger Claws. V must navigate the club to find information on Evelyn's whereabouts.",
+    "objectives": [
+      "Go to Clouds",
+      "Choose a doll (Skye or Angel)",
+      "Talk to the doll about Evelyn",
+      "Find the VIP area",
+      "Talk to Woodman",
+      "Leave Clouds"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Information on Evelyn's location"],
+    "point_of_no_return": false,
+    "tips": "Your choice of doll (Skye or Angel) does not affect the outcome. You can convince, threaten, or fight Woodman. Killing him now or letting him live affects Judy's questline later.",
+    "related_quests": ["q_playing_for_time", "q_the_space_in_between", "q_disasterpiece"]
+  },
+  {
+    "id": "q_the_space_in_between",
+    "name": "The Space in Between",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Judy Alvarez",
+    "district": "Westbrook",
+    "description": "V and Judy follow the trail to Fingers, a black-market ripperdoc in Jig-Jig Street, who was the last person to work on Evelyn before she disappeared.",
+    "objectives": [
+      "Meet Judy at Fingers' clinic",
+      "Talk to Fingers",
+      "Search Fingers' clinic for clues",
+      "Find information about Evelyn",
+      "Deal with Fingers"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Location of Evelyn"],
+    "point_of_no_return": false,
+    "tips": "If you punch Fingers during the conversation, you lose access to him as a ripperdoc vendor permanently. He sells some unique cyberware, so consider holding back. However, Judy approves if you rough him up.",
+    "related_quests": ["q_automatic_love", "q_disasterpiece"]
+  },
+  {
+    "id": "q_disasterpiece",
+    "name": "Disasterpiece",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Judy Alvarez",
+    "district": "Santo Domingo",
+    "description": "V and Judy locate Evelyn Parker in a Scavenger den where she is being used to produce illegal braindance content. They must fight through the hideout to rescue her.",
+    "objectives": [
+      "Meet Judy at her van",
+      "Analyze the braindance for clues",
+      "Locate the Scavenger hideout",
+      "Infiltrate the hideout",
+      "Find Evelyn Parker",
+      "Rescue Evelyn and escape"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Evelyn rescued"],
+    "point_of_no_return": false,
+    "tips": "This is a tough combat zone. Bring your best weapons. Search every room for valuable loot. The braindance analysis section has hidden clues if you scan thoroughly. Rescuing Evelyn triggers Judy's romance questline.",
+    "related_quests": ["q_the_space_in_between", "q_both_sides_now"]
+  },
+  {
+    "id": "q_map_tann_pelen",
+    "name": "M'ap Tann Pelen",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Mr. Hands",
+    "district": "Pacifica",
+    "description": "V travels to Pacifica to find the Voodoo Boys, a netrunner gang that may have information about the Relic and how to contact Alt Cunningham beyond the Blackwall.",
+    "objectives": [
+      "Go to Pacifica",
+      "Find the Voodoo Boys' chapel",
+      "Talk to Placide",
+      "Get a new chip from the local netrunner",
+      "Go to the Grand Imperial Mall",
+      "Clear the Animals from the mall"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Access to Voodoo Boys"],
+    "point_of_no_return": false,
+    "tips": "Placide installs malware in your personal link. You can discover this by visiting a ripperdoc. The Voodoo Boys plan to use you as a disposable proxy. Be prepared for betrayal.",
+    "related_quests": ["q_playing_for_time", "q_i_walk_the_line"]
+  },
+  {
+    "id": "q_i_walk_the_line",
+    "name": "I Walk the Line",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Placide",
+    "district": "Pacifica",
+    "description": "V infiltrates the Grand Imperial Mall occupied by the Animals gang to reach a NetWatch agent, at the behest of the Voodoo Boys. V must choose between siding with NetWatch or the Voodoo Boys.",
+    "objectives": [
+      "Enter the Grand Imperial Mall",
+      "Reach the cinema",
+      "Find the NetWatch agent",
+      "Choose: side with NetWatch or Voodoo Boys",
+      "Deal with the consequences",
+      "Return to the Voodoo Boys chapel"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "Siding with NetWatch gives V a way to safely disconnect and weakens the Voodoo Boys. Siding with the Voodoo Boys maintains their alliance but they still betray you afterward. Either way leads to Transmission.",
+    "related_quests": ["q_map_tann_pelen", "q_transmission"]
+  },
+  {
+    "id": "q_transmission",
+    "name": "Transmission",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Brigitte",
+    "district": "Pacifica",
+    "description": "V jacks into the Voodoo Boys' net to cross the Blackwall and make contact with Alt Cunningham, Johnny Silverhand's former lover who now exists as a rogue AI beyond the Blackwall.",
+    "objectives": [
+      "Jack into the Voodoo Boys' net",
+      "Cross the Blackwall",
+      "Find Alt Cunningham",
+      "Talk to Alt about the Relic",
+      "Survive the Voodoo Boys' betrayal",
+      "Decide the Voodoo Boys' fate"
+    ],
+    "rewards": ["Street Cred", "Contact with Alt Cunningham", "Knowledge about the Relic"],
+    "point_of_no_return": false,
+    "tips": "Alt reveals the Relic is overwriting V's personality with Johnny's. You can choose to kill the Voodoo Boys or let them live after their betrayal. This is a key lore quest for understanding the endgame.",
+    "related_quests": ["q_i_walk_the_line", "q_nocturne_op55n1"]
+  },
+  {
+    "id": "q_life_during_wartime",
+    "name": "Life During Wartime",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Takemura / Panam Palmer",
+    "district": "Badlands",
+    "description": "V teams up with Panam Palmer to track down Hellman, an Arasaka scientist who worked on the Relic, at a Kang Tao AV crash site in the Badlands.",
+    "objectives": [
+      "Meet Panam at the Aldecaldo camp",
+      "Drive to the crash site with Panam",
+      "Search the wreckage for clues",
+      "Track Hellman to the Raffen Shiv camp",
+      "Capture Hellman",
+      "Interrogate Hellman"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Information about the Relic from Hellman"],
+    "point_of_no_return": false,
+    "tips": "This mission introduces Panam Palmer and the Aldecaldos nomad clan. Be nice to Panam to open her romance questline. Hellman reveals important details about the Relic's function when you interrogate him.",
+    "related_quests": ["q_playing_for_time", "q_gimme_danger"]
+  },
+  {
+    "id": "q_gimme_danger",
+    "name": "Gimme Danger",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Takemura",
+    "district": "Westbrook",
+    "description": "V and Takemura scout the Arasaka Industrial Park to plan a raid on the float carrying evidence of Yorinobu's patricide during the Arasaka parade.",
+    "objectives": [
+      "Meet Takemura near the Arasaka Industrial Park",
+      "Scout the area for infiltration routes",
+      "Find a way to disable security",
+      "Sabotage the float's security systems",
+      "Return to Takemura with the plan"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "Stealth is highly recommended for scouting. Find all optional security systems to disable; it makes Search and Destroy significantly easier. Check the security room for bonus intel.",
+    "related_quests": ["q_life_during_wartime", "q_search_and_destroy"]
+  },
+  {
+    "id": "q_search_and_destroy",
+    "name": "Search and Destroy",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Takemura",
+    "district": "Westbrook",
+    "description": "V and Takemura infiltrate the Arasaka parade float to steal evidence of Yorinobu's murder of Saburo. The mission goes sideways when Oda intervenes.",
+    "objectives": [
+      "Meet Takemura at the parade",
+      "Infiltrate the float",
+      "Find the evidence",
+      "Defeat Oda",
+      "Escape the Industrial Park",
+      "Optional: Save Takemura"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Evidence of Yorinobu's crime"],
+    "point_of_no_return": false,
+    "tips": "CRITICAL: After the explosion, you can go back to save Takemura even though the game tells you to leave. Go up the stairs instead of down. If Takemura survives, he appears in The Devil ending. If you leave, he dies.",
+    "related_quests": ["q_gimme_danger", "q_nocturne_op55n1"]
+  },
+  {
+    "id": "q_last_caress",
+    "name": "Last Caress",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Johnny Silverhand",
+    "district": "Multiple",
+    "description": "A Johnny Silverhand flashback sequence exploring his memories of Alt Cunningham being kidnapped by Arasaka and his desperate attempt to rescue her.",
+    "objectives": [
+      "Experience Johnny's memory",
+      "Storm the Arasaka facility",
+      "Search for Alt Cunningham",
+      "Confront Arasaka forces",
+      "Witness Alt's fate"
+    ],
+    "rewards": ["Johnny Silverhand backstory", "Lore about Alt Cunningham"],
+    "point_of_no_return": false,
+    "tips": "This flashback reveals how Alt was forced beyond the Blackwall by Arasaka. The events here directly connect to the endgame choices involving Alt's AI.",
+    "related_quests": ["q_tapeworm", "q_never_fade_away"]
+  },
+  {
+    "id": "q_totalimmortal",
+    "name": "Totalimmortal",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Johnny Silverhand",
+    "district": "Multiple",
+    "description": "Another of Johnny's flashback memories, this time showing his relationship with Rogue and the events leading up to the 2023 Arasaka Tower assault.",
+    "objectives": [
+      "Experience Johnny's memory",
+      "Go with Rogue to plan the attack",
+      "Gather the team for the assault",
+      "Prepare for the Arasaka Tower run"
+    ],
+    "rewards": ["Lore", "Johnny and Rogue backstory"],
+    "point_of_no_return": false,
+    "tips": "Pay attention to the dynamics between Johnny and Rogue. These memories explain Rogue's complicated feelings toward Johnny in the present day and are relevant if you pursue the Rogue questline.",
+    "related_quests": ["q_last_caress", "q_never_fade_away"]
+  },
+  {
+    "id": "q_never_fade_away",
+    "name": "Never Fade Away",
+    "type": "main_job",
+    "act": 2,
+    "giver": "Johnny Silverhand",
+    "district": "City Center",
+    "description": "The definitive flashback to 2023 showing Johnny Silverhand, Rogue, and their crew assaulting Arasaka Tower to rescue Alt Cunningham, culminating in the nuclear detonation.",
+    "objectives": [
+      "Assemble the crew with Rogue",
+      "Infiltrate Arasaka Tower",
+      "Fight through Arasaka security",
+      "Find Alt's digitized engram",
+      "Confront Adam Smasher",
+      "Detonate the nuke"
+    ],
+    "rewards": ["Full Johnny backstory", "Understanding of the Relic's origins"],
+    "point_of_no_return": false,
+    "tips": "This is the complete version of the 2023 Arasaka Tower assault. Thompson dies during the mission. Spider Murphy helps with netrunning. Alt's body is destroyed but her digital consciousness survives beyond the Blackwall.",
+    "related_quests": ["q_totalimmortal", "q_chippin_in"]
+  },
+  {
+    "id": "q_knockin_on_heavens_door",
+    "name": "Knockin' on Heaven's Door",
+    "type": "main_job",
+    "act": 3,
+    "giver": "Hanako Arasaka",
+    "district": "City Center",
+    "description": "V meets Hanako Arasaka at Embers, where she reveals her plan to expose Yorinobu's patricide to the Arasaka board. This meeting represents the final decision point before the endings.",
+    "objectives": [
+      "Go to Embers",
+      "Meet Hanako Arasaka",
+      "Listen to Hanako's proposal",
+      "Make your choice"
+    ],
+    "rewards": ["Access to endgame paths"],
+    "point_of_no_return": false,
+    "tips": "Before entering Embers, make sure you have completed all side quests you want finished, especially Chippin' In, Panam's questline, and Rogue's questline, as they unlock additional ending options on the rooftop.",
+    "related_quests": ["q_nocturne_op55n1"]
+  },
+  {
+    "id": "q_nocturne_op55n1",
+    "name": "Nocturne Op55N1",
+    "type": "main_job",
+    "act": 3,
+    "giver": "Multiple",
+    "district": "Multiple",
+    "description": "The point of no return. V sits on the rooftop of V's apartment building with Johnny and Misty, choosing which ending path to pursue. Available options depend on completed side quests.",
+    "objectives": [
+      "Go to the rooftop",
+      "Talk to Johnny",
+      "Choose your ending path",
+      "Take the pills (Johnny's plan) or refuse (other paths)"
+    ],
+    "rewards": ["Determines the game ending"],
+    "point_of_no_return": true,
+    "tips": "THIS IS THE POINT OF NO RETURN. Save before starting. Available ending paths: The Devil (Hanako, always available), The Star (Panam, requires completed Panam questline), The Sun (Rogue, requires Chippin' In), Temperance (let Johnny keep body), Secret ending (attack Arasaka solo, requires high Johnny relationship). You can also choose suicide.",
+    "related_quests": ["q_knockin_on_heavens_door", "q_where_is_my_mind", "q_all_along_the_watchtower", "q_new_dawn_fades", "q_path_of_glory"]
+  },
+  {
+    "id": "q_where_is_my_mind",
+    "name": "Where is My Mind?",
+    "type": "main_job",
+    "act": 3,
+    "giver": "Hanako Arasaka",
+    "district": "Arasaka Tower / Space",
+    "description": "The Devil ending. V sides with Hanako to expose Yorinobu. After storming Arasaka Tower, V's engram is stored by Arasaka. V wakes on an orbital station and must choose: return to Earth with months to live, or let Arasaka store the engram in Mikoshi.",
+    "objectives": [
+      "Storm Arasaka Tower with Takemura and Arasaka forces",
+      "Defeat Yorinobu's loyalists",
+      "Connect to Mikoshi",
+      "Speak with Alt",
+      "Wake up on the Arasaka orbital station",
+      "Complete the evaluation program",
+      "Choose: sign the contract or return to Earth"
+    ],
+    "rewards": ["Devil ending"],
+    "point_of_no_return": true,
+    "tips": "Takemura only appears in this ending if you saved him during Search and Destroy. This ending is considered the most bittersweet; V either becomes a corporate engram or returns to Earth to die in six months. Johnny is erased.",
+    "related_quests": ["q_nocturne_op55n1", "q_search_and_destroy"]
+  },
+  {
+    "id": "q_all_along_the_watchtower",
+    "name": "All Along the Watchtower",
+    "type": "main_job",
+    "act": 3,
+    "giver": "Panam Palmer",
+    "district": "Badlands",
+    "description": "The Star ending. V calls Panam and the Aldecaldos for help. The nomads assault Arasaka Tower from underground using a massive tunneling vehicle, the Basilisk.",
+    "objectives": [
+      "Meet the Aldecaldos at camp",
+      "Prepare for the assault",
+      "Use the Basilisk to breach Arasaka Tower",
+      "Fight through the underground",
+      "Reach Mikoshi",
+      "Choose: return to V's body or let Johnny take over",
+      "Leave Night City with the Aldecaldos"
+    ],
+    "rewards": ["Star ending", "Leave Night City with Panam and the Aldecaldos"],
+    "point_of_no_return": true,
+    "tips": "Requires completing Panam's full questline (Riders on the Storm through Queen of the Highway). Saul dies during this mission. If V keeps their body, they leave Night City with the Aldecaldos and Panam (if romanced). Many consider this the 'best' ending.",
+    "related_quests": ["q_nocturne_op55n1", "q_queen_of_the_highway"]
+  },
+  {
+    "id": "q_new_dawn_fades",
+    "name": "New Dawn Fades",
+    "type": "main_job",
+    "act": 3,
+    "giver": "Johnny Silverhand",
+    "district": "Multiple",
+    "description": "The Temperance ending. V allows Johnny to take control permanently and storms Arasaka Tower with Rogue. After connecting to Mikoshi, V chooses to cross the Blackwall while Johnny keeps V's body.",
+    "objectives": [
+      "Let Johnny take the lead",
+      "Assault Arasaka Tower with Rogue",
+      "Reach Mikoshi",
+      "V crosses the Blackwall",
+      "Johnny lives in V's body",
+      "Johnny visits V's grave and leaves Night City"
+    ],
+    "rewards": ["Temperance ending", "Johnny gets a second chance at life"],
+    "point_of_no_return": true,
+    "tips": "Requires completing Chippin' In. Rogue dies during the assault. Johnny honors V's memory by leaving Night City. This ending is bittersweet but gives Johnny redemption. V's consciousness merges with the net beyond the Blackwall.",
+    "related_quests": ["q_nocturne_op55n1", "q_chippin_in"]
+  },
+  {
+    "id": "q_path_of_glory",
+    "name": "Path of Glory",
+    "type": "main_job",
+    "act": 3,
+    "giver": "Johnny Silverhand / Rogue",
+    "district": "Multiple",
+    "description": "The Sun ending. V storms Arasaka Tower with Rogue and keeps their body after connecting to Mikoshi. V becomes a Night City legend but has only six months to live. V takes on one final job in space.",
+    "objectives": [
+      "Assault Arasaka Tower with Rogue",
+      "Defeat Adam Smasher",
+      "Connect to Mikoshi",
+      "Choose to keep V's body",
+      "Wake up as a Night City legend",
+      "Take the final space casino heist job"
+    ],
+    "rewards": ["Sun ending", "Legendary status in Night City", "V's penthouse"],
+    "point_of_no_return": true,
+    "tips": "Requires completing Chippin' In. Rogue dies during the assault. V becomes the new queen/king of the Afterlife but only has six months. The final space heist teases a possible cure. If you romanced Judy, she leaves Night City; if Panam, she waits for you; if River or Kerry, they stay.",
+    "related_quests": ["q_nocturne_op55n1", "q_chippin_in"]
+  },
+  {
+    "id": "q_chippin_in",
+    "name": "Chippin' In",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Johnny Silverhand",
+    "district": "Multiple",
+    "description": "Johnny asks V to help him make amends. They visit Rogue at the Afterlife and track down Johnny's old Porsche 911 and his buried body at an old oil field.",
+    "objectives": [
+      "Talk to Johnny",
+      "Visit Rogue at the Afterlife",
+      "Go on a date with Rogue (as Johnny)",
+      "Find Johnny's old car",
+      "Visit the oil field to find Johnny's grave",
+      "Confront the Maelstrom gang at the shipyard"
+    ],
+    "rewards": ["Johnny's Porsche 911 II (930) Turbo", "Rogue's cooperation for the ending", "Malorian Arms 3516 (Johnny's pistol)", "Unlocks Sun/Temperance endings"],
+    "point_of_no_return": false,
+    "tips": "ESSENTIAL for unlocking the Rogue-path endings (Sun and Temperance). Your dialogue choices with Johnny affect your relationship score, which also determines if the secret ending is available. The Porsche is one of the best free vehicles in the game.",
+    "related_quests": ["q_tapeworm", "q_blistering_love", "q_nocturne_op55n1"]
+  },
+  {
+    "id": "q_tapeworm",
+    "name": "Tapeworm",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Johnny Silverhand",
+    "district": "Multiple",
+    "description": "An ongoing series of conversations with Johnny that trigger after key main story missions. These dialogue-only encounters shape V's relationship with Johnny and affect the available endings.",
+    "objectives": [
+      "Talk to Johnny after key missions",
+      "Discuss the Relic situation",
+      "Shape your relationship with Johnny through dialogue choices",
+      "Reach an understanding with Johnny"
+    ],
+    "rewards": ["Johnny relationship progression", "Unlocks Chippin' In"],
+    "point_of_no_return": false,
+    "tips": "Tapeworm triggers after Transmission, Life During Wartime, Search and Destroy, and other key quests. Being sympathetic to Johnny and choosing understanding dialogue options increases your relationship, which is critical for the secret ending (70%+ affinity required).",
+    "related_quests": ["q_chippin_in", "q_transmission", "q_life_during_wartime", "q_search_and_destroy"]
+  },
+  {
+    "id": "q_blistering_love",
+    "name": "Blistering Love",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Johnny Silverhand / Rogue",
+    "district": "Multiple",
+    "description": "Johnny and Rogue's storyline continues as they reconnect. Rogue takes V/Johnny on a mission that tests their renewed partnership.",
+    "objectives": [
+      "Meet Rogue",
+      "Go with Rogue on the mission",
+      "Handle the situation",
+      "Talk to Rogue about the past"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Rogue's full cooperation"],
+    "point_of_no_return": false,
+    "tips": "This quest deepens the Rogue and Johnny relationship. Completing it is part of the path to the Sun and Temperance endings.",
+    "related_quests": ["q_chippin_in", "q_nocturne_op55n1"]
+  },
+  {
+    "id": "q_i_fought_the_law",
+    "name": "I Fought the Law",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Elizabeth Peralez",
+    "district": "City Center",
+    "description": "V is hired by Elizabeth Peralez and her husband Jefferson, a mayoral candidate, to investigate the suspicious death of Mayor Lucius Rhyne. The investigation uncovers a web of corruption.",
+    "objectives": [
+      "Meet Elizabeth and Jefferson Peralez",
+      "Investigate the mayor's death",
+      "Visit the crime scene at the club",
+      "Examine the braindance evidence",
+      "Talk to Detective River Ward",
+      "Report findings to the Peralezes"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "This quest introduces River Ward and begins the Peralez conspiracy questline. Pay close attention to the braindance clues. The conspiracy goes deeper than it first appears.",
+    "related_quests": ["q_dream_on", "q_the_hunt"]
+  },
+  {
+    "id": "q_sinnerman",
+    "name": "Sinnerman",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Wakako Okada",
+    "district": "Westbrook",
+    "description": "Wakako sets up V with a client named Bill Jablonsky who wants revenge on Joshua Stephenson, the man who murdered his wife. But the hit goes sideways when it turns out Joshua has found religion and wants to be crucified on live TV as a braindance.",
+    "objectives": [
+      "Meet the client",
+      "Go after Joshua Stephenson",
+      "Discover Joshua's plan",
+      "Choose whether to participate in the braindance crucifixion",
+      "Attend the crucifixion or walk away"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Unique braindance experience"],
+    "point_of_no_return": false,
+    "tips": "One of the most morally complex quests in the game. You can kill Joshua immediately for a quick end, or follow the questline to its disturbing conclusion. If you participate in the crucifixion BD, you get unique dialogue with Johnny about religion and meaning.",
+    "related_quests": []
+  },
+  {
+    "id": "q_dream_on",
+    "name": "Dream On",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Jefferson Peralez",
+    "district": "City Center",
+    "description": "Jefferson Peralez contacts V about strange occurrences in his penthouse. V discovers that someone has been brainwashing the Peralezes, altering their memories and behavior through hidden tech in their apartment.",
+    "objectives": [
+      "Meet Jefferson at his penthouse",
+      "Scan the apartment for anomalies",
+      "Find the hidden surveillance equipment",
+      "Trace the signal to the broadcast van",
+      "Confront the mysterious operative",
+      "Choose: tell Jefferson the truth or lie"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "This quest has one of the deepest unsolved mysteries in the game. The entity brainwashing the Peralezes is never fully revealed. Telling Jefferson the truth causes him to spiral into paranoia. Lying keeps him blissfully ignorant. Mr. Blue Eyes on the terrace may be connected to the conspiracy.",
+    "related_quests": ["q_i_fought_the_law"]
+  },
+  {
+    "id": "q_the_hunt",
+    "name": "The Hunt",
+    "type": "side_job",
+    "act": 2,
+    "giver": "River Ward",
+    "district": "Multiple",
+    "description": "River Ward asks V for help finding his nephew Randy, who has been kidnapped by Peter Pan, a serial killer who targets children by luring them through braindance technology.",
+    "objectives": [
+      "Meet River at his sister's house",
+      "Analyze the braindance evidence",
+      "Track down leads on the killer",
+      "Find the killer's farm",
+      "Rescue Randy from the killer's lair",
+      "Confront the serial killer"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "River Ward's gratitude", "River romance option (female V)"],
+    "point_of_no_return": false,
+    "tips": "The braindance analysis is critical; scan all clues including the laptop screen to find the farm location. When you arrive at the farm, go directly to the barn and check the silos. Randy can die if you take too long. This quest opens River's romance path for female V.",
+    "related_quests": ["q_i_fought_the_law", "q_following_the_river"]
+  },
+  {
+    "id": "q_following_the_river",
+    "name": "Following the River",
+    "type": "side_job",
+    "act": 2,
+    "giver": "River Ward",
+    "district": "Multiple",
+    "description": "After rescuing Randy, River invites V to dinner at his sister's home. The evening includes a water tower scene where V and River can deepen their relationship.",
+    "objectives": [
+      "Meet River at his sister's home",
+      "Have dinner with River's family",
+      "Go to the water tower with River",
+      "Talk with River about the future",
+      "Choose to romance River or remain friends"
+    ],
+    "rewards": ["Street Cred", "River Ward romance (female V only)"],
+    "point_of_no_return": false,
+    "tips": "The romance option is only available for female V. On the water tower, choose the romantic dialogue options to initiate the relationship. River is one of the more grounded romance options in the game.",
+    "related_quests": ["q_the_hunt"]
+  },
+  {
+    "id": "q_pyramid_song",
+    "name": "Pyramid Song",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Judy Alvarez",
+    "district": "Multiple",
+    "description": "Judy invites V to dive into the flooded ruins of Laguna Bend, her childhood town that was submerged when a corporation built a dam. The emotional dive leads to Judy's romance scene.",
+    "objectives": [
+      "Meet Judy at Laguna Bend",
+      "Dive into the submerged town",
+      "Explore Judy's childhood home",
+      "Surface and go to the cabin",
+      "Spend the night with Judy",
+      "Talk to Judy in the morning"
+    ],
+    "rewards": ["Judy Alvarez romance (female V only)", "Judy's apartment access"],
+    "point_of_no_return": false,
+    "tips": "The romance is only available for female V. Take your time exploring underwater; there are unique environmental stories. After the romance, Judy gives V access to her apartment. This is widely considered one of the best quests in the game.",
+    "related_quests": ["q_both_sides_now", "q_pisces"]
+  },
+  {
+    "id": "q_riders_on_the_storm",
+    "name": "Riders on the Storm",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Panam Palmer",
+    "district": "Badlands",
+    "description": "Panam asks V to help rescue Saul, the leader of the Aldecaldo clan, who has been captured by the Raffen Shiv. The mission takes place during a massive desert sandstorm.",
+    "objectives": [
+      "Meet Panam at the Aldecaldo camp",
+      "Track the Raffen Shiv during the storm",
+      "Infiltrate the Raffen Shiv camp",
+      "Find and rescue Saul",
+      "Escape with Panam and Saul",
+      "Return Saul to camp"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Panam's trust"],
+    "point_of_no_return": false,
+    "tips": "Stealth approach during the storm is recommended. After rescuing Saul, there is a scene in the back of the transport with Panam that can lead toward romance. Be supportive of Panam in dialogue.",
+    "related_quests": ["q_life_during_wartime", "q_with_a_little_help"]
+  },
+  {
+    "id": "q_with_a_little_help",
+    "name": "With a Little Help from My Friends",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Panam Palmer",
+    "district": "Badlands",
+    "description": "Panam enlists V to help the Aldecaldos hijack a Militech convoy carrying a Basilisk panzer, a powerful military vehicle the nomads need for survival.",
+    "objectives": [
+      "Meet Panam at the Aldecaldo camp",
+      "Help plan the convoy ambush",
+      "Ambush the Militech convoy",
+      "Secure the Basilisk",
+      "Fight off Militech reinforcements",
+      "Celebrate with the Aldecaldos"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Aldecaldo trust"],
+    "point_of_no_return": false,
+    "tips": "The Basilisk will be used in the Star ending. The campfire celebration scene is a highlight. This quest further develops the Panam romance if you make the right choices.",
+    "related_quests": ["q_riders_on_the_storm", "q_queen_of_the_highway"]
+  },
+  {
+    "id": "q_queen_of_the_highway",
+    "name": "Queen of the Highway",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Panam Palmer",
+    "district": "Badlands",
+    "description": "Panam and V test-drive the Basilisk together in the desert, leading to a pivotal romantic scene inside the panzer. This is the culmination of Panam's romance arc.",
+    "objectives": [
+      "Meet Panam in the desert",
+      "Test the Basilisk with Panam",
+      "Drive across the desert",
+      "Romance Panam inside the Basilisk",
+      "Talk about the future"
+    ],
+    "rewards": ["Panam Palmer romance (male V only)", "Unlocks the Star ending path"],
+    "point_of_no_return": false,
+    "tips": "This romance is only available for male V. Completing this quest unlocks the Star (All Along the Watchtower) ending option. The Basilisk scene is iconic. Make sure you completed all prior Panam quests.",
+    "related_quests": ["q_with_a_little_help", "q_all_along_the_watchtower"]
+  },
+  {
+    "id": "q_heroes",
+    "name": "Heroes",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Mama Welles",
+    "district": "Heywood",
+    "description": "V attends Jackie Welles' ofrenda, a traditional memorial celebration of his life. V shares stories about Jackie with his family and friends at El Coyote Cojo bar.",
+    "objectives": [
+      "Go to El Coyote Cojo",
+      "Talk to Mama Welles",
+      "Share stories about Jackie with guests",
+      "Give a toast to Jackie",
+      "Receive Jackie's belongings",
+      "Visit Jackie's garage"
+    ],
+    "rewards": ["Jackie's ARCH motorcycle", "Jackie's guns", "Emotional closure"],
+    "point_of_no_return": false,
+    "tips": "Only available if you told the Delamain to send Jackie's body to his family during The Heist. Talk to everyone at the bar for full dialogue. Jackie's motorcycle (ARCH Nazare) is one of the best bikes in the game.",
+    "related_quests": ["q_the_heist"]
+  },
+  {
+    "id": "q_psychofan",
+    "name": "Psychofan",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Kerry Eurodyne",
+    "district": "North Oak",
+    "description": "Kerry Eurodyne asks V to help deal with an obsessive fan named Blue Moon (from the band Us Cracks) who has been stalking him at his North Oak mansion.",
+    "objectives": [
+      "Visit Kerry at his mansion",
+      "Help Kerry deal with the stalker situation",
+      "Confront the fan",
+      "Resolve the situation"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "Part of Kerry Eurodyne's questline. Kerry is a romance option for male V. Handle the situation carefully; you can diffuse it peacefully.",
+    "related_quests": ["q_a_like_supreme", "q_rebel_rebel"]
+  },
+  {
+    "id": "q_both_sides_now",
+    "name": "Both Sides, Now",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Judy Alvarez",
+    "district": "Watson",
+    "description": "V and Judy watch over Evelyn Parker as she recovers from her trauma. Tragically, Evelyn takes her own life, devastating Judy.",
+    "objectives": [
+      "Visit Evelyn at Judy's apartment",
+      "Check on Evelyn",
+      "Discover Evelyn's fate",
+      "Console Judy"
+    ],
+    "rewards": ["Judy's questline progression"],
+    "point_of_no_return": false,
+    "tips": "This is an emotionally heavy quest with no way to change the outcome. Evelyn's death is scripted regardless of your choices. Be supportive of Judy to progress her romance path.",
+    "related_quests": ["q_disasterpiece", "q_ex_factor"]
+  },
+  {
+    "id": "q_ex_factor",
+    "name": "Ex-Factor",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Judy Alvarez",
+    "district": "Westbrook",
+    "description": "Judy enlists V's help to take over Clouds from the Tyger Claws. Judy wants to liberate the dolls and turn the club into a worker-owned cooperative.",
+    "objectives": [
+      "Meet Judy to discuss the plan",
+      "Help Judy recruit allies among the dolls",
+      "Plan the takeover of Clouds",
+      "Execute the plan",
+      "Deal with the Tyger Claws"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "Your choices in this quest affect the outcome of Pisces. Support Judy's plan to keep her questline progressing. The dolls' fates depend on your decisions here and in the follow-up.",
+    "related_quests": ["q_both_sides_now", "q_pisces"]
+  },
+  {
+    "id": "q_pisces",
+    "name": "Pisces",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Judy Alvarez",
+    "district": "Westbrook",
+    "description": "The Clouds takeover plan reaches its climax. Judy and V confront Maiko Maeda, Judy's ex, who has her own agenda for the club. V must navigate the power struggle.",
+    "objectives": [
+      "Meet Judy at Clouds",
+      "Attend the meeting with the Tyger Claws boss",
+      "Deal with Maiko's power play",
+      "Choose: support Maiko, reject her, or find another way",
+      "Resolve the situation"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Judy's romance progression"],
+    "point_of_no_return": false,
+    "tips": "If you accept Maiko's deal, Judy is disappointed and the dolls end up under new management. Rejecting Maiko and handling things yourself leads to the best outcome for Judy's romance. Taking Maiko's money after rejecting her plan blocks the romance.",
+    "related_quests": ["q_ex_factor", "q_pyramid_song"]
+  },
+  {
+    "id": "q_space_oddity",
+    "name": "Space Oddity",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Found item",
+    "district": "Santo Domingo",
+    "description": "V discovers a laptop near some dead homeless people that contains coordinates to a drop point. Following the coordinates leads to a crashed Militech orbital supply pod with valuable loot.",
+    "objectives": [
+      "Find the laptop near the homeless camp",
+      "Decrypt the coordinates",
+      "Travel to the drop point",
+      "Find the supply pod",
+      "Collect the valuable loot",
+      "Optional: Sell the painting for a profit"
+    ],
+    "rewards": ["Unique painting worth thousands of eddies", "Rare items from the supply pod"],
+    "point_of_no_return": false,
+    "tips": "The painting can be sold and then re-bought from a drop point vendor repeatedly for a classic money exploit (patched in some versions). The quest starts by finding a laptop at the hobo camp under the highway in Rancho Coronado.",
+    "related_quests": []
+  },
+  {
+    "id": "q_sweet_dreams",
+    "name": "Sweet Dreams",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Stefan",
+    "district": "Japantown",
+    "description": "A shady dealer named Stefan offers V a one-of-a-kind braindance experience for 16,000 eddies. It turns out to be a scam; V wakes up in a bathtub with all gear stolen.",
+    "objectives": [
+      "Buy the braindance from Stefan",
+      "Use the braindance",
+      "Wake up stripped of all gear",
+      "Fight through the scavenger den unarmed",
+      "Recover your equipment",
+      "Optional: Confront Stefan"
+    ],
+    "rewards": ["Your own gear back", "Lesson learned"],
+    "point_of_no_return": false,
+    "tips": "You will lose 16,000 eddies and all your equipment temporarily. You must fight through enemies unarmed or with found weapons. It's a trap quest designed to punish greed. You can track down Stefan afterward but you don't get your money back.",
+    "related_quests": []
+  },
+  {
+    "id": "q_ballad_of_buck_ravers",
+    "name": "The Ballad of Buck Ravers",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Kerry Eurodyne",
+    "district": "Multiple",
+    "description": "Kerry asks V for help dealing with a band called Us Cracks who are covering old Samurai songs. Kerry is conflicted about his legacy and how the new generation interprets his music.",
+    "objectives": [
+      "Meet Kerry",
+      "Go to the Us Cracks concert",
+      "Talk to the band members",
+      "Help Kerry decide how to handle the situation",
+      "Resolve Kerry's feelings about his legacy"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Kerry's questline progression"],
+    "point_of_no_return": false,
+    "tips": "Part of Kerry's questline. Encourage Kerry to embrace the new generation rather than fight them. This leads to better outcomes in later Kerry quests and progresses his romance arc for male V.",
+    "related_quests": ["q_a_like_supreme", "q_psychofan"]
+  },
+  {
+    "id": "q_a_like_supreme",
+    "name": "A Like Supreme",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Kerry Eurodyne",
+    "district": "Multiple",
+    "description": "Kerry and V reunite the remaining members of Samurai for a concert at the Red Dirt bar. Johnny gets to perform through V one more time.",
+    "objectives": [
+      "Help Kerry set up the reunion concert",
+      "Get the band members to agree",
+      "Attend the concert",
+      "Let Johnny take over during the performance",
+      "Play the Samurai concert"
+    ],
+    "rewards": ["Street Cred", "Kerry romance progression", "Samurai jacket"],
+    "point_of_no_return": false,
+    "tips": "One of the most memorable quests in the game. You get to play as Johnny during the Samurai concert. This is a key quest in Kerry's romance chain for male V. Enjoy the music.",
+    "related_quests": ["q_ballad_of_buck_ravers", "q_rebel_rebel"]
+  },
+  {
+    "id": "q_rebel_rebel",
+    "name": "Rebel! Rebel!",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Kerry Eurodyne",
+    "district": "North Oak",
+    "description": "Kerry's frustrations boil over and he invites V to help him deal with a situation involving his ex-managers and the music industry. This can lead to Kerry's romance scene.",
+    "objectives": [
+      "Meet Kerry at his villa",
+      "Help Kerry with his plan",
+      "Deal with the confrontation",
+      "Spend time with Kerry",
+      "Optional: Romance Kerry"
+    ],
+    "rewards": ["Kerry Eurodyne romance (male V only)", "Street Cred"],
+    "point_of_no_return": false,
+    "tips": "Kerry's romance is only available for male V. Choose supportive dialogue options and stay with Kerry on the rooftop to trigger the romance. This is the culmination of his questline.",
+    "related_quests": ["q_a_like_supreme", "q_psychofan"]
+  },
+  {
+    "id": "q_holdin_on",
+    "name": "Holdin' On",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Johnny Silverhand",
+    "district": "Multiple",
+    "description": "Johnny asks V to visit his old friend Henry, a veteran of the corporate wars. The visit reveals more about Johnny's past and his complicated relationship with the people in his life.",
+    "objectives": [
+      "Go with Johnny to visit Henry",
+      "Talk to Henry about the old days",
+      "Learn more about Johnny's past",
+      "Make a choice regarding Henry's request"
+    ],
+    "rewards": ["Street Cred", "Johnny relationship points"],
+    "point_of_no_return": false,
+    "tips": "Being compassionate in this quest increases your relationship with Johnny. Listen to all of Henry's stories for extra lore about the pre-game world.",
+    "related_quests": ["q_chippin_in", "q_tapeworm"]
+  },
+  {
+    "id": "q_coin_operated_boy",
+    "name": "Coin Operated Boy",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Johnny Silverhand",
+    "district": "Multiple",
+    "description": "Johnny leads V on a quest related to his past, exploring themes of identity and what it means to be human in a world of cyberware and digital consciousness.",
+    "objectives": [
+      "Follow Johnny's lead",
+      "Investigate the location",
+      "Interact with the people involved",
+      "Make a decision about the outcome"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Johnny relationship points"],
+    "point_of_no_return": false,
+    "tips": "Another quest that builds your relationship with Johnny. Your choices here reflect on V's own existential crisis with the Relic.",
+    "related_quests": ["q_chippin_in", "q_tapeworm"]
+  },
+  {
+    "id": "q_machine_gun",
+    "name": "Machine Gun",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Johnny Silverhand",
+    "district": "Multiple",
+    "description": "Johnny directs V to a location connected to his memories of the old Night City music scene. The quest explores the decline of the city's artistic underground.",
+    "objectives": [
+      "Follow Johnny's directions",
+      "Visit the old venue",
+      "Interact with the locals",
+      "Reflect on the past with Johnny"
+    ],
+    "rewards": ["Street Cred", "Johnny relationship points", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "A more reflective quest that deepens your understanding of Johnny and Night City's cultural history. Choose dialogue options that show empathy for maximum relationship gain.",
+    "related_quests": ["q_chippin_in", "q_tapeworm"]
+  },
+  {
+    "id": "q_burning_desire",
+    "name": "Burning Desire",
+    "type": "side_job",
+    "act": 2,
+    "giver": "Found encounter",
+    "district": "Watson",
+    "description": "V encounters a man who has set himself on fire after a faulty cyberware installation. V must decide whether and how to help the poor soul.",
+    "objectives": [
+      "Find the man on fire",
+      "Put out the flames",
+      "Talk to the victim",
+      "Get him medical help or leave him"
+    ],
+    "rewards": ["Street Cred"],
+    "point_of_no_return": false,
+    "tips": "A short but memorable encounter. Help the man to gain some street cred. It highlights the dangers of cheap cyberware in Night City.",
+    "related_quests": []
+  },
+  {
+    "id": "q_many_ways_to_skin_a_cat",
+    "name": "Many Ways to Skin a Cat",
+    "type": "gig",
+    "act": 2,
+    "giver": "Regina Jones",
+    "district": "Watson",
+    "description": "Regina Jones tasks V with rescuing Hwangbo, a corpo employee being held by Tyger Claws in a meatpacking plant in Kabuki.",
+    "objectives": [
+      "Go to the meatpacking plant",
+      "Find Hwangbo",
+      "Rescue Hwangbo",
+      "Get Hwangbo to safety"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "Can be done stealthily for a clean extraction. Check the area for extra loot. The Tyger Claws are not too tough if you need to fight.",
+    "related_quests": []
+  },
+  {
+    "id": "q_backs_against_the_wall",
+    "name": "Backs Against the Wall",
+    "type": "gig",
+    "act": 2,
+    "giver": "Regina Jones",
+    "district": "Watson",
+    "description": "Regina asks V to recover a medical shipment stolen by the Maelstrom gang. The medicine is desperately needed by a clinic in Watson.",
+    "objectives": [
+      "Go to the Maelstrom hideout",
+      "Find the medical shipment",
+      "Recover the medicine",
+      "Deliver the shipment to the drop point"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "Stealth is a good approach to avoid damaging the medicine. The Maelstrom hideout has some good loot in side rooms. Check containers for crafting materials.",
+    "related_quests": []
+  },
+  {
+    "id": "q_dirty_biz",
+    "name": "Dirty Biz",
+    "type": "gig",
+    "act": 2,
+    "giver": "Regina Jones",
+    "district": "Watson",
+    "description": "Regina hires V to investigate a braindance studio that is producing illegal XBDs (extreme braindances) involving real torture and murder in Kabuki.",
+    "objectives": [
+      "Go to the BD studio",
+      "Find evidence of the illegal recordings",
+      "Retrieve the BD recordings",
+      "Neutralize or avoid the XBD producers",
+      "Deliver the evidence to Regina"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "A disturbing gig that shows Night City's dark underbelly. You can find the BDs in the editing room. Going loud is fine but stealth lets you grab the evidence without complications.",
+    "related_quests": []
+  },
+  {
+    "id": "q_hippocratic_oath",
+    "name": "Hippocratic Oath",
+    "type": "gig",
+    "act": 2,
+    "giver": "Regina Jones",
+    "district": "Watson",
+    "description": "A ripperdoc named Lucy is being held by gangsters. Regina wants V to extract her safely so she can continue providing medical care in Watson.",
+    "objectives": [
+      "Go to the gang hideout",
+      "Find the ripperdoc",
+      "Free her from the gang",
+      "Escort her to safety"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "Non-lethal approach is preferred by Regina. Use stealth or quickhacks to disable enemies without killing them. The ripperdoc can treat you afterward.",
+    "related_quests": []
+  },
+  {
+    "id": "q_monster_hunt",
+    "name": "Monster Hunt",
+    "type": "gig",
+    "act": 2,
+    "giver": "Regina Jones",
+    "district": "Watson",
+    "description": "Regina asks V to track down and neutralize a dangerous cyberpsycho who has been terrorizing the residents of Watson. Part of the cyberpsycho sighting series.",
+    "objectives": [
+      "Go to the reported location",
+      "Investigate the area for clues",
+      "Find the cyberpsycho",
+      "Neutralize the cyberpsycho",
+      "Report back to Regina"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "Regina prefers you take down cyberpsychos non-lethally. Use blunt weapons, non-lethal quickhacks, or a non-lethal mod on your weapon. Scan the area for lore shards explaining what triggered the cyberpsychosis.",
+    "related_quests": []
+  },
+  {
+    "id": "q_getting_warmer",
+    "name": "Getting Warmer",
+    "type": "gig",
+    "act": 2,
+    "giver": "Regina Jones",
+    "district": "Watson",
+    "description": "Regina sends V to recover the body of a missing person from a gang-controlled area in Watson. The body contains implants needed as evidence.",
+    "objectives": [
+      "Go to the gang-controlled area",
+      "Find the body",
+      "Recover the body or implants",
+      "Deliver to the drop point"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "The body is usually in a hard-to-reach area of the hideout. Stealth helps avoid unnecessary fights. Scan the environment for the quickest route.",
+    "related_quests": []
+  },
+  {
+    "id": "q_olive_branch",
+    "name": "Olive Branch",
+    "type": "gig",
+    "act": 2,
+    "giver": "Dino Dinovic",
+    "district": "Westbrook",
+    "description": "Fixer Dino Dinovic asks V to deliver a peace offering to a Tyger Claws boss in Japantown. But the delivery is more complicated than it seems.",
+    "objectives": [
+      "Pick up the package",
+      "Deliver the package to the Tyger Claws",
+      "Handle any complications",
+      "Report back to Dino"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "Things may not go smoothly at the delivery. Be prepared for a fight or bring your best persuasion skills. Quicksave before the delivery.",
+    "related_quests": []
+  },
+  {
+    "id": "q_freedom_of_the_press",
+    "name": "Freedom of the Press",
+    "type": "gig",
+    "act": 2,
+    "giver": "Regina Jones",
+    "district": "Watson",
+    "description": "Regina wants V to find and rescue Max Jones, a journalist who went missing while investigating corporate corruption. He is being held in a Militech facility.",
+    "objectives": [
+      "Go to the facility where Max is held",
+      "Infiltrate the building",
+      "Find Max Jones",
+      "Extract Max safely",
+      "Drop Max at the safe house"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "Max has valuable intel if you talk to him after the rescue. Stealth extraction earns better rewards. The facility has good tech loot.",
+    "related_quests": []
+  },
+  {
+    "id": "q_shark_in_the_water",
+    "name": "Shark in the Water",
+    "type": "gig",
+    "act": 2,
+    "giver": "Regina Jones",
+    "district": "Watson",
+    "description": "Regina tasks V with eliminating or neutralizing a dangerous target who has been preying on the vulnerable residents of Watson.",
+    "objectives": [
+      "Go to the target's location",
+      "Find the target",
+      "Neutralize or eliminate the target",
+      "Confirm the job is done with Regina"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "You can choose to kill or incapacitate the target. Read the shards in the area for context on why Regina wants this person dealt with. Non-lethal approaches are always an option.",
+    "related_quests": []
+  },
+  {
+    "id": "q_hot_merchandise",
+    "name": "Hot Merchandise",
+    "type": "gig",
+    "act": 2,
+    "giver": "Regina Jones",
+    "district": "Watson",
+    "description": "Regina asks V to retrieve stolen military-grade tech from a gang stash house before it gets sold on the black market.",
+    "objectives": [
+      "Go to the stash house",
+      "Locate the stolen tech",
+      "Retrieve the merchandise",
+      "Deliver it to the drop point"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "The stash house is well-guarded. Use cameras to scout before going in. The tech is usually in a locked container requiring Technical Ability to open, or you can find the access code on one of the guards.",
+    "related_quests": []
+  },
+  {
+    "id": "q_flight_of_the_cheetah",
+    "name": "Flight of the Cheetah",
+    "type": "gig",
+    "act": 2,
+    "giver": "Regina Jones",
+    "district": "Watson",
+    "description": "A corporate defector needs extraction before their former employer catches up to them. Regina wants V to get them out alive.",
+    "objectives": [
+      "Meet the defector at the rendezvous point",
+      "Protect the defector",
+      "Get to the extraction vehicle",
+      "Eliminate or evade pursuing forces",
+      "Deliver the defector safely"
+    ],
+    "rewards": ["Street Cred", "Eurodollars"],
+    "point_of_no_return": false,
+    "tips": "The defector is fragile so keep them out of crossfire. Having a fast vehicle nearby helps with the escape. Netrunner abilities can disable pursuing drones.",
+    "related_quests": []
+  },
+  {
+    "id": "q_wakakos_favorite",
+    "name": "Wakako's Favorite",
+    "type": "gig",
+    "act": 2,
+    "giver": "Wakako Okada",
+    "district": "Westbrook",
+    "description": "Wakako Okada personally asks V to handle a delicate matter involving one of her favorite operatives who has gone off the grid in Japantown.",
+    "objectives": [
+      "Meet with Wakako's contact",
+      "Investigate the operative's last known location",
+      "Find out what happened",
+      "Resolve the situation to Wakako's satisfaction",
+      "Report back to Wakako"
+    ],
+    "rewards": ["Street Cred", "Eurodollars", "Wakako's favor"],
+    "point_of_no_return": false,
+    "tips": "Wakako values discretion. A stealthy approach and diplomatic resolution earn the best rewards. Check the operative's apartment for clues before going in heavy.",
+    "related_quests": []
+  }
+]

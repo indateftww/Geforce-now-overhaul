@@ -169,6 +169,19 @@ def api_search():
     return jsonify(results)
 
 
+@app.route("/api/guides")
+def api_guides():
+    return jsonify(load_json(DATA / "guides.json"))
+
+@app.route("/api/romance")
+def api_romance():
+    return jsonify(load_json(DATA / "romance.json"))
+
+@app.route("/api/cheats")
+def api_cheats_workarounds():
+    return jsonify(load_json(DATA / "cheats_workarounds.json"))
+
+
 # Screen Monitor / Overwatch
 @app.route("/api/monitor/start", methods=["POST"])
 def api_monitor_start():

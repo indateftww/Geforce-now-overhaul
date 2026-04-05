@@ -1,0 +1,470 @@
+[
+  {
+    "id": "cw_painting_dupe",
+    "name": "Space Oddity Painting Dupe",
+    "category": "money",
+    "works_on_gfn": true,
+    "patched": "partially",
+    "version_notes": "The original infinite sell was patched in 1.3, but a variation using drop/pickup still works in some versions. In 2.0+, the painting sells for less but the quest reward itself is still valuable.",
+    "description": "The Space Oddity side gig rewards a painting worth ~4,000 eddies that could previously be sold and re-purchased infinitely from drop points for massive profit.",
+    "steps": [
+      "Complete the Space Oddity gig (found via an NCPD scanner hustle in Rancho Coronado, Santo Domingo).",
+      "Obtain the painting 'Untitled 18 - Brancesi, 2021' from the quest reward.",
+      "Sell the painting to any drop point for ~4,000 eddies.",
+      "In older versions: re-open the drop point and buy it back for ~5 eddies, then resell. Repeat.",
+      "In current versions: the painting still sells for a good amount as a one-time reward."
+    ],
+    "notes": "One of the most famous exploits in the game's history. Even post-patch, completing Space Oddity is worth it for the eddies.",
+    "risk": "None"
+  },
+  {
+    "id": "cw_drop_pickup_dupe",
+    "name": "Drop/Pickup Item Duplication",
+    "category": "money",
+    "works_on_gfn": true,
+    "patched": "partially",
+    "version_notes": "Works inconsistently across patches. The timing window has been tightened in 2.0+ but some players report success.",
+    "description": "Duplicate items by dropping them and picking them up with precise timing, exploiting an inventory sync delay.",
+    "steps": [
+      "Open your inventory and select a stackable item (components, consumables, or ammo).",
+      "Drop the item on the ground.",
+      "Immediately quicksave before the item fully spawns on the ground.",
+      "Load the quicksave. In some versions, the item will be both in your inventory and on the ground.",
+      "Pick up the ground item to have double the quantity.",
+      "Repeat as needed."
+    ],
+    "notes": "Results vary by platform and game version. Save before attempting so you do not lose items if it fails. Works best with crafting components.",
+    "risk": "Low"
+  },
+  {
+    "id": "cw_ncpd_grind",
+    "name": "NCPD Scanner Hustle Grind",
+    "category": "money",
+    "works_on_gfn": true,
+    "patched": "no",
+    "version_notes": "Fully intended game mechanic. Works on all versions.",
+    "description": "Systematically clear all NCPD Scanner Hustles across Night City for consistent money, XP, and Street Cred. Not an exploit but an efficient farming strategy.",
+    "steps": [
+      "Open the map and filter for NCPD Scanner Hustles (blue skull icons).",
+      "Start in Watson — it has the densest cluster of low-level encounters.",
+      "Clear each encounter, loot all enemies and containers.",
+      "Sell all looted weapons and clothing at the nearest drop point or vendor.",
+      "Move to the next district: Westbrook, Heywood, Santo Domingo, Pacifica, Badlands.",
+      "Skip time 24 hours if vendors run out of money, then continue selling."
+    ],
+    "notes": "This is the most reliable and risk-free money method. Combining it with access point breaching doubles your income per area.",
+    "risk": "None"
+  },
+  {
+    "id": "cw_gig_reset",
+    "name": "Gig Reset Farming",
+    "category": "xp",
+    "works_on_gfn": true,
+    "patched": "partially",
+    "version_notes": "Most gig reset methods were patched in 2.0. Some repeatable NCPD encounters still reset after extended time skipping.",
+    "description": "Force gigs and open-world encounters to respawn by manipulating save/load or time skipping, allowing repeated farming of XP and rewards.",
+    "steps": [
+      "Complete a gig or NCPD encounter normally.",
+      "Travel far from the encounter location (at least 500m away).",
+      "Skip time by 48-72 hours using the wait function.",
+      "Return to the encounter location to check if it has respawned.",
+      "If not, save, quit to main menu, reload, and check again."
+    ],
+    "notes": "NCPD encounters are more likely to reset than fixer gigs. Gigs themselves do not respawn — this primarily works for minor encounters.",
+    "risk": "None"
+  },
+  {
+    "id": "cw_access_point_farming",
+    "name": "Access Point Breach Farming",
+    "category": "money",
+    "works_on_gfn": true,
+    "patched": "no",
+    "version_notes": "Fully working mechanic in all versions. Perk investments increase rewards.",
+    "description": "Systematically breach every access point in Night City for direct eddie extraction. With Intelligence perks, each access point yields massive returns.",
+    "steps": [
+      "Invest in Intelligence attribute (at least 10 points recommended).",
+      "Unlock the Advanced Datamine perk for increased breach rewards.",
+      "Scan for access points in every location (wall jacks, antennas, server racks).",
+      "Complete the Breach Protocol minigame — aim for all three daemon sequences.",
+      "Completing all three sequences in one breach maximizes your eddie payout.",
+      "Combine with NCPD hustle farming for maximum efficiency."
+    ],
+    "notes": "Each access point can yield 800-3,000+ eddies with the right perks. There are hundreds across Night City. This is a legitimate game mechanic, not an exploit.",
+    "risk": "None"
+  },
+  {
+    "id": "cw_vendor_refresh",
+    "name": "Vendor Cash Refresh via Skip Time",
+    "category": "money",
+    "works_on_gfn": true,
+    "patched": "no",
+    "version_notes": "Intended game behavior. Works across all versions and platforms.",
+    "description": "Reset vendor cash reserves by skipping time 24 hours, allowing you to sell more loot continuously without switching vendors.",
+    "steps": [
+      "Sell items to a vendor until their eddies are depleted.",
+      "Exit the vendor menu.",
+      "Open the time skip menu and skip 24 hours.",
+      "Re-open the vendor — their cash has been refreshed to the default amount.",
+      "Continue selling your remaining loot.",
+      "Repeat as needed."
+    ],
+    "notes": "Vendor cash caps at roughly 20,000 eddies. This pairs perfectly with NCPD grinding and crafting loops. Some vendors have higher cash reserves than others.",
+    "risk": "None"
+  },
+  {
+    "id": "cw_free_caliburn",
+    "name": "Free Rayfield Caliburn",
+    "category": "exploration",
+    "works_on_gfn": true,
+    "patched": "no",
+    "version_notes": "Works in all game versions. The car permanently adds to your garage.",
+    "description": "Obtain the Rayfield Caliburn — one of the fastest and most expensive cars in the game — completely free from a hidden tunnel in the Badlands.",
+    "steps": [
+      "Complete the Ghost Town main quest with Panam (Act 2).",
+      "Wait at least three in-game days after completing the quest.",
+      "Travel to the tunnel where you rescued Hellman during the quest (south of the solar farm in the Badlands).",
+      "Drive or walk into the tunnel and look for a parked black Rayfield Caliburn near shipping containers.",
+      "Approach the car and press the interaction prompt to claim it.",
+      "The car is now permanently added to your vehicle collection."
+    ],
+    "notes": "The Caliburn is worth over 150,000 eddies if purchased from a fixer. This is the same model driven by Dexter DeShaw. It is the second-fastest car in the game.",
+    "risk": "None"
+  },
+  {
+    "id": "cw_boundary_skip",
+    "name": "Boundary Skip Exploration",
+    "category": "exploration",
+    "works_on_gfn": true,
+    "patched": "partially",
+    "version_notes": "Many boundary skips were patched in 2.0, but some still work using double jump and specific geometry.",
+    "description": "Use double jump or charge jump cyberware combined with specific terrain geometry to access areas outside the intended play boundaries, including unfinished areas and hidden locations.",
+    "steps": [
+      "Equip Reinforced Tendons (double jump) or Fortified Ankles (charge jump).",
+      "Look for low walls, sloped surfaces, or geometry near the edges of accessible areas.",
+      "Double jump while running at angled geometry to gain extra height or clip past barriers.",
+      "Some known spots: the dam wall east of the Badlands, rooftops in Corpo Plaza, and certain coastline areas.",
+      "Explore out-of-bounds areas — some contain unused assets, terrain, and interesting geometry."
+    ],
+    "notes": "Out-of-bounds areas may lack collision, causing you to fall through the world. Quicksave frequently. Some boundary areas contain developer test objects.",
+    "risk": "Low"
+  },
+  {
+    "id": "cw_iconic_upgrade_exploit",
+    "name": "Iconic Weapon Upgrade Cost Exploit",
+    "category": "combat",
+    "works_on_gfn": true,
+    "patched": "partially",
+    "version_notes": "The specific exploit varies by patch. In 2.0+, iconic upgrading is streamlined but some cost-reduction tricks remain.",
+    "description": "Reduce the component cost of upgrading iconic weapons by manipulating your crafting level or using specific perk combinations to minimize material requirements.",
+    "steps": [
+      "Invest in Technical Ability and crafting-related perks.",
+      "Unlock perks that reduce crafting component costs.",
+      "Save before upgrading an iconic weapon.",
+      "Upgrade the weapon to the next tier and check the component cost.",
+      "If the cost seems too high, reload and try leveling your crafting skill slightly higher to unlock better efficiency perks.",
+      "Some perks provide percentage-based component reduction — stack these before major upgrades."
+    ],
+    "notes": "Always save before upgrading iconics. You cannot reverse an upgrade, and component costs at higher tiers are steep without optimization.",
+    "risk": "None"
+  },
+  {
+    "id": "cw_crafting_profit_loop",
+    "name": "Crafting Profit Loop",
+    "category": "money",
+    "works_on_gfn": true,
+    "patched": "partially",
+    "version_notes": "Profit margins were reduced in 2.0 but the loop still works. Pre-2.0 allowed nearly infinite profit via green item spam.",
+    "description": "Buy cheap crafting components from vendors, craft higher-tier weapons or items, and sell the finished products for more than the component cost, creating a profit loop.",
+    "steps": [
+      "Purchase common and uncommon crafting components from multiple vendors.",
+      "Open the crafting menu and craft the highest-tier weapon you can (Nekomata, Copperhead, or similar).",
+      "Sell the crafted weapons to a vendor or drop point.",
+      "Compare the sale price to your component cost — you should profit 50-200% per item depending on perks.",
+      "Use the vendor skip time trick to refresh vendor cash and component stock.",
+      "Repeat the buy-craft-sell cycle."
+    ],
+    "notes": "This also levels your Crafting skill simultaneously. Higher crafting skill unlocks better items with larger profit margins. Best combined with selling perks.",
+    "risk": "None"
+  },
+  {
+    "id": "cw_vending_machine",
+    "name": "Vending Machine Exploit",
+    "category": "money",
+    "works_on_gfn": true,
+    "patched": "partially",
+    "version_notes": "The original $10 buy / $750 sell was patched in 1.2. Minor vending machine profit tricks remain in some versions.",
+    "description": "Purchase cheap items from vending machines and sell or disassemble them for profit due to pricing discrepancies between buy and sell values.",
+    "steps": [
+      "Find a vending machine selling consumables for 10 eddies each.",
+      "Buy the maximum amount of a single item.",
+      "In older versions: sell these items to a drop point for significantly more than purchase price.",
+      "In current versions: disassemble the items for crafting components, then craft higher-value items to sell.",
+      "The component value from mass-disassembly can exceed the purchase cost with the right perks."
+    ],
+    "notes": "Much less effective post-patch. The disassembly route is more reliable than direct reselling in current versions.",
+    "risk": "None"
+  },
+  {
+    "id": "cw_double_reward_quicksave",
+    "name": "Double Reward Quicksave Trick",
+    "category": "xp",
+    "works_on_gfn": true,
+    "patched": "partially",
+    "version_notes": "Timing-dependent. Works inconsistently after 2.0 but some players report success on specific quest reward screens.",
+    "description": "Quicksave at the exact moment a quest reward is granted to receive the reward twice — once from the trigger and once from the save reload.",
+    "steps": [
+      "Identify a quest or gig that is about to give a reward (eddies, item, or XP).",
+      "As the reward notification appears on screen, immediately quicksave (F5 on PC).",
+      "Load the quicksave.",
+      "In some cases, the reward is applied on save and then re-applied on the quest completion trigger upon load.",
+      "Check your inventory or eddie balance to confirm duplication.",
+      "This works best on gig completion rewards from fixers."
+    ],
+    "notes": "Very inconsistent. The timing window is extremely tight. Does not work on all quest types. Save scumming may be needed.",
+    "risk": "Low"
+  },
+  {
+    "id": "cw_cet_console",
+    "name": "Cyber Engine Tweaks (CET) Console",
+    "category": "console",
+    "works_on_gfn": false,
+    "patched": "no",
+    "version_notes": "CET is updated for each game version by the modding community. Requires local file access.",
+    "description": "Cyber Engine Tweaks is a modding framework that adds a developer console to the game, allowing you to execute Lua commands to add items, eddies, teleport, change stats, and more.",
+    "steps": [
+      "Download CET from the Nexus Mods website.",
+      "Extract the mod files into your Cyberpunk 2077 installation directory (bin/x64/plugins/).",
+      "Launch the game and press the tilde key (~) to open the CET console.",
+      "Use commands like: Game.AddToInventory('Items.money', 100000) to add eddies.",
+      "Use Game.GetPlayer():SetLevel(60) to set your level.",
+      "Browse the CET wiki for the full command list."
+    ],
+    "notes": "Requires local PC installation — cannot be used on GeForce Now, Stadia, or consoles. CET is the foundation for most Cyberpunk mods.",
+    "risk": "Low"
+  },
+  {
+    "id": "cw_wemod",
+    "name": "WeMod Trainer",
+    "category": "console",
+    "works_on_gfn": false,
+    "patched": "no",
+    "version_notes": "WeMod updates trainers for each game patch. Requires local installation and WeMod app.",
+    "description": "WeMod is a third-party trainer application that provides toggleable cheats like infinite health, unlimited ammo, super speed, one-hit kills, and free crafting.",
+    "steps": [
+      "Download and install WeMod from wemod.com.",
+      "Search for Cyberpunk 2077 in the WeMod library.",
+      "Launch the game through WeMod or attach WeMod to the running process.",
+      "Toggle cheats on/off using the WeMod overlay or assigned hotkeys.",
+      "Available cheats include: Infinite Health, Infinite Stamina, No Reload, Unlimited Eddies, Max Street Cred, and more."
+    ],
+    "notes": "WeMod requires a local game installation — it cannot attach to cloud-streamed games. Some antivirus software may flag WeMod. The free version has limited features.",
+    "risk": "Low"
+  },
+  {
+    "id": "cw_cheat_engine",
+    "name": "Cheat Engine Memory Editing",
+    "category": "console",
+    "works_on_gfn": false,
+    "patched": "no",
+    "version_notes": "Cheat Engine tables are community-maintained. Requires local installation and advanced knowledge.",
+    "description": "Cheat Engine is a memory scanner/editor that can modify in-game values like health, eddies, attribute points, and perk points by directly editing memory addresses.",
+    "steps": [
+      "Download Cheat Engine from cheatengine.org.",
+      "Download a Cyberpunk 2077 cheat table (.CT file) from the Cheat Engine forums or Fearless Revolution.",
+      "Launch Cyberpunk 2077 and attach Cheat Engine to the process.",
+      "Load the cheat table and enable desired scripts (infinite health, money editor, attribute editor, etc.).",
+      "Modify values as needed through the Cheat Engine interface.",
+      "Be careful with pointer-based values — changing wrong addresses can crash the game."
+    ],
+    "notes": "Requires local game installation. Cannot be used on GFN. Risk of game crashes if incorrect memory addresses are modified. Always save before using.",
+    "risk": "Medium"
+  },
+  {
+    "id": "cw_fling_trainer",
+    "name": "FLiNG Trainer",
+    "category": "console",
+    "works_on_gfn": false,
+    "patched": "no",
+    "version_notes": "FLiNG updates trainers within days of game patches. Requires local installation.",
+    "description": "FLiNG provides standalone trainer executables for Cyberpunk 2077 with toggleable cheats including god mode, infinite resources, super damage, and stat editing.",
+    "steps": [
+      "Download the Cyberpunk 2077 FLiNG trainer from flingtrainer.com.",
+      "Run the trainer executable as administrator.",
+      "Launch Cyberpunk 2077.",
+      "Use the assigned hotkeys to toggle cheats (displayed in the trainer window).",
+      "Common options: Numpad 1 for Infinite Health, Numpad 2 for Infinite Stamina, Numpad 5 for Add Eddies."
+    ],
+    "notes": "FLiNG trainers are version-specific — download the trainer matching your game version. Cannot be used on cloud gaming platforms. Some antivirus may flag the executable.",
+    "risk": "Low"
+  },
+  {
+    "id": "cw_save_hex_editing",
+    "name": "Save File Hex Editing",
+    "category": "save_editing",
+    "works_on_gfn": false,
+    "patched": "no",
+    "version_notes": "Save structure changes between major patches. Community tools like CP2077 Save Editor are more user-friendly.",
+    "description": "Directly edit Cyberpunk 2077 save files using a hex editor or dedicated save editor tool to modify attributes, inventory, quest states, and more.",
+    "steps": [
+      "Locate your save files: %USERPROFILE%\\Saved Games\\CD Projekt Red\\Cyberpunk 2077.",
+      "Make a backup of the save folder before editing.",
+      "Download a save editor tool (like CP2077 Save Editor from GitHub) for a user-friendly interface.",
+      "Open the save file and navigate to the section you want to modify (inventory, stats, etc.).",
+      "Make changes and save the file.",
+      "Load the modified save in-game to verify changes."
+    ],
+    "notes": "Requires access to local save files — not possible on GFN without downloading cloud saves. Incorrect edits can corrupt saves. Always keep backups.",
+    "risk": "Medium"
+  },
+  {
+    "id": "cw_dll_injection",
+    "name": "DLL Injection Modding",
+    "category": "console",
+    "works_on_gfn": false,
+    "patched": "no",
+    "version_notes": "DLL-based mods require specific game versions. Often break with updates.",
+    "description": "Inject custom DLL files into the game process to modify behavior, bypass restrictions, or add features not available through normal modding frameworks.",
+    "steps": [
+      "Download the desired DLL mod (e.g., custom script loaders, performance patches).",
+      "Place the DLL file in the appropriate game directory (usually bin/x64/ or bin/x64/plugins/).",
+      "Some DLLs require a loader like Ultimate ASI Loader or CET to inject properly.",
+      "Launch the game — the DLL will be loaded automatically if placed correctly.",
+      "Check the mod's documentation for configuration options (usually in an INI file)."
+    ],
+    "notes": "DLL injection is blocked on cloud platforms and consoles. Incompatible DLLs can cause crashes or anti-cheat flags (if applicable). Only use trusted sources.",
+    "risk": "Medium"
+  },
+  {
+    "id": "cw_nexus_mods",
+    "name": "Nexus Mods (Full Modding)",
+    "category": "console",
+    "works_on_gfn": false,
+    "patched": "no",
+    "version_notes": "Nexus Mods has the largest Cyberpunk 2077 mod library. New mods are added daily. Requires local installation.",
+    "description": "Install gameplay-altering mods from Nexus Mods including new weapons, vehicles, appearance changes, gameplay overhauls, UI improvements, and cheat mods.",
+    "steps": [
+      "Create a free account on nexusmods.com.",
+      "Install Vortex Mod Manager (Nexus's official tool) or use manual installation.",
+      "Search for Cyberpunk 2077 mods — popular categories: Gameplay, Cheats, Visuals, Weapons.",
+      "Download mods and install via Vortex (one-click install) or extract manually to the game directory.",
+      "Most mods require CET or REDmod framework — install these first.",
+      "Launch the game and verify mods are working. Check for conflicts if issues arise."
+    ],
+    "notes": "Full modding requires local PC installation. GFN does not support custom mods. Console players have no mod support. Always read mod descriptions for compatibility notes.",
+    "risk": "Low"
+  },
+  {
+    "id": "cw_debug_mode",
+    "name": "Debug Mode Activation",
+    "category": "console",
+    "works_on_gfn": false,
+    "patched": "partially",
+    "version_notes": "Debug mode access was removed in later patches. CET console replaces most debug functionality.",
+    "description": "Activate the game's built-in debug/developer mode to access hidden menus, teleportation, spawning, and diagnostic tools originally used by CD Projekt Red during development.",
+    "steps": [
+      "In early game versions (pre-1.2), debug mode could be activated via specific launch parameters or config edits.",
+      "In current versions, install Cyber Engine Tweaks which provides equivalent functionality.",
+      "Use CET console commands to access debug-style features: teleportation, NPC spawning, time control.",
+      "Some debug features are accessible through modded menu mods available on Nexus Mods.",
+      "The full debug menu is no longer accessible without significant game file modification."
+    ],
+    "notes": "Direct debug mode access was removed by CDPR. CET provides nearly identical functionality for PC players. Not available on consoles or cloud platforms.",
+    "risk": "Low"
+  },
+  {
+    "id": "cw_memory_editors",
+    "name": "Memory Editors & Scanners",
+    "category": "console",
+    "works_on_gfn": false,
+    "patched": "no",
+    "version_notes": "Generic memory editors work on any game version. Addresses change between patches.",
+    "description": "Use third-party memory editing tools (beyond Cheat Engine) such as ArtMoney, GameGuardian, or Process Hacker to scan and modify game memory values in real time.",
+    "steps": [
+      "Install a memory editor of your choice on your local PC.",
+      "Launch Cyberpunk 2077 and note a specific value you want to change (e.g., current eddies: 15,000).",
+      "Attach the memory editor to the Cyberpunk2077.exe process.",
+      "Search for the known value (15000). Multiple results will appear.",
+      "Go back to the game and change the value slightly (spend 100 eddies, now 14,900).",
+      "Search again for the new value (14900) to narrow down the exact memory address.",
+      "Modify the found address to your desired value."
+    ],
+    "notes": "Requires local installation. Time-consuming compared to trainers or CET. Risk of modifying wrong addresses causing crashes. Good for learning how games store data.",
+    "risk": "Medium"
+  },
+  {
+    "id": "cw_game_file_mods",
+    "name": "Game File Modifications",
+    "category": "console",
+    "works_on_gfn": false,
+    "patched": "no",
+    "version_notes": "File structure changes with major patches. Community modding tools keep up with changes.",
+    "description": "Directly modify game configuration files, archives, and scripts to change gameplay values, unlock hidden features, or customize the experience beyond what mods offer.",
+    "steps": [
+      "Navigate to the Cyberpunk 2077 installation directory.",
+      "Back up any files before modifying them.",
+      "For simple tweaks: edit files in the r6/config/ and engine/config/ directories (INI-style settings).",
+      "For deeper changes: use WolvenKit (the community modding toolkit) to extract, modify, and repack game archives.",
+      "Modify weapon stats, NPC behavior, economy values, or visual settings at the source level.",
+      "Repack modified files and place them in the mod directory."
+    ],
+    "notes": "Requires local installation and technical knowledge. WolvenKit is the standard tool for archive modding. Game updates may overwrite or break modifications.",
+    "risk": "Medium"
+  },
+  {
+    "id": "cw_photo_mode_boundary",
+    "name": "Photo Mode Boundary Exploits",
+    "category": "exploration",
+    "works_on_gfn": true,
+    "patched": "partially",
+    "version_notes": "Some photo mode camera boundary tricks still work in 2.0+. The free camera range was limited in patches but not fully restricted.",
+    "description": "Use photo mode's free camera to scout areas, see through walls, and explore restricted zones without moving V's actual position.",
+    "steps": [
+      "Enter photo mode from the pause menu during gameplay.",
+      "Detach the camera from V and move it freely through the environment.",
+      "The camera can pass through some walls and barriers that block normal movement.",
+      "Use this to scout enemy positions in missions, find hidden items, or explore inaccessible areas.",
+      "Note that V does not actually move — this is observation only.",
+      "The camera has a limited range from V's position, but it is generous enough to scout most nearby areas."
+    ],
+    "notes": "Works on all platforms including GFN. The camera cannot interact with anything — strictly visual scouting. Useful for planning stealth approaches.",
+    "risk": "None"
+  },
+  {
+    "id": "cw_quicksave_manipulation",
+    "name": "Quicksave Manipulation",
+    "category": "combat",
+    "works_on_gfn": true,
+    "patched": "partially",
+    "version_notes": "Basic save scumming always works. Some specific exploits involving save/load during combat or dialogue were tightened in 2.0.",
+    "description": "Use quicksave and quickload to manipulate RNG outcomes, retry skill checks, get better loot drops, and recover from failed stealth or combat encounters.",
+    "steps": [
+      "Quicksave (F5) before any risky encounter, dialogue choice, or loot container.",
+      "If the outcome is unfavorable, quickload (F9) to retry.",
+      "For loot: save before opening a container, load if the item is not what you want. Some containers have randomized loot.",
+      "For combat: save before engaging to test different approaches.",
+      "For dialogue: save before critical story choices to see different outcomes.",
+      "Note that some quickhack and combat RNG is seeded — you may need to change your approach slightly to get different results on reload."
+    ],
+    "notes": "Basic save scumming works everywhere including GFN. Some advanced manipulation (like forcing specific loot rolls) was patched to use seeded RNG.",
+    "risk": "None"
+  },
+  {
+    "id": "cw_ai_pathing",
+    "name": "AI Pathing Exploits",
+    "category": "combat",
+    "works_on_gfn": true,
+    "patched": "partially",
+    "version_notes": "AI was significantly improved in the 2.0 update. Many pre-2.0 pathing exploits no longer work. Some geometry-based exploits remain.",
+    "description": "Exploit enemy AI pathfinding limitations to fight enemies from positions they cannot reach or attack from, making difficult encounters trivial.",
+    "steps": [
+      "Find elevated positions that enemies cannot path to (rooftops, scaffolding, certain ledges).",
+      "Use double jump to reach these positions during or before combat.",
+      "Enemies will attempt to path to you but may get stuck or loop between waypoints.",
+      "Attack from safety using ranged weapons or quickhacks.",
+      "Some doorways and narrow passages cause AI to bottleneck — use grenades and area attacks.",
+      "Post-2.0, enemies are smarter but still struggle with extreme verticality and certain geometry."
+    ],
+    "notes": "AI improvements in 2.0 made this less reliable. Enemies now use grenades to flush you out and netrunners can hack you from distance. Still useful for specific encounters.",
+    "risk": "None"
+  }
+]

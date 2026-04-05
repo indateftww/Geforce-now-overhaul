@@ -1,0 +1,64 @@
+[
+  {
+    "id": "r_judy",
+    "name": "Judy Alvarez",
+    "requirements": "Female V, feminine body type and voice",
+    "quest_line": [
+      "Both Sides of the Blade",
+      "Ex-Factor",
+      "Talkin' Bout a Revolution",
+      "Pisces",
+      "Pyramid Song"
+    ],
+    "critical_choice": "In Pisces, side with Judy NOT Maiko. In Pyramid Song, dive together and stay the night.",
+    "romance_quest": "Pyramid Song",
+    "location_after": "Judy's Apartment, Kabuki, Watson",
+    "ending_impact": "Appears in The Star ending. Leaves Night City with V and the Aldecaldos."
+  },
+  {
+    "id": "r_panam",
+    "name": "Panam Palmer",
+    "requirements": "Male V, masculine body type",
+    "quest_line": [
+      "Riders on the Storm",
+      "With a Little Help from My Friends",
+      "Queen of the Highway"
+    ],
+    "critical_choice": "In Queen of the Highway, agree to sync in the Basilisk tank. Choose all romantic dialogue options.",
+    "romance_quest": "Queen of the Highway",
+    "location_after": "Aldecaldo Camp, Badlands",
+    "ending_impact": "Essential for The Star ending (best ending). She leads the Aldecaldos to help V storm Arasaka."
+  },
+  {
+    "id": "r_river",
+    "name": "River Ward",
+    "requirements": "Female V (any body type)",
+    "quest_line": [
+      "I Fought the Law",
+      "The Hunt",
+      "Following the River"
+    ],
+    "critical_choice": "In The Hunt, save Randy. In Following the River, accept dinner invitation and kiss River on the water tower.",
+    "romance_quest": "Following the River",
+    "location_after": "River's trailer, near Sunset Motel",
+    "ending_impact": "Calls during endings. Minor narrative impact."
+  },
+  {
+    "id": "r_kerry",
+    "name": "Kerry Eurodyne",
+    "requirements": "Male V, masculine body type",
+    "quest_line": [
+      "Holdin' On",
+      "Second Conflict",
+      "A Like Supreme",
+      "Rebel Rebel",
+      "I Don't Wanna Hear It",
+      "Off the Leash",
+      "Boat Drinks"
+    ],
+    "critical_choice": "Complete ALL side quests in order. Choose romantic options during Boat Drinks on the yacht.",
+    "romance_quest": "Boat Drinks",
+    "location_after": "Kerry's mansion, North Oak, Westbrook",
+    "ending_impact": "Calls during endings. Minor narrative impact."
+  }
+]

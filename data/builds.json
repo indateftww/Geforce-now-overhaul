@@ -1,0 +1,607 @@
+[
+  {
+    "id": "b_001",
+    "name": "Ghost in the Machine",
+    "archetype": "Netrunner",
+    "description": "A pure hacking build that turns Night City's own infrastructure against its inhabitants. Eliminate entire buildings of enemies without ever firing a shot. Upload quickhacks from stealth, spread contagions through networks, and watch chaos unfold from the safety of a camera feed.",
+    "difficulty": "Medium",
+    "playstyle": "Stealth/Hacking",
+    "attributes": {
+      "body": 6,
+      "reflexes": 8,
+      "technical_ability": 10,
+      "intelligence": 20,
+      "cool": 18
+    },
+    "key_perks": [
+      "Bartmoss' Legacy - Craft legendary quickhacks",
+      "Plague - Quickhacks spread to additional targets",
+      "Subliminal Message - Quickhacks deal more damage to unaware enemies",
+      "Critical Error - Quickhacks can deal critical hits",
+      "Queue Mastery - Reduced RAM cost for queued quickhacks",
+      "Hack Queue - Upload multiple quickhacks to a single target",
+      "Counter-a-hack - Prevents enemy netrunners from hacking you",
+      "Diffusion - Quickhack spread range increased"
+    ],
+    "recommended_cyberware": [
+      "NetWatch Netdriver Mk.5 Cyberdeck",
+      "Kiroshi Optics Mk.3",
+      "Memory Boost",
+      "RAM Upgrade",
+      "Arasaka HotSwap",
+      "Tyrosine Injector",
+      "Synaptic Accelerator",
+      "Lynx Paws"
+    ],
+    "recommended_weapons": [
+      "Skippy (Smart Pistol)",
+      "Divided We Stand (Smart AR)",
+      "Widowmaker (Tech Precision Rifle)"
+    ],
+    "recommended_quickhacks": [
+      "Contagion (Legendary)",
+      "Short Circuit (Legendary)",
+      "Synapse Burnout (Legendary)",
+      "System Reset",
+      "Cyberpsychosis",
+      "Ping (Legendary)"
+    ],
+    "pros": [
+      "Can clear entire encounters without being detected",
+      "Extremely powerful against groups of networked enemies",
+      "Minimal ammo and resource consumption",
+      "Legendary Short Circuit passive triggers on any critical hit",
+      "Trivializes many boss fights with Ultimate quickhacks"
+    ],
+    "cons": [
+      "Weak in direct combat if quickhacks are on cooldown",
+      "RAM management is crucial and mistakes are punishing",
+      "Slow start - build doesn't come online until mid-game",
+      "Vulnerable to enemies not connected to networks",
+      "Some boss encounters have quickhack resistance"
+    ]
+  },
+  {
+    "id": "b_002",
+    "name": "Chrome Demon",
+    "archetype": "Street Samurai",
+    "description": "A melee-focused powerhouse that dances through combat with katanas and Sandevistan. Slow time, close the gap, and carve through enemies like a cybernetic blender. Reflexes and Cool combine to create a lightning-fast killing machine that thrives in close quarters.",
+    "difficulty": "Medium",
+    "playstyle": "Melee/Aggressive",
+    "attributes": {
+      "body": 14,
+      "reflexes": 20,
+      "technical_ability": 6,
+      "intelligence": 3,
+      "cool": 18
+    },
+    "key_perks": [
+      "Sting Like a Bee - Increased attack speed with blades",
+      "Roaring Waters - First strong attack deals massive bonus damage",
+      "Judge Jury Executioner - Increased damage against full-health enemies",
+      "Dragon Strike - Increased critical damage with katanas",
+      "Deathbolt - Kill restores health and increases movement speed",
+      "Fiery Blast - Strong attacks deal area damage",
+      "Cold Blood stacking perks for damage and speed",
+      "Frozen Precision - Increased headshot/critical damage with Cold Blood"
+    ],
+    "recommended_cyberware": [
+      "QianT Sandevistan Mk.4",
+      "Mantis Blades (Legendary) or Scalpel (Iconic Katana)",
+      "Kerenzikov (Legendary)",
+      "Reinforced Tendons",
+      "Dense Marrow (Legendary)",
+      "Bioconductor (Legendary)",
+      "Blood Pump (Legendary)",
+      "Subdermal Armor (Legendary)"
+    ],
+    "recommended_weapons": [
+      "Scalpel (Iconic Katana - bonus with Sandevistan)",
+      "Errata (Iconic Thermal Katana)",
+      "Cheetah (Iconic Katana)",
+      "Satori (Iconic Katana)"
+    ],
+    "recommended_quickhacks": [
+      "N/A - Sandevistan replaces cyberdeck"
+    ],
+    "pros": [
+      "Incredibly fast and satisfying gameplay",
+      "Sandevistan makes you nearly untouchable",
+      "Massive single-target damage with katanas",
+      "Cold Blood stacks provide huge scaling",
+      "Can deflect bullets with katanas while approaching"
+    ],
+    "cons": [
+      "No hacking capability - Sandevistan replaces cyberdeck",
+      "Vulnerable during Sandevistan cooldown",
+      "Ranged enemies in open areas can be challenging",
+      "Requires good spatial awareness and positioning",
+      "Less effective against bosses with grab attacks"
+    ]
+  },
+  {
+    "id": "b_003",
+    "name": "One-Person Army",
+    "archetype": "Solo",
+    "description": "A balanced combat build that excels with all weapon types. High Body and Reflexes create a versatile fighter who can switch between assault rifles, pistols, and shotguns seamlessly. Tough enough to face-tank damage and skilled enough to land every shot.",
+    "difficulty": "Easy",
+    "playstyle": "Ranged/Aggressive",
+    "attributes": {
+      "body": 18,
+      "reflexes": 18,
+      "technical_ability": 12,
+      "intelligence": 3,
+      "cool": 10
+    },
+    "key_perks": [
+      "Annihilation perks for shotgun/LMG damage",
+      "Speed Demon - Increased damage while moving",
+      "Mow Down - Increased LMG damage",
+      "Hail of Bullets - Reduced bullet spread while moving",
+      "Assault rifle and handgun damage perks",
+      "Steel Shell - Increased Armor",
+      "Cardio Cure - Health regen during combat",
+      "Epimorphosis - Faster health regeneration out of combat"
+    ],
+    "recommended_cyberware": [
+      "Militech Berserk Mk.5",
+      "Gorilla Arms (Legendary)",
+      "Biomonitor (Legendary)",
+      "Blood Pump (Legendary)",
+      "Second Heart",
+      "Titanium Bones (Legendary)",
+      "Subdermal Armor (Legendary)",
+      "Synaptic Signal Optimizer"
+    ],
+    "recommended_weapons": [
+      "Malorian Arms 3516 (Johnny's Pistol)",
+      "Doom Doom (Iconic Revolver)",
+      "Psalm 11:6 (Iconic Assault Rifle)",
+      "Carnage Shotgun",
+      "Defender LMG"
+    ],
+    "recommended_quickhacks": [
+      "N/A - Berserk replaces cyberdeck"
+    ],
+    "pros": [
+      "Very beginner-friendly and straightforward",
+      "Extremely tanky with high health and armor",
+      "Versatile across all combat scenarios",
+      "Berserk provides massive damage and survivability boost",
+      "Can brute force through any encounter",
+      "Strong from early game to endgame"
+    ],
+    "cons": [
+      "No hacking capability with Berserk equipped",
+      "Less elegant than specialized builds",
+      "Ammo consumption can be high",
+      "Limited stealth capability",
+      "Some situations favor precision over brute force"
+    ]
+  },
+  {
+    "id": "b_004",
+    "name": "Shadow Operative",
+    "archetype": "Stealth Assassin",
+    "description": "A Cold-blooded killer who eliminates targets without ever being seen. Combines silenced weapons, stealth movement, and precise headshots to clear encounters like a ghost. Patience is rewarded with devastating opening strikes and flawless escapes.",
+    "difficulty": "Hard",
+    "playstyle": "Stealth/Ranged",
+    "attributes": {
+      "body": 6,
+      "reflexes": 16,
+      "technical_ability": 8,
+      "intelligence": 10,
+      "cool": 20
+    },
+    "key_perks": [
+      "Assassin - Deal 15% more damage to human enemies",
+      "From the Shadows - Crit chance increased when entering combat",
+      "Silent and Deadly - Increased damage from silenced weapons in stealth",
+      "Aggressive Antitoxins - Immunity to poison",
+      "Neurotoxin - All Cold Blood attacks apply poison",
+      "Merciless - Cold Blood stacks increase crit chance and damage",
+      "Ninjutsu - Sprinting does not break stealth",
+      "Hasty Retreat - Increased movement speed for 5 seconds after being detected"
+    ],
+    "recommended_cyberware": [
+      "Arasaka Sandevistan (for emergency escapes)",
+      "Kiroshi Optics Mk.3",
+      "Lynx Paws (Silent movement)",
+      "Synaptic Accelerator (Legendary)",
+      "Kerenzikov (Legendary)",
+      "Reinforced Tendons",
+      "Subdermal Armor",
+      "Threat Detector"
+    ],
+    "recommended_weapons": [
+      "Overwatch (Iconic Silenced Sniper)",
+      "Crash (Iconic Revolver)",
+      "Dying Night (Iconic Pistol)",
+      "Tanto (Knife for stealth takedowns)"
+    ],
+    "recommended_quickhacks": [
+      "Ping",
+      "Reboot Optics",
+      "Memory Wipe",
+      "Whistle",
+      "Sonic Shock"
+    ],
+    "pros": [
+      "Extremely satisfying when executed perfectly",
+      "One-shot kills on most enemies from stealth",
+      "Cold Blood stacks make you progressively deadlier",
+      "Can bypass many encounters entirely",
+      "Minimal resource usage per encounter"
+    ],
+    "cons": [
+      "Punishing if detected - limited combat survivability",
+      "Slower paced gameplay requiring patience",
+      "Some encounters force open combat",
+      "Boss fights require different approach",
+      "Requires good knowledge of enemy patrol patterns"
+    ]
+  },
+  {
+    "id": "b_005",
+    "name": "Railgun Surgeon",
+    "archetype": "Tech Sniper",
+    "description": "A precision marksman who uses tech weapons to eliminate targets through walls and cover. Charged shots from tech sniper rifles penetrate any surface, turning the entire map into a shooting gallery. If you can see them on the scanner, you can kill them.",
+    "difficulty": "Medium",
+    "playstyle": "Stealth/Ranged",
+    "attributes": {
+      "body": 8,
+      "reflexes": 14,
+      "technical_ability": 20,
+      "intelligence": 10,
+      "cool": 10
+    },
+    "key_perks": [
+      "Up to 11 - Allows tech weapons to charge to 100%",
+      "Tesla - Fully charged tech weapon shots deal 30% more damage",
+      "Fuck All Walls - Reduces charge amount needed for tech weapons to penetrate walls",
+      "Lickety Split - Tech weapons charge faster",
+      "Bladerunner - Increased damage to drones, mechs, and robots",
+      "Chain Lightning - Charged tech shots hit additional enemies",
+      "Revamp - Fully charged tech weapons deal double damage",
+      "Edgerunner Artisan - Craft legendary tier items"
+    ],
+    "recommended_cyberware": [
+      "QianT Sandevistan Mk.4",
+      "Kiroshi Optics Mk.3",
+      "Kerenzikov",
+      "Reinforced Tendons",
+      "Limbic System Enhancement (Legendary)",
+      "Visual Cortex Support",
+      "Smart Link (for backup weapons)",
+      "Biomonitor"
+    ],
+    "recommended_weapons": [
+      "Widow Maker (Iconic Tech Precision Rifle)",
+      "Comrade's Hammer (Iconic Tech Revolver)",
+      "O'Five (Iconic Tech Sniper)",
+      "Nekomata (Tech Sniper Rifle)",
+      "Lizzie (Iconic Tech Pistol)"
+    ],
+    "recommended_quickhacks": [
+      "Ping (essential for seeing through walls)",
+      "Short Circuit",
+      "Reboot Optics"
+    ],
+    "pros": [
+      "Can kill enemies through walls and cover",
+      "Massive single-shot damage with charged weapons",
+      "Comrade's Hammer can one-shot nearly anything",
+      "Crafting perks provide the best gear in the game",
+      "Excellent at all ranges with different tech weapons"
+    ],
+    "cons": [
+      "Charge time leaves you vulnerable",
+      "Less effective in chaotic close-quarters combat",
+      "Relies heavily on Ping to see targets through walls",
+      "Tech ammo can be scarce early game",
+      "Positioning is critical for wall-penetration angles"
+    ]
+  },
+  {
+    "id": "b_006",
+    "name": "Time Bandit",
+    "archetype": "Sandevistan Blitz",
+    "description": "A speed-obsessed build that maximizes Sandevistan uptime and time-dilation combat. With heavily modded Sandevistan and cooldown reduction, you spend more time in slow-motion than real-time. Dash between enemies at impossible speed delivering critical hits to everything.",
+    "difficulty": "Medium",
+    "playstyle": "Melee-Ranged Hybrid/Aggressive",
+    "attributes": {
+      "body": 12,
+      "reflexes": 20,
+      "technical_ability": 10,
+      "intelligence": 3,
+      "cool": 16
+    },
+    "key_perks": [
+      "Blinding Speed - Increases Sandevistan damage bonus",
+      "Deathbolt - Kills during Sandevistan restore health and movement speed",
+      "Cold Blood stacking for speed and damage",
+      "Rapid Bloodflow - Health regen with Cold Blood active",
+      "Sting Like a Bee - Attack speed with blades",
+      "Fiery Blast - AoE damage on strong melee attacks",
+      "Handgun and blade damage perks for versatility",
+      "Frozen Precision - Critical damage boost with Cold Blood"
+    ],
+    "recommended_cyberware": [
+      "QianT Sandevistan Mk.4 (modded for cooldown reduction)",
+      "Kerenzikov (Legendary)",
+      "Nanorelays (Increased Sandevistan duration)",
+      "Bioconductor (Legendary - Reduced cyberware cooldowns)",
+      "Reinforced Tendons",
+      "Dense Marrow",
+      "Blood Pump",
+      "Limbic System Enhancement (Legendary)"
+    ],
+    "recommended_weapons": [
+      "Scalpel (Iconic Katana - bonus with Sandevistan)",
+      "Malorian Arms 3516 (Power Pistol for ranged)",
+      "Errata (Iconic Thermal Katana)",
+      "Crash (Iconic Revolver for burst damage)"
+    ],
+    "recommended_quickhacks": [
+      "N/A - Sandevistan replaces cyberdeck"
+    ],
+    "pros": [
+      "Sandevistan uptime of ~75% with proper modding",
+      "Incredibly fast-paced and thrilling gameplay",
+      "Versatile - effective with both melee and ranged",
+      "Cold Blood stacks amplify already high speed",
+      "Can dodge nearly all incoming damage during slow-time"
+    ],
+    "cons": [
+      "No hacking capability whatsoever",
+      "Still vulnerable during short cooldown windows",
+      "Requires investment in cooldown reduction cyberware",
+      "Less effective in stealth-focused scenarios",
+      "Can feel overwhelming to manage at high speed"
+    ]
+  },
+  {
+    "id": "b_007",
+    "name": "Unstoppable Juggernaut",
+    "archetype": "Tank/Berserk",
+    "description": "An unkillable wall of chrome and muscle that walks into gunfire and laughs. Maximum Body investment combined with Berserk operating system creates a bruiser who heals through damage and crushes everything with Gorilla Arms and shotguns. Why dodge when you can just absorb?",
+    "difficulty": "Easy",
+    "playstyle": "Melee-Shotgun/Aggressive",
+    "attributes": {
+      "body": 20,
+      "reflexes": 14,
+      "technical_ability": 14,
+      "intelligence": 3,
+      "cool": 10
+    },
+    "key_perks": [
+      "Steel Shell - Massively increased Armor",
+      "Cardio Cure - Health regen in combat",
+      "Dog of War - Increased Berserk damage and duration",
+      "Unbreakable - Increased max health",
+      "Flattened - Enemies hit by strong attacks are knocked down",
+      "Crusher - Increased reload speed and damage with shotguns",
+      "Momentum Shift - Defeating enemy increases movement speed",
+      "Epimorphosis - Rapid out-of-combat healing"
+    ],
+    "recommended_cyberware": [
+      "Militech Berserk Mk.5",
+      "Gorilla Arms (Legendary)",
+      "Second Heart",
+      "Biomonitor (Legendary)",
+      "Blood Pump (Legendary)",
+      "Subdermal Armor (Legendary)",
+      "Synaptic Signal Optimizer",
+      "Titanium Bones (Legendary)"
+    ],
+    "recommended_weapons": [
+      "Sir John Phallustiff (Iconic Blunt Weapon)",
+      "Sovereign (Iconic Shotgun)",
+      "Carnage Shotgun",
+      "Cottonmouth (Iconic Blunt Weapon)",
+      "Defender LMG"
+    ],
+    "recommended_quickhacks": [
+      "N/A - Berserk replaces cyberdeck"
+    ],
+    "pros": [
+      "Nearly impossible to kill with all survivability cyberware",
+      "Second Heart provides literal extra life",
+      "Gorilla Arms open all locked doors (Body checks)",
+      "Simple and satisfying smash-everything gameplay",
+      "Berserk makes you even tougher and stronger",
+      "Great for Very Hard difficulty"
+    ],
+    "cons": [
+      "No hacking capability",
+      "Slow gameplay compared to Sandevistan builds",
+      "Limited range without switching to guns",
+      "Some encounters with snipers require closing distance",
+      "Not suited for stealth at all"
+    ]
+  },
+  {
+    "id": "b_008",
+    "name": "Digital Ronin",
+    "archetype": "Hybrid Net-Samurai",
+    "description": "The best of both worlds - a build that combines Netrunner hacking with katana swordplay. Use quickhacks to soften groups, disable key targets, and debuff enemies before closing in with a blade. Intelligence and Reflexes create a versatile warrior-hacker hybrid.",
+    "difficulty": "Hard",
+    "playstyle": "Hacking-Melee Hybrid",
+    "attributes": {
+      "body": 8,
+      "reflexes": 16,
+      "technical_ability": 3,
+      "intelligence": 18,
+      "cool": 16
+    },
+    "key_perks": [
+      "Plague - Quickhack spread for softening groups",
+      "Critical Error - Quickhacks can crit",
+      "Sting Like a Bee - Blade attack speed",
+      "Dragon Strike - Katana critical damage",
+      "Cold Blood stacking perks",
+      "Merciless - Crit chance and damage with Cold Blood",
+      "Subliminal Message - Extra quickhack damage on unaware enemies",
+      "Deathbolt - Health restore on kills"
+    ],
+    "recommended_cyberware": [
+      "Raven Microcyber Mk.4 Cyberdeck (balanced RAM and slots)",
+      "Kiroshi Optics Mk.3",
+      "Kerenzikov (Legendary)",
+      "Memory Boost",
+      "Reinforced Tendons",
+      "Limbic System Enhancement",
+      "Blood Pump",
+      "Subdermal Armor"
+    ],
+    "recommended_weapons": [
+      "Scalpel (Iconic Katana)",
+      "Errata (Iconic Thermal Katana)",
+      "Skippy (Iconic Smart Pistol as backup)",
+      "Katana (standard for early game)"
+    ],
+    "recommended_quickhacks": [
+      "Contagion (soften groups before engaging)",
+      "Short Circuit (single target burst)",
+      "Reboot Optics (blind before melee engage)",
+      "Weapon Glitch (disable ranged enemies)",
+      "Ping (scouting)"
+    ],
+    "pros": [
+      "Most versatile build in the game",
+      "Can handle any situation with hacking or melee",
+      "Weaken enemies with hacks then finish with blade",
+      "Never feels one-dimensional",
+      "Excellent in both stealth and open combat"
+    ],
+    "cons": [
+      "Jack of all trades, master of neither",
+      "Attribute spread means no single stat at 20 early",
+      "RAM management while also managing melee positioning is complex",
+      "Lower survivability than dedicated tank or netrunner",
+      "Requires good game knowledge to play optimally"
+    ]
+  },
+  {
+    "id": "b_009",
+    "name": "Blade Dancer",
+    "archetype": "Throwing Knife",
+    "description": "A unique Cool-focused build that weaponizes throwing knives as the primary damage source. With the right perks, thrown knives return to you and deal devastating damage. Combined with stealth bonuses and Cold Blood, each throw is a potential one-hit kill. Elegant and deadly.",
+    "difficulty": "Hard",
+    "playstyle": "Stealth/Ranged",
+    "attributes": {
+      "body": 6,
+      "reflexes": 16,
+      "technical_ability": 6,
+      "intelligence": 8,
+      "cool": 20
+    },
+    "key_perks": [
+      "Juggler - Thrown knives return to you after hitting",
+      "Dagger Dealer - Increased thrown knife damage",
+      "From the Shadows - Entering combat increases crit chance",
+      "Silent and Deadly - Silenced weapon damage bonus in stealth",
+      "Assassin - Bonus damage to human enemies",
+      "Neurotoxin - Apply poison through Cold Blood",
+      "Merciless - Cold Blood crit stacking",
+      "Ninjutsu - Sprinting does not break stealth"
+    ],
+    "recommended_cyberware": [
+      "QianT Sandevistan Mk.4 (slow-mo knife throwing)",
+      "Kiroshi Optics Mk.3",
+      "Kerenzikov (Legendary)",
+      "Lynx Paws",
+      "Reinforced Tendons",
+      "Limbic System Enhancement (Legendary)",
+      "Visual Cortex Support",
+      "Synaptic Accelerator"
+    ],
+    "recommended_weapons": [
+      "Headhunter (Iconic Pistol for backup)",
+      "Tanto (Throwable knife)",
+      "Knife (Standard throwing knife)",
+      "Cheetah (Iconic Katana for melee backup)"
+    ],
+    "recommended_quickhacks": [
+      "Ping (target location)",
+      "Whistle (lure targets)",
+      "Reboot Optics",
+      "Memory Wipe"
+    ],
+    "pros": [
+      "Extremely satisfying one-hit knife kills",
+      "Knives return after Juggler perk - infinite ammo",
+      "Silent kills maintain stealth perfectly",
+      "Cold Blood stacks make each subsequent kill deadlier",
+      "Very unique and underutilized playstyle"
+    ],
+    "cons": [
+      "Very weak until Juggler perk is obtained",
+      "Limited area damage capability",
+      "Heavily reliant on specific perk investment",
+      "Open combat against large groups is challenging",
+      "Boss fights require backup weapon strategy"
+    ]
+  },
+  {
+    "id": "b_010",
+    "name": "Relic Override",
+    "archetype": "Relic (Phantom Liberty)",
+    "description": "A Phantom Liberty build that fully exploits the new Relic skill tree. Combines the powerful new Relic perks with existing combat skills to create a cutting-edge build. Jailbreak abilities enhance arm cyberware, while Vulnerability Analytics turns every enemy into a weak point puzzle.",
+    "difficulty": "Medium",
+    "playstyle": "Cyberware-Enhanced Combat",
+    "attributes": {
+      "body": 15,
+      "reflexes": 18,
+      "technical_ability": 15,
+      "intelligence": 6,
+      "cool": 8
+    },
+    "key_perks": [
+      "Jailbreak - Unlocks new abilities for arm cyberware (Mantis Blades leap, Gorilla Arms shockwave, Monowire control, Launcher smart targeting)",
+      "Vulnerability Analytics - Enemies display weak points for bonus damage",
+      "Machine Learning - Hitting weak points increases crit stats temporarily",
+      "Limiter Removal - Overclock cyberware for increased power at health cost",
+      "Data Tunneling - Quickhacks applied through Monowire deal more damage",
+      "Launch Capacity Override - Projectile Launch System fires multiple projectiles",
+      "Sensory Protocol - Becoming harder to detect while crouching",
+      "Spatial Mapping - Increased weak point damage"
+    ],
+    "recommended_cyberware": [
+      "QianT Sandevistan Mk.4 or Arasaka Sandevistan",
+      "Mantis Blades (Legendary) - Enhanced by Jailbreak leap",
+      "Kerenzikov (Legendary)",
+      "Bioconductor (Legendary)",
+      "Blood Pump (Legendary)",
+      "Reinforced Tendons",
+      "Subdermal Armor (Legendary)",
+      "Limbic System Enhancement (Legendary)"
+    ],
+    "recommended_weapons": [
+      "Malorian Arms 3516 (Iconic Power Pistol)",
+      "Headhunter (Iconic Phantom Liberty Pistol)",
+      "Amnesty (Iconic Phantom Liberty Revolver)",
+      "Errata (Iconic Katana)",
+      "Mantis Blades (Arm cyberware as primary weapon)"
+    ],
+    "recommended_quickhacks": [
+      "Ping (for Vulnerability Analytics targeting)",
+      "Short Circuit (synergy with weak points)",
+      "Reboot Optics"
+    ],
+    "pros": [
+      "Access to powerful Relic skill tree abilities",
+      "Jailbreak transforms arm cyberware into devastating weapons",
+      "Vulnerability Analytics provides consistent bonus damage",
+      "Machine Learning creates a snowball effect in combat",
+      "Most modern and updated build path in the game"
+    ],
+    "cons": [
+      "Requires Phantom Liberty DLC",
+      "Relic points are limited - must choose perks carefully",
+      "Limiter Removal health cost can be dangerous",
+      "Requires understanding of weak point mechanics",
+      "Build doesn't fully come online until late game with Relic points"
+    ]
+  }
+]

@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "cw_001",
+    "name": "Zetatech Sandevistan Mk.1",
+    "slot": "Operating System",
+    "rarity": "uncommon",
+    "effects": [
+      "Slows time by 25% for 8 seconds",
+      "Increased movement speed while active",
+      "+10% damage while active"
+    ],
+    "cost": 7500,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "Reflexes 6"
+  },
+  {
+    "id": "cw_002",
+    "name": "Zetatech Sandevistan Mk.2",
+    "slot": "Operating System",
+    "rarity": "rare",
+    "effects": [
+      "Slows time by 50% for 10 seconds",
+      "Increased movement speed while active",
+      "+15% damage while active",
+      "+15% critical chance while active"
+    ],
+    "cost": 15000,
+    "ripperdoc": "Charles Bucks",
+    "district": "Kabuki, Watson",
+    "requirements": "Reflexes 9"
+  },
+  {
+    "id": "cw_003",
+    "name": "Zetatech Sandevistan Mk.3",
+    "slot": "Operating System",
+    "rarity": "epic",
+    "effects": [
+      "Slows time by 70% for 12 seconds",
+      "Increased movement speed while active",
+      "+20% damage while active",
+      "+20% critical chance while active",
+      "+15% critical damage while active"
+    ],
+    "cost": 25000,
+    "ripperdoc": "Fingers (Finn Gerstatt)",
+    "district": "Japantown, Westbrook",
+    "requirements": "Reflexes 12"
+  },
+  {
+    "id": "cw_004",
+    "name": "QianT Sandevistan Mk.4",
+    "slot": "Operating System",
+    "rarity": "legendary",
+    "effects": [
+      "Slows time by 75% for 12 seconds",
+      "+15% critical chance while active",
+      "+30% critical damage while active",
+      "+20% damage while active",
+      "3 mod slots"
+    ],
+    "cost": 35000,
+    "ripperdoc": "Fingers (Finn Gerstatt)",
+    "district": "Japantown, Westbrook",
+    "requirements": "Reflexes 15"
+  },
+  {
+    "id": "cw_005",
+    "name": "Arasaka Sandevistan",
+    "slot": "Operating System",
+    "rarity": "legendary",
+    "effects": [
+      "Slows time by 90% for 16 seconds",
+      "+20% critical chance while active",
+      "+35% critical damage while active",
+      "+25% damage while active",
+      "Cooldown: 30 seconds"
+    ],
+    "cost": 45000,
+    "ripperdoc": "Downtown Ripperdoc",
+    "district": "City Center",
+    "requirements": "Reflexes 18"
+  },
+  {
+    "id": "cw_006",
+    "name": "Militech Berserk Mk.1",
+    "slot": "Operating System",
+    "rarity": "uncommon",
+    "effects": [
+      "Reduces weapon recoil by 15%",
+      "Increases melee damage by 5%",
+      "+10% Armor while active",
+      "Duration: 10 seconds"
+    ],
+    "cost": 7500,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "Body 6"
+  },
+  {
+    "id": "cw_007",
+    "name": "Militech Berserk Mk.2",
+    "slot": "Operating System",
+    "rarity": "rare",
+    "effects": [
+      "Reduces weapon recoil by 20%",
+      "Increases melee damage by 10%",
+      "+15% Armor while active",
+      "Duration: 15 seconds"
+    ],
+    "cost": 16000,
+    "ripperdoc": "Cassius Ryder",
+    "district": "Northside, Watson",
+    "requirements": "Body 9"
+  },
+  {
+    "id": "cw_008",
+    "name": "Militech Berserk Mk.3",
+    "slot": "Operating System",
+    "rarity": "epic",
+    "effects": [
+      "Reduces weapon recoil by 25%",
+      "Increases melee damage by 15%",
+      "+20% Armor while active",
+      "Ranged attacks deal 15% more damage",
+      "Duration: 20 seconds"
+    ],
+    "cost": 25000,
+    "ripperdoc": "Doc Ryder",
+    "district": "Wellsprings, Heywood",
+    "requirements": "Body 12"
+  },
+  {
+    "id": "cw_009",
+    "name": "Militech Berserk Mk.4",
+    "slot": "Operating System",
+    "rarity": "legendary",
+    "effects": [
+      "Reduces weapon recoil by 30%",
+      "Increases melee damage by 20%",
+      "+30% Armor while active",
+      "Ranged attacks deal 20% more damage",
+      "Kills restore 5% health while active",
+      "Duration: 30 seconds"
+    ],
+    "cost": 35000,
+    "ripperdoc": "Kraviz's Clinic",
+    "district": "Charter Hill, Westbrook",
+    "requirements": "Body 16"
+  },
+  {
+    "id": "cw_010",
+    "name": "Militech Berserk Mk.5",
+    "slot": "Operating System",
+    "rarity": "legendary",
+    "effects": [
+      "Reduces weapon recoil by 40%",
+      "Increases melee damage by 25%",
+      "+40% Armor while active",
+      "Ranged attacks deal 25% more damage",
+      "Kills restore 10% health while active",
+      "Duration: 30 seconds",
+      "3 mod slots"
+    ],
+    "cost": 45000,
+    "ripperdoc": "Ripperdoc in Dogtown",
+    "district": "Dogtown, Pacifica",
+    "requirements": "Body 18"
+  },
+  {
+    "id": "cw_011",
+    "name": "Kiroshi Optics Mk.1",
+    "slot": "Ocular System",
+    "rarity": "uncommon",
+    "effects": [
+      "Enables optical zoom",
+      "Displays enemy info and threat level",
+      "1 mod slot for scanner upgrades"
+    ],
+    "cost": 3000,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_012",
+    "name": "Kiroshi Optics Mk.2",
+    "slot": "Ocular System",
+    "rarity": "rare",
+    "effects": [
+      "Enhanced optical zoom range",
+      "Displays detailed enemy info",
+      "Highlights interactive objects",
+      "2 mod slots"
+    ],
+    "cost": 7500,
+    "ripperdoc": "Charles Bucks",
+    "district": "Kabuki, Watson",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_013",
+    "name": "Kiroshi Optics Mk.3",
+    "slot": "Ocular System",
+    "rarity": "epic",
+    "effects": [
+      "Maximum optical zoom range",
+      "Full enemy analysis including vulnerabilities",
+      "Highlights all interactive objects and loot",
+      "3 mod slots"
+    ],
+    "cost": 15000,
+    "ripperdoc": "Downtown Ripperdoc",
+    "district": "City Center",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_014",
+    "name": "Mantis Blades",
+    "slot": "Arms",
+    "rarity": "epic",
+    "effects": [
+      "Retractable arm blades for melee combat",
+      "Leap attack that closes distance to enemies",
+      "Fast attack speed with dismember chance",
+      "Can be modded for Physical, Thermal, Chemical, or Electrical damage"
+    ],
+    "cost": 25000,
+    "ripperdoc": "Downtown Ripperdoc",
+    "district": "City Center",
+    "requirements": "Street Cred 20"
+  },
+  {
+    "id": "cw_015",
+    "name": "Mantis Blades (Legendary)",
+    "slot": "Arms",
+    "rarity": "legendary",
+    "effects": [
+      "Retractable arm blades for melee combat",
+      "Enhanced leap attack with increased range",
+      "Fast attack speed with high dismember chance",
+      "3 mod slots for damage type and bonuses",
+      "Increased base damage"
+    ],
+    "cost": 45000,
+    "ripperdoc": "Ripperdoc in Heywood",
+    "district": "The Glen, Heywood",
+    "requirements": "Street Cred 35"
+  },
+  {
+    "id": "cw_016",
+    "name": "Monowire",
+    "slot": "Arms",
+    "rarity": "epic",
+    "effects": [
+      "Retractable monofilament whip",
+      "Long-range melee attacks",
+      "Deals damage in a wide arc",
+      "Charge attack deals increased damage",
+      "Scales with Cool attribute"
+    ],
+    "cost": 25000,
+    "ripperdoc": "Fingers (Finn Gerstatt)",
+    "district": "Japantown, Westbrook",
+    "requirements": "Street Cred 20"
+  },
+  {
+    "id": "cw_017",
+    "name": "Monowire (Legendary)",
+    "slot": "Arms",
+    "rarity": "legendary",
+    "effects": [
+      "Retractable monofilament whip",
+      "Extended range melee attacks",
+      "Wide arc attacks hit multiple enemies",
+      "Charged attacks deal massive bonus damage",
+      "3 mod slots",
+      "Increased base damage"
+    ],
+    "cost": 45000,
+    "ripperdoc": "Ripperdoc in Pacifica",
+    "district": "West Wind Estate, Pacifica",
+    "requirements": "Street Cred 35"
+  },
+  {
+    "id": "cw_018",
+    "name": "Gorilla Arms",
+    "slot": "Arms",
+    "rarity": "epic",
+    "effects": [
+      "Increases melee damage significantly",
+      "Charged strong attacks deal massive damage",
+      "Can force open locked doors",
+      "Increases Body check effectiveness",
+      "Stun chance on strong attacks"
+    ],
+    "cost": 25000,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "Street Cred 20"
+  },
+  {
+    "id": "cw_019",
+    "name": "Gorilla Arms (Legendary)",
+    "slot": "Arms",
+    "rarity": "legendary",
+    "effects": [
+      "Massively increases melee damage",
+      "Charged strong attacks deal devastating damage",
+      "Can force open all locked doors",
+      "High stun chance on all attacks",
+      "3 mod slots",
+      "Increased base damage"
+    ],
+    "cost": 45000,
+    "ripperdoc": "Ripperdoc in Santo Domingo",
+    "district": "Arroyo, Santo Domingo",
+    "requirements": "Street Cred 35"
+  },
+  {
+    "id": "cw_020",
+    "name": "Projectile Launch System",
+    "slot": "Arms",
+    "rarity": "epic",
+    "effects": [
+      "Launches explosive projectile from arm",
+      "Deals massive area-of-effect damage",
+      "Can be modded for different warhead types",
+      "Chemical, Electrical, Thermal, or Tranquilizer rounds"
+    ],
+    "cost": 25000,
+    "ripperdoc": "Downtown Ripperdoc",
+    "district": "City Center",
+    "requirements": "Street Cred 20"
+  },
+  {
+    "id": "cw_021",
+    "name": "Projectile Launch System (Legendary)",
+    "slot": "Arms",
+    "rarity": "legendary",
+    "effects": [
+      "Launches explosive projectile from arm",
+      "Devastating area-of-effect damage",
+      "Increased blast radius and damage",
+      "3 mod slots for warhead and guidance",
+      "Smart targeting capability with smart link"
+    ],
+    "cost": 45000,
+    "ripperdoc": "Ripperdoc in Rancho Coronado",
+    "district": "Rancho Coronado, Santo Domingo",
+    "requirements": "Street Cred 35"
+  },
+  {
+    "id": "cw_022",
+    "name": "Kerenzikov",
+    "slot": "Nervous System",
+    "rarity": "epic",
+    "effects": [
+      "Slows time by 60% for 2.5 seconds when dodging or sliding while aiming",
+      "Can be activated separately from Sandevistan",
+      "+10% damage while active"
+    ],
+    "cost": 15000,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "Reflexes 12"
+  },
+  {
+    "id": "cw_023",
+    "name": "Kerenzikov (Legendary)",
+    "slot": "Nervous System",
+    "rarity": "legendary",
+    "effects": [
+      "Slows time by 80% for 3.5 seconds when dodging or sliding while aiming",
+      "Can be activated separately from Sandevistan",
+      "+20% damage while active"
+    ],
+    "cost": 28000,
+    "ripperdoc": "Ripperdoc in Wellsprings",
+    "district": "Wellsprings, Heywood",
+    "requirements": "Reflexes 15"
+  },
+  {
+    "id": "cw_024",
+    "name": "Synaptic Accelerator",
+    "slot": "Nervous System",
+    "rarity": "epic",
+    "effects": [
+      "Slows time by 50% for 3 seconds when detected by enemies",
+      "Allows quick reaction in ambush situations",
+      "Cooldown: 30 seconds"
+    ],
+    "cost": 12000,
+    "ripperdoc": "Charles Bucks",
+    "district": "Kabuki, Watson",
+    "requirements": "Reflexes 9"
+  },
+  {
+    "id": "cw_025",
+    "name": "Synaptic Accelerator (Legendary)",
+    "slot": "Nervous System",
+    "rarity": "legendary",
+    "effects": [
+      "Slows time by 70% for 4 seconds when detected by enemies",
+      "Allows extended reaction time in ambush situations",
+      "Cooldown: 20 seconds"
+    ],
+    "cost": 25000,
+    "ripperdoc": "Ripperdoc in The Glen",
+    "district": "The Glen, Heywood",
+    "requirements": "Reflexes 14"
+  },
+  {
+    "id": "cw_026",
+    "name": "Biomonitor",
+    "slot": "Circulatory System",
+    "rarity": "epic",
+    "effects": [
+      "Automatically restores 60% health when health drops below 15%",
+      "Cooldown: 90 seconds",
+      "Works passively without player input"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "Body 9"
+  },
+  {
+    "id": "cw_027",
+    "name": "Biomonitor (Legendary)",
+    "slot": "Circulatory System",
+    "rarity": "legendary",
+    "effects": [
+      "Automatically restores 100% health when health drops below 15%",
+      "Cooldown: 60 seconds",
+      "Works passively without player input"
+    ],
+    "cost": 28000,
+    "ripperdoc": "Ripperdoc in Charter Hill",
+    "district": "Charter Hill, Westbrook",
+    "requirements": "Body 14"
+  },
+  {
+    "id": "cw_028",
+    "name": "Blood Pump",
+    "slot": "Circulatory System",
+    "rarity": "epic",
+    "effects": [
+      "Activated ability that restores 70% health instantly",
+      "Cooldown: 30 seconds",
+      "Quick activation during combat"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Charles Bucks",
+    "district": "Kabuki, Watson",
+    "requirements": "Body 10"
+  },
+  {
+    "id": "cw_029",
+    "name": "Blood Pump (Legendary)",
+    "slot": "Circulatory System",
+    "rarity": "legendary",
+    "effects": [
+      "Activated ability that restores 90% health instantly",
+      "Cooldown: 20 seconds",
+      "Fastest healing cyberware in the game"
+    ],
+    "cost": 28000,
+    "ripperdoc": "Ripperdoc in Arroyo",
+    "district": "Arroyo, Santo Domingo",
+    "requirements": "Body 16"
+  },
+  {
+    "id": "cw_030",
+    "name": "Second Heart",
+    "slot": "Circulatory System",
+    "rarity": "legendary",
+    "effects": [
+      "Instantly restores 100% health upon death",
+      "Cooldown: 120 seconds",
+      "Essentially grants an extra life in combat"
+    ],
+    "cost": 42000,
+    "ripperdoc": "Fingers (Finn Gerstatt)",
+    "district": "Japantown, Westbrook",
+    "requirements": "Body 16"
+  },
+  {
+    "id": "cw_031",
+    "name": "Reinforced Tendons",
+    "slot": "Legs",
+    "rarity": "rare",
+    "effects": [
+      "Enables double jump",
+      "Jump again while in mid-air",
+      "Greatly improves vertical mobility"
+    ],
+    "cost": 15000,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_032",
+    "name": "Fortified Ankles",
+    "slot": "Legs",
+    "rarity": "epic",
+    "effects": [
+      "Enables charged power jump",
+      "Hold jump to charge for higher leap",
+      "Hover briefly at apex of jump",
+      "Greater maximum height than double jump"
+    ],
+    "cost": 25000,
+    "ripperdoc": "Fingers (Finn Gerstatt)",
+    "district": "Japantown, Westbrook",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_033",
+    "name": "Subdermal Armor",
+    "slot": "Integumentary System",
+    "rarity": "epic",
+    "effects": [
+      "Increases Armor by 200",
+      "Passive damage reduction from all sources",
+      "Stacks with clothing armor"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_034",
+    "name": "Subdermal Armor (Legendary)",
+    "slot": "Integumentary System",
+    "rarity": "legendary",
+    "effects": [
+      "Increases Armor by 300",
+      "Significant passive damage reduction from all sources",
+      "Stacks with clothing armor",
+      "Minor immunity to bleed effect"
+    ],
+    "cost": 28000,
+    "ripperdoc": "Ripperdoc in Wellsprings",
+    "district": "Wellsprings, Heywood",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_035",
+    "name": "Titanium Bones",
+    "slot": "Skeleton",
+    "rarity": "epic",
+    "effects": [
+      "Increases carrying capacity by 40%",
+      "Reduces fall damage",
+      "Increases body check threshold"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Charles Bucks",
+    "district": "Kabuki, Watson",
+    "requirements": "Body 8"
+  },
+  {
+    "id": "cw_036",
+    "name": "Titanium Bones (Legendary)",
+    "slot": "Skeleton",
+    "rarity": "legendary",
+    "effects": [
+      "Increases carrying capacity by 60%",
+      "Greatly reduces fall damage",
+      "Significantly increases body check threshold"
+    ],
+    "cost": 25000,
+    "ripperdoc": "Ripperdoc in Rancho Coronado",
+    "district": "Rancho Coronado, Santo Domingo",
+    "requirements": "Body 12"
+  },
+  {
+    "id": "cw_037",
+    "name": "Dense Marrow",
+    "slot": "Skeleton",
+    "rarity": "epic",
+    "effects": [
+      "Increases melee damage by 25%",
+      "Increases stamina cost of melee attacks by 10%",
+      "Stronger knockback on melee hits"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "Body 10"
+  },
+  {
+    "id": "cw_038",
+    "name": "Dense Marrow (Legendary)",
+    "slot": "Skeleton",
+    "rarity": "legendary",
+    "effects": [
+      "Increases melee damage by 40%",
+      "Increases stamina cost of melee attacks by 10%",
+      "Very strong knockback on melee hits",
+      "Chance to stagger on melee hit"
+    ],
+    "cost": 25000,
+    "ripperdoc": "Ripperdoc in The Glen",
+    "district": "The Glen, Heywood",
+    "requirements": "Body 14"
+  },
+  {
+    "id": "cw_039",
+    "name": "Bioconductor",
+    "slot": "Circulatory System",
+    "rarity": "epic",
+    "effects": [
+      "Reduces cooldown of all cyberware by 15%",
+      "Affects Sandevistan, Berserk, and all active cyberware",
+      "Stacks with other cooldown reduction"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Downtown Ripperdoc",
+    "district": "City Center",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_040",
+    "name": "Bioconductor (Legendary)",
+    "slot": "Circulatory System",
+    "rarity": "legendary",
+    "effects": [
+      "Reduces cooldown of all cyberware by 30%",
+      "Affects Sandevistan, Berserk, and all active cyberware",
+      "Stacks with other cooldown reduction",
+      "Slightly increases all cyberware duration"
+    ],
+    "cost": 28000,
+    "ripperdoc": "Ripperdoc in Charter Hill",
+    "district": "Charter Hill, Westbrook",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_041",
+    "name": "Microgenerator",
+    "slot": "Circulatory System",
+    "rarity": "epic",
+    "effects": [
+      "Releases an EMP blast when health drops below 15%",
+      "Deals electrical damage to all nearby enemies",
+      "Chance to short-circuit affected enemies",
+      "Cooldown: 60 seconds"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Charles Bucks",
+    "district": "Kabuki, Watson",
+    "requirements": "Body 8"
+  },
+  {
+    "id": "cw_042",
+    "name": "Heal-on-Kill",
+    "slot": "Frontal Cortex",
+    "rarity": "rare",
+    "effects": [
+      "Restores 3% health on each enemy kill",
+      "Works with all weapon types and quickhacks",
+      "Passive effect"
+    ],
+    "cost": 7500,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_043",
+    "name": "Heal-on-Kill (Legendary)",
+    "slot": "Frontal Cortex",
+    "rarity": "legendary",
+    "effects": [
+      "Restores 10% health on each enemy kill",
+      "Works with all weapon types and quickhacks",
+      "Passive effect"
+    ],
+    "cost": 21000,
+    "ripperdoc": "Ripperdoc in Wellsprings",
+    "district": "Wellsprings, Heywood",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_044",
+    "name": "Mechatronic Core",
+    "slot": "Frontal Cortex",
+    "rarity": "epic",
+    "effects": [
+      "Increases damage to drones, mechs, and robots by 25%",
+      "Increases damage to enemies with cyberware by 10%",
+      "Highlights mechanical enemies through walls"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Downtown Ripperdoc",
+    "district": "City Center",
+    "requirements": "Intelligence 10"
+  },
+  {
+    "id": "cw_045",
+    "name": "Limbic System Enhancement",
+    "slot": "Frontal Cortex",
+    "rarity": "epic",
+    "effects": [
+      "Increases critical hit chance by 7%",
+      "Passive bonus to all attacks",
+      "Stacks with weapon and perk bonuses"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Fingers (Finn Gerstatt)",
+    "district": "Japantown, Westbrook",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_046",
+    "name": "Limbic System Enhancement (Legendary)",
+    "slot": "Frontal Cortex",
+    "rarity": "legendary",
+    "effects": [
+      "Increases critical hit chance by 14%",
+      "Passive bonus to all attacks",
+      "Stacks with weapon and perk bonuses"
+    ],
+    "cost": 25000,
+    "ripperdoc": "Ripperdoc in The Glen",
+    "district": "The Glen, Heywood",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_047",
+    "name": "Visual Cortex Support",
+    "slot": "Frontal Cortex",
+    "rarity": "epic",
+    "effects": [
+      "Increases critical damage by 25%",
+      "Passive bonus to all attacks",
+      "Synergizes with Limbic System Enhancement"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_048",
+    "name": "Smart Link",
+    "slot": "Hands",
+    "rarity": "rare",
+    "effects": [
+      "Enables smart weapon targeting",
+      "Smart rounds track tagged enemies",
+      "Required for full smart weapon functionality"
+    ],
+    "cost": 9000,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_049",
+    "name": "Smart Link (Legendary)",
+    "slot": "Hands",
+    "rarity": "legendary",
+    "effects": [
+      "Enables smart weapon targeting with faster lock-on",
+      "Smart rounds track enemies more aggressively",
+      "Increased smart weapon damage by 15%",
+      "Required for full smart weapon functionality"
+    ],
+    "cost": 21000,
+    "ripperdoc": "Ripperdoc in Charter Hill",
+    "district": "Charter Hill, Westbrook",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_050",
+    "name": "Ballistic Coprocessor",
+    "slot": "Hands",
+    "rarity": "epic",
+    "effects": [
+      "Increases ricochet damage by 50%",
+      "Shows ricochet trajectory preview",
+      "Increases chance of critical hit on ricochet"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Charles Bucks",
+    "district": "Kabuki, Watson",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_051",
+    "name": "Threat Detector",
+    "slot": "Ocular System",
+    "rarity": "rare",
+    "effects": [
+      "Highlights enemies who have detected you",
+      "Shows grenade trajectories",
+      "Warning indicators for incoming attacks"
+    ],
+    "cost": 7500,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_052",
+    "name": "Cataresist",
+    "slot": "Integumentary System",
+    "rarity": "epic",
+    "effects": [
+      "Increases all resistances by 23%",
+      "Reduces Thermal, Electrical, and Chemical damage taken",
+      "Passive protection"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Ripperdoc in Vista del Rey",
+    "district": "Vista del Rey, Heywood",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_053",
+    "name": "Fireproof Coating",
+    "slot": "Integumentary System",
+    "rarity": "rare",
+    "effects": [
+      "Provides complete immunity to burn effect",
+      "Reduces Thermal damage taken by 30%"
+    ],
+    "cost": 7500,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_054",
+    "name": "Grounding Plating",
+    "slot": "Integumentary System",
+    "rarity": "rare",
+    "effects": [
+      "Provides complete immunity to shock effect",
+      "Reduces Electrical damage taken by 30%"
+    ],
+    "cost": 7500,
+    "ripperdoc": "Charles Bucks",
+    "district": "Kabuki, Watson",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_055",
+    "name": "Nanorelays",
+    "slot": "Nervous System",
+    "rarity": "epic",
+    "effects": [
+      "Increases Sandevistan duration by 2 seconds",
+      "Stacks with other duration bonuses",
+      "Only works with Sandevistan operating systems"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Downtown Ripperdoc",
+    "district": "City Center",
+    "requirements": "Reflexes 10"
+  },
+  {
+    "id": "cw_056",
+    "name": "Reflex Tuner",
+    "slot": "Nervous System",
+    "rarity": "rare",
+    "effects": [
+      "Slows time by 40% for 2 seconds when health drops below 25%",
+      "Cooldown: 40 seconds",
+      "Defensive time dilation"
+    ],
+    "cost": 7500,
+    "ripperdoc": "Viktor Vektor",
+    "district": "Watson",
+    "requirements": "Reflexes 6"
+  },
+  {
+    "id": "cw_057",
+    "name": "Micro-Rotors",
+    "slot": "Nervous System",
+    "rarity": "rare",
+    "effects": [
+      "Increases movement speed by 8%",
+      "Increases attack speed by 8%",
+      "Passive enhancement"
+    ],
+    "cost": 9000,
+    "ripperdoc": "Ripperdoc in Arroyo",
+    "district": "Arroyo, Santo Domingo",
+    "requirements": "Reflexes 8"
+  },
+  {
+    "id": "cw_058",
+    "name": "Memory Boost",
+    "slot": "Frontal Cortex",
+    "rarity": "epic",
+    "effects": [
+      "Recovers 3 RAM units on each enemy kill or neutralization",
+      "Essential for Netrunner builds",
+      "Passive effect"
+    ],
+    "cost": 12000,
+    "ripperdoc": "Downtown Ripperdoc",
+    "district": "City Center",
+    "requirements": "Intelligence 10"
+  },
+  {
+    "id": "cw_059",
+    "name": "RAM Upgrade",
+    "slot": "Frontal Cortex",
+    "rarity": "epic",
+    "effects": [
+      "Increases cyberdeck RAM capacity by 4 units",
+      "Allows more quickhack usage before needing recovery",
+      "Essential for Intelligence builds"
+    ],
+    "cost": 14000,
+    "ripperdoc": "Ripperdoc in Japantown",
+    "district": "Japantown, Westbrook",
+    "requirements": "Intelligence 12"
+  },
+  {
+    "id": "cw_060",
+    "name": "Arasaka HotSwap",
+    "slot": "Frontal Cortex",
+    "rarity": "legendary",
+    "effects": [
+      "Reduces quickhack cooldowns by 30%",
+      "Faster quickhack upload speed",
+      "RAM recovery rate increased by 25%"
+    ],
+    "cost": 35000,
+    "ripperdoc": "Downtown Ripperdoc",
+    "district": "City Center",
+    "requirements": "Intelligence 16"
+  },
+  {
+    "id": "cw_061",
+    "name": "Lynx Paws",
+    "slot": "Legs",
+    "rarity": "rare",
+    "effects": [
+      "Silences footsteps completely",
+      "Essential for stealth gameplay",
+      "Reduces detection chance while moving"
+    ],
+    "cost": 9000,
+    "ripperdoc": "Fingers (Finn Gerstatt)",
+    "district": "Japantown, Westbrook",
+    "requirements": "None"
+  },
+  {
+    "id": "cw_062",
+    "name": "Tyrosine Injector",
+    "slot": "Frontal Cortex",
+    "rarity": "legendary",
+    "effects": [
+      "Full RAM recovery outside combat takes 40% less time",
+      "Passive RAM regeneration increased by 15% in combat",
+      "Synergizes with Netrunner builds"
+    ],
+    "cost": 21000,
+    "ripperdoc": "Ripperdoc in Wellsprings",
+    "district": "Wellsprings, Heywood",
+    "requirements": "Intelligence 14"
+  },
+  {
+    "id": "cw_063",
+    "name": "Blood Vessel Microcontroller",
+    "slot": "Circulatory System",
+    "rarity": "epic",
+    "effects": [
+      "Increases health regeneration out of combat by 50%",
+      "Slow health regeneration in combat (1% per second)",
+      "Passive healing"
+    ],
+    "cost": 12000,
+    "ripperdoc": "Ripperdoc in Vista del Rey",
+    "district": "Vista del Rey, Heywood",
+    "requirements": "Body 8"
+  },
+  {
+    "id": "cw_064",
+    "name": "Synaptic Signal Optimizer",
+    "slot": "Frontal Cortex",
+    "rarity": "legendary",
+    "effects": [
+      "Increases max health by 60%",
+      "Massive health pool increase",
+      "Essential for tank builds"
+    ],
+    "cost": 28000,
+    "ripperdoc": "Downtown Ripperdoc",
+    "district": "City Center",
+    "requirements": "Body 15"
+  }
+]

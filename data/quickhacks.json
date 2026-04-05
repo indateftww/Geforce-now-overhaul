@@ -1,0 +1,480 @@
+[
+  {
+    "id": "qh_001",
+    "name": "Ping",
+    "type": "Covert",
+    "rarity": "common",
+    "ram_cost": 1,
+    "duration": "N/A",
+    "effects": [
+      "Reveals all networked devices and enemies connected to the same network",
+      "Highlighted enemies can be targeted through walls with other quickhacks",
+      "Essential scouting tool for Netrunners"
+    ],
+    "upload_time": "0.5s",
+    "cooldown": "0s",
+    "craft_components": "1x Common Component"
+  },
+  {
+    "id": "qh_002",
+    "name": "Short Circuit",
+    "type": "Combat",
+    "rarity": "uncommon",
+    "ram_cost": 5,
+    "duration": "N/A",
+    "effects": [
+      "Deals moderate Electrical damage to target",
+      "Deals increased damage to drones, mechs, and robots",
+      "Can be spread to nearby enemies at higher rarity",
+      "Chance to apply EMP effect on mechanical enemies"
+    ],
+    "upload_time": "1s",
+    "cooldown": "15s",
+    "craft_components": "4x Uncommon Component, 2x Common Component"
+  },
+  {
+    "id": "qh_003",
+    "name": "Overheat",
+    "type": "Combat",
+    "rarity": "uncommon",
+    "ram_cost": 5,
+    "duration": "6s",
+    "effects": [
+      "Deals Thermal damage over time to target",
+      "Applies burn effect preventing health regeneration",
+      "Damage continues even if target breaks line of sight",
+      "At higher rarity, can spread to nearby enemies"
+    ],
+    "upload_time": "2s",
+    "cooldown": "20s",
+    "craft_components": "4x Uncommon Component, 2x Common Component"
+  },
+  {
+    "id": "qh_004",
+    "name": "Contagion",
+    "type": "Combat",
+    "rarity": "rare",
+    "ram_cost": 6,
+    "duration": "8s",
+    "effects": [
+      "Deals Chemical damage over time and applies poison",
+      "Spreads automatically to nearby enemies within range",
+      "Can jump between up to 3 targets at base rarity",
+      "Reduces enemy movement speed while active",
+      "Excellent for clearing groups"
+    ],
+    "upload_time": "2s",
+    "cooldown": "25s",
+    "craft_components": "6x Rare Component, 4x Uncommon Component"
+  },
+  {
+    "id": "qh_005",
+    "name": "Synapse Burnout",
+    "type": "Combat",
+    "rarity": "rare",
+    "ram_cost": 7,
+    "duration": "N/A",
+    "effects": [
+      "Deals high Physical damage to target",
+      "Bonus damage against enemies at low health",
+      "Damage scales with Intelligence attribute",
+      "Good finisher quickhack"
+    ],
+    "upload_time": "2s",
+    "cooldown": "30s",
+    "craft_components": "6x Rare Component, 4x Uncommon Component"
+  },
+  {
+    "id": "qh_006",
+    "name": "Cripple Movement",
+    "type": "Control",
+    "rarity": "uncommon",
+    "ram_cost": 4,
+    "duration": "8s",
+    "effects": [
+      "Immobilizes target completely for duration",
+      "Target cannot move but can still attack",
+      "Useful for stopping rushing melee enemies",
+      "Does not alert nearby enemies"
+    ],
+    "upload_time": "1.5s",
+    "cooldown": "20s",
+    "craft_components": "4x Uncommon Component, 2x Common Component"
+  },
+  {
+    "id": "qh_007",
+    "name": "Weapon Glitch",
+    "type": "Control",
+    "rarity": "uncommon",
+    "ram_cost": 4,
+    "duration": "10s",
+    "effects": [
+      "Jams target's weapon making it unusable",
+      "At higher rarity, can cause weapon to explode dealing damage to wielder",
+      "Forces enemies into melee combat",
+      "Excellent against ranged enemies"
+    ],
+    "upload_time": "1s",
+    "cooldown": "15s",
+    "craft_components": "4x Uncommon Component, 2x Common Component"
+  },
+  {
+    "id": "qh_008",
+    "name": "Cyberware Malfunction",
+    "type": "Control",
+    "rarity": "rare",
+    "ram_cost": 5,
+    "duration": "10s",
+    "effects": [
+      "Disables target's cyberware abilities",
+      "Prevents enemies from using Sandevistan, Berserk, or arm cyberware",
+      "At higher rarity, deals damage when cyberware is disabled",
+      "Very effective against heavily cybered enemies"
+    ],
+    "upload_time": "2s",
+    "cooldown": "25s",
+    "craft_components": "6x Rare Component, 4x Uncommon Component"
+  },
+  {
+    "id": "qh_009",
+    "name": "Request Backup",
+    "type": "Covert",
+    "rarity": "uncommon",
+    "ram_cost": 4,
+    "duration": "12s",
+    "effects": [
+      "Forces target to call for backup, luring additional enemies to their position",
+      "Can be used to group enemies together for area attacks",
+      "The reinforcement path is predictable and exploitable"
+    ],
+    "upload_time": "2s",
+    "cooldown": "30s",
+    "craft_components": "4x Uncommon Component, 2x Common Component"
+  },
+  {
+    "id": "qh_010",
+    "name": "Distract Enemies",
+    "type": "Covert",
+    "rarity": "common",
+    "ram_cost": 2,
+    "duration": "10s",
+    "effects": [
+      "Causes nearby device to emit noise attracting enemy attention",
+      "Target device plays audio loop drawing enemies to investigate",
+      "Does not directly affect enemies",
+      "Useful for creating diversions during stealth"
+    ],
+    "upload_time": "0.5s",
+    "cooldown": "10s",
+    "craft_components": "2x Common Component"
+  },
+  {
+    "id": "qh_011",
+    "name": "Sonic Shock",
+    "type": "Covert",
+    "rarity": "rare",
+    "ram_cost": 5,
+    "duration": "15s",
+    "effects": [
+      "Deafens target, preventing them from hearing gunfire and combat sounds",
+      "Isolates target from communicating with allies",
+      "Target cannot call for help or alert others",
+      "Excellent stealth tool for isolating targets"
+    ],
+    "upload_time": "1s",
+    "cooldown": "15s",
+    "craft_components": "6x Rare Component, 4x Uncommon Component"
+  },
+  {
+    "id": "qh_012",
+    "name": "Memory Wipe",
+    "type": "Covert",
+    "rarity": "rare",
+    "ram_cost": 6,
+    "duration": "N/A",
+    "effects": [
+      "Resets target to unalerted state immediately",
+      "Target forgets they detected you",
+      "Also resets nearby enemies who were alerted by the target",
+      "Essential for recovering from stealth failures"
+    ],
+    "upload_time": "1.5s",
+    "cooldown": "30s",
+    "craft_components": "6x Rare Component, 4x Uncommon Component"
+  },
+  {
+    "id": "qh_013",
+    "name": "Reboot Optics",
+    "type": "Covert",
+    "rarity": "uncommon",
+    "ram_cost": 4,
+    "duration": "10s",
+    "effects": [
+      "Blinds target by disabling their optical cyberware",
+      "Target cannot see and will fire wildly or search aimlessly",
+      "Does not break stealth when applied",
+      "Allows easy repositioning or takedowns"
+    ],
+    "upload_time": "1.5s",
+    "cooldown": "20s",
+    "craft_components": "4x Uncommon Component, 2x Common Component"
+  },
+  {
+    "id": "qh_014",
+    "name": "Whistle",
+    "type": "Covert",
+    "rarity": "uncommon",
+    "ram_cost": 3,
+    "duration": "N/A",
+    "effects": [
+      "Lures target to your position",
+      "Target investigates source of whistle",
+      "Can be used to isolate enemies for stealth takedowns",
+      "Does not alert other nearby enemies"
+    ],
+    "upload_time": "0.5s",
+    "cooldown": "10s",
+    "craft_components": "4x Uncommon Component, 2x Common Component"
+  },
+  {
+    "id": "qh_015",
+    "name": "System Reset",
+    "type": "Ultimate",
+    "rarity": "legendary",
+    "ram_cost": 12,
+    "duration": "N/A",
+    "effects": [
+      "Instantly renders target unconscious (non-lethal)",
+      "Works on all enemy types regardless of level",
+      "Target drops silently without alerting others",
+      "Cannot be applied during open combat at base level",
+      "One of the most powerful stealth quickhacks"
+    ],
+    "upload_time": "4s",
+    "cooldown": "60s",
+    "craft_components": "8x Legendary Component, 6x Epic Component"
+  },
+  {
+    "id": "qh_016",
+    "name": "Suicide",
+    "type": "Ultimate",
+    "rarity": "legendary",
+    "ram_cost": 14,
+    "duration": "N/A",
+    "effects": [
+      "Forces target to eliminate themselves with their own weapon",
+      "Instant kill regardless of enemy health",
+      "Nearby enemies become frightened and may flee",
+      "Long upload time leaves you vulnerable",
+      "Extremely high RAM cost"
+    ],
+    "upload_time": "6s",
+    "cooldown": "90s",
+    "craft_components": "10x Legendary Component, 8x Epic Component"
+  },
+  {
+    "id": "qh_017",
+    "name": "Cyberpsychosis",
+    "type": "Ultimate",
+    "rarity": "legendary",
+    "ram_cost": 14,
+    "duration": "30s",
+    "effects": [
+      "Turns target into a temporary ally who attacks all nearby enemies",
+      "Affected target fights with increased aggression",
+      "Target eventually dies when effect ends",
+      "Other enemies will prioritize attacking the affected target",
+      "Extremely effective crowd control"
+    ],
+    "upload_time": "6s",
+    "cooldown": "120s",
+    "craft_components": "10x Legendary Component, 8x Epic Component"
+  },
+  {
+    "id": "qh_018",
+    "name": "Detonate Grenade",
+    "type": "Combat",
+    "rarity": "rare",
+    "ram_cost": 6,
+    "duration": "N/A",
+    "effects": [
+      "Forces target to pull a grenade and detonate it on themselves",
+      "Deals explosive damage to target and nearby enemies",
+      "Only works on enemies carrying grenades",
+      "Damage scales with the enemy's grenade type"
+    ],
+    "upload_time": "2s",
+    "cooldown": "30s",
+    "craft_components": "6x Rare Component, 4x Uncommon Component"
+  },
+  {
+    "id": "qh_019",
+    "name": "Short Circuit (Legendary)",
+    "type": "Combat",
+    "rarity": "legendary",
+    "ram_cost": 7,
+    "duration": "N/A",
+    "effects": [
+      "Deals massive Electrical damage to target",
+      "Spreads to 2 nearby enemies automatically",
+      "Deals triple damage to mechanical enemies",
+      "Passive: Any critical hit with any weapon triggers Short Circuit effect"
+    ],
+    "upload_time": "1s",
+    "cooldown": "10s",
+    "craft_components": "8x Legendary Component, 6x Epic Component"
+  },
+  {
+    "id": "qh_020",
+    "name": "Contagion (Legendary)",
+    "type": "Combat",
+    "rarity": "legendary",
+    "ram_cost": 8,
+    "duration": "12s",
+    "effects": [
+      "Deals high Chemical damage over time with powerful poison",
+      "Spreads to up to 6 targets automatically",
+      "Increased spread range and damage per tick",
+      "Significantly reduces enemy movement speed"
+    ],
+    "upload_time": "2s",
+    "cooldown": "20s",
+    "craft_components": "8x Legendary Component, 6x Epic Component"
+  },
+  {
+    "id": "qh_021",
+    "name": "Overheat (Legendary)",
+    "type": "Combat",
+    "rarity": "legendary",
+    "ram_cost": 7,
+    "duration": "10s",
+    "effects": [
+      "Deals massive Thermal damage over time",
+      "Spreads to 2 nearby enemies",
+      "Applies severe burn that prevents healing",
+      "Can finish off low-health enemies instantly"
+    ],
+    "upload_time": "2s",
+    "cooldown": "15s",
+    "craft_components": "8x Legendary Component, 6x Epic Component"
+  },
+  {
+    "id": "qh_022",
+    "name": "Weapon Glitch (Legendary)",
+    "type": "Control",
+    "rarity": "legendary",
+    "ram_cost": 5,
+    "duration": "12s",
+    "effects": [
+      "Jams target's weapon and causes it to backfire dealing damage",
+      "Spreads to nearby enemies",
+      "Jammed weapons explode after duration dealing area damage",
+      "Forces all affected enemies into melee"
+    ],
+    "upload_time": "1s",
+    "cooldown": "12s",
+    "craft_components": "8x Legendary Component, 6x Epic Component"
+  },
+  {
+    "id": "qh_023",
+    "name": "Reboot Optics (Legendary)",
+    "type": "Covert",
+    "rarity": "legendary",
+    "ram_cost": 5,
+    "duration": "14s",
+    "effects": [
+      "Blinds target and spreads to 2 nearby enemies",
+      "Extended blindness duration",
+      "Blinded enemies have severely reduced accuracy",
+      "Does not break stealth"
+    ],
+    "upload_time": "1.5s",
+    "cooldown": "15s",
+    "craft_components": "8x Legendary Component, 6x Epic Component"
+  },
+  {
+    "id": "qh_024",
+    "name": "Synapse Burnout (Legendary)",
+    "type": "Combat",
+    "rarity": "legendary",
+    "ram_cost": 9,
+    "duration": "N/A",
+    "effects": [
+      "Deals very high Physical damage",
+      "Massive bonus damage to enemies below 50% health (execute threshold)",
+      "Can spread to one nearby enemy at reduced damage",
+      "Excellent finisher quickhack"
+    ],
+    "upload_time": "2s",
+    "cooldown": "25s",
+    "craft_components": "8x Legendary Component, 6x Epic Component"
+  },
+  {
+    "id": "qh_025",
+    "name": "Ping (Legendary)",
+    "type": "Covert",
+    "rarity": "legendary",
+    "ram_cost": 1,
+    "duration": "N/A",
+    "effects": [
+      "Reveals entire network of connected enemies and devices",
+      "Highlighted targets can be hacked through walls",
+      "Reveals quickhack vulnerabilities on all scanned targets",
+      "Longer reveal duration"
+    ],
+    "upload_time": "0.5s",
+    "cooldown": "0s",
+    "craft_components": "4x Legendary Component, 2x Epic Component"
+  },
+  {
+    "id": "qh_026",
+    "name": "Memory Wipe (Legendary)",
+    "type": "Covert",
+    "rarity": "legendary",
+    "ram_cost": 7,
+    "duration": "N/A",
+    "effects": [
+      "Instantly resets all enemies in the area to unalerted state",
+      "Wipes combat awareness from all connected enemies",
+      "Affected enemies forget your last known position",
+      "Full area reset for stealth recovery"
+    ],
+    "upload_time": "1.5s",
+    "cooldown": "25s",
+    "craft_components": "8x Legendary Component, 6x Epic Component"
+  },
+  {
+    "id": "qh_027",
+    "name": "Cripple Movement (Legendary)",
+    "type": "Control",
+    "rarity": "legendary",
+    "ram_cost": 5,
+    "duration": "12s",
+    "effects": [
+      "Completely immobilizes target for extended duration",
+      "Spreads to 2 nearby enemies",
+      "Immobilized targets take 15% increased damage",
+      "Does not alert other enemies"
+    ],
+    "upload_time": "1.5s",
+    "cooldown": "15s",
+    "craft_components": "8x Legendary Component, 6x Epic Component"
+  },
+  {
+    "id": "qh_028",
+    "name": "Cyberware Malfunction (Legendary)",
+    "type": "Control",
+    "rarity": "legendary",
+    "ram_cost": 6,
+    "duration": "14s",
+    "effects": [
+      "Disables all cyberware on target and nearby enemies",
+      "Disabled cyberware deals Electrical damage to the user",
+      "Prevents all cyberware-based abilities and defenses",
+      "Spreads to 2 nearby enemies"
+    ],
+    "upload_time": "2s",
+    "cooldown": "20s",
+    "craft_components": "8x Legendary Component, 6x Epic Component"
+  }
+]

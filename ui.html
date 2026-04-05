@@ -342,6 +342,7 @@ label{display:block;font-family:var(--font-d);font-size:10px;font-weight:600;let
 .workaround-name{font-family:var(--font-d);font-weight:600;font-size:13px;margin-bottom:2px;}
 .workaround-desc{font-size:11px;color:var(--dim);line-height:1.4;}
 .workaround-tag{font-size:9px;padding:2px 6px;border-radius:3px;font-family:var(--font-m);background:var(--bg);color:var(--dim);}
+.cheat-filter.active{outline:2px solid currentColor;outline-offset:1px;}
 
 /* == QUEST TAB == */
 .quest-item{
@@ -410,6 +411,13 @@ label{display:block;font-family:var(--font-d);font-size:10px;font-weight:600;let
 .poi-popup-btn.complete{background:var(--green-dim);color:var(--green);}
 .poi-popup-btn.complete.done{background:var(--green);color:#000;}
 .leaflet-container{background:var(--bg)!important;}
+.db-subtab.active{background:var(--yellow-dim);color:var(--yellow);border-color:var(--yellow);}
+.rarity-iconic{border-left:3px solid #ffd700;}
+.rarity-legendary{border-left:3px solid #ff8c00;}
+.rarity-epic{border-left:3px solid #a78bfa;}
+.rarity-rare{border-left:3px solid #38bdf8;}
+.rarity-uncommon{border-left:3px solid var(--green);}
+.rarity-common{border-left:3px solid var(--dim);}
 </style>
 </head>
 <body>
@@ -604,242 +612,90 @@ label{display:block;font-family:var(--font-d);font-size:10px;font-weight:600;let
 
     <!-- ============ TAB: QUESTS ============ -->
     <div id="quests" class="tab-content">
-      <div class="card" style="border-color:var(--cyan);margin-bottom:16px;">
-        <div class="card-title" style="color:var(--cyan);">Quest Helper & Dialogue Coach</div>
-        <div class="card-desc">Track quest progress, view optimal dialogue choices, and never miss a hidden reward. Full quest database with outcome previews.</div>
-        <div class="phase-badge">Coming in Phase 4</div>
+      <!-- Search + filter bar -->
+      <div style="display:flex;gap:10px;margin-bottom:14px;">
+        <input type="text" id="quest-search" placeholder="Search quests and dialogues..." oninput="searchQuests()" style="flex:1;">
+        <select id="quest-type-filter" onchange="filterQuests()" style="width:140px;">
+          <option value="">All Types</option>
+          <option value="main_job">Main Jobs</option>
+          <option value="side_job">Side Jobs</option>
+          <option value="gig">Gigs</option>
+        </select>
       </div>
 
-      <div class="field" style="margin-bottom:16px;">
-        <input type="text" id="quest-search" placeholder="Search quests..." oninput="filterQuests()">
+      <!-- Dialogue Coach notification area -->
+      <div id="dialogue-coach-alert" class="card" style="border-color:var(--yellow);display:none;margin-bottom:14px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="font-size:16px;">💬</span>
+          <span style="font-family:var(--font-d);font-weight:700;color:var(--yellow);font-size:13px;">DIALOGUE COACH</span>
+        </div>
+        <div id="dialogue-coach-content"></div>
       </div>
 
-      <div id="quest-list">
-        <div class="quest-item">
-          <div class="quest-header">
-            <div class="quest-name">The Heist</div>
-            <span class="quest-type quest-type-main">Main Job</span>
-          </div>
-          <div class="quest-desc">Break into Konpeki Plaza with Jackie to steal the Relic, a prototype biochip. This mission marks the end of Act 1 and changes everything.</div>
-          <div class="quest-reward">+ 7,200 eddies / Street Cred +1,400</div>
-        </div>
-        <div class="quest-item">
-          <div class="quest-header">
-            <div class="quest-name">I Fought the Law</div>
-            <span class="quest-type quest-type-side">Side Job</span>
-          </div>
-          <div class="quest-desc">Help River Ward investigate the death of Mayor Rhyne. Multiple leads to follow across Night City, with consequences that ripple through later missions.</div>
-          <div class="quest-reward">+ 3,700 eddies / River Ward relationship</div>
-        </div>
-        <div class="quest-item">
-          <div class="quest-header">
-            <div class="quest-name">Kold Mirage</div>
-            <span class="quest-type quest-type-gig">Gig</span>
-          </div>
-          <div class="quest-desc">Rogue asks you to find the remains of a legendary runner. Head to the Badlands and search through the wreckage of a cold case gone colder.</div>
-          <div class="quest-reward">+ 2,100 eddies / Unique weapon</div>
-        </div>
-        <div class="quest-item">
-          <div class="quest-header">
-            <div class="quest-name">Chippin' In</div>
-            <span class="quest-type quest-type-main">Main Job</span>
-          </div>
-          <div class="quest-desc">Join forces with Rogue to track down Smasher and the remnants of what once was. Johnny's past becomes your present in the fight to survive.</div>
-          <div class="quest-reward">+ 5,500 eddies / Porsche 911 II (930)</div>
-        </div>
-        <div class="quest-item">
-          <div class="quest-header">
-            <div class="quest-name">The Hunt</div>
-            <span class="quest-type quest-type-side">Side Job</span>
-          </div>
-          <div class="quest-desc">River needs your help tracking down his nephew Randy. Dive into braindance recordings and piece together the trail of a serial killer before time runs out.</div>
-          <div class="quest-reward">+ 4,200 eddies / Street Cred +980</div>
-        </div>
-      </div>
+      <!-- Quest list -->
+      <div id="quest-list"></div>
     </div>
 
     <!-- ============ TAB: DATABASE ============ -->
     <div id="database" class="tab-content">
-      <div class="card" style="border-color:var(--yellow);margin-bottom:16px;">
-        <div class="card-title" style="color:var(--yellow);">Game Database</div>
-        <div class="card-desc">Complete database of all weapons, cyberware, quickhacks, vehicles, and character builds in Cyberpunk 2077 including Phantom Liberty DLC.</div>
-        <div class="phase-badge">Coming in Phase 5</div>
+      <!-- Sub-tab bar -->
+      <div style="display:flex;gap:2px;margin-bottom:14px;border-bottom:1px solid var(--border);padding-bottom:8px;">
+        <button class="btn btn-ghost btn-sm db-subtab active" onclick="switchDbTab('weapons',this)">Weapons</button>
+        <button class="btn btn-ghost btn-sm db-subtab" onclick="switchDbTab('cyberware',this)">Cyberware</button>
+        <button class="btn btn-ghost btn-sm db-subtab" onclick="switchDbTab('quickhacks',this)">Quickhacks</button>
+        <button class="btn btn-ghost btn-sm db-subtab" onclick="switchDbTab('vehicles',this)">Vehicles</button>
+        <button class="btn btn-ghost btn-sm db-subtab" onclick="switchDbTab('builds',this)">Builds</button>
       </div>
-
-      <div class="db-subtabs" id="db-subtabs">
-        <div class="db-subtab active" onclick="setDbTab('weapons')">Weapons</div>
-        <div class="db-subtab" onclick="setDbTab('cyberware')">Cyberware</div>
-        <div class="db-subtab" onclick="setDbTab('quickhacks')">Quickhacks</div>
-        <div class="db-subtab" onclick="setDbTab('vehicles')">Vehicles</div>
-        <div class="db-subtab" onclick="setDbTab('builds')">Builds</div>
+      <div style="margin-bottom:12px;">
+        <input type="text" id="db-search" placeholder="Search database..." oninput="searchDb()" style="font-size:12px;">
       </div>
-
-      <div id="db-content">
-        <div class="weapon-grid">
-          <div class="weapon-card rarity-legendary">
-            <span class="weapon-icon">&#128299;</span>
-            <div class="weapon-name">Skippy</div>
-            <div class="weapon-type">Smart Pistol / Iconic</div>
-            <div class="weapon-stats">
-              <span class="weapon-stat">DPS 412</span>
-              <span class="weapon-stat">+15% Crit</span>
-              <span class="weapon-stat">Smart</span>
-            </div>
-          </div>
-          <div class="weapon-card rarity-legendary">
-            <span class="weapon-icon">&#9876;</span>
-            <div class="weapon-name">Satori</div>
-            <div class="weapon-type">Katana / Iconic</div>
-            <div class="weapon-stats">
-              <span class="weapon-stat">DPS 587</span>
-              <span class="weapon-stat">+500% Crit DMG</span>
-              <span class="weapon-stat">Blade</span>
-            </div>
-          </div>
-          <div class="weapon-card rarity-epic">
-            <span class="weapon-icon">&#128299;</span>
-            <div class="weapon-name">Overwatch</div>
-            <div class="weapon-type">Sniper Rifle / Iconic</div>
-            <div class="weapon-stats">
-              <span class="weapon-stat">DPS 903</span>
-              <span class="weapon-stat">Silenced</span>
-              <span class="weapon-stat">Power</span>
-            </div>
-          </div>
-          <div class="weapon-card rarity-rare">
-            <span class="weapon-icon">&#128299;</span>
-            <div class="weapon-name">Comrade's Hammer</div>
-            <div class="weapon-type">Tech Revolver / Iconic</div>
-            <div class="weapon-stats">
-              <span class="weapon-stat">DPS 1,247</span>
-              <span class="weapon-stat">Charge</span>
-              <span class="weapon-stat">Tech</span>
-            </div>
-          </div>
-          <div class="weapon-card rarity-legendary">
-            <span class="weapon-icon">&#9876;</span>
-            <div class="weapon-name">Errata</div>
-            <div class="weapon-type">Thermal Katana / Iconic</div>
-            <div class="weapon-stats">
-              <span class="weapon-stat">DPS 640</span>
-              <span class="weapon-stat">Burn +30%</span>
-              <span class="weapon-stat">Blade</span>
-            </div>
-          </div>
-          <div class="weapon-card rarity-uncommon">
-            <span class="weapon-icon">&#128299;</span>
-            <div class="weapon-name">Shingen Mark V</div>
-            <div class="weapon-type">Smart SMG / Iconic</div>
-            <div class="weapon-stats">
-              <span class="weapon-stat">DPS 328</span>
-              <span class="weapon-stat">3-burst</span>
-              <span class="weapon-stat">Smart</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id="db-content"></div>
     </div>
 
     <!-- ============ TAB: GUIDES ============ -->
     <div id="guides" class="tab-content">
-      <div class="card" style="border-color:var(--cyan);margin-bottom:16px;">
-        <div class="card-title" style="color:var(--cyan);">Guides & Trackers</div>
-        <div class="card-desc">Comprehensive guides for every romance, ending, money-making strategy, and completionist run. Track your progress across all collectibles.</div>
-        <div class="phase-badge">Coming in Phase 6</div>
+      <div style="display:flex;gap:10px;margin-bottom:14px;">
+        <input type="text" id="guide-search" placeholder="Search guides..." oninput="renderGuides()" style="flex:1;">
+        <select id="guide-cat-filter" onchange="renderGuides()" style="width:160px;">
+          <option value="">All Categories</option>
+          <option value="romance">Romance</option>
+          <option value="endings">Endings</option>
+          <option value="money">Money</option>
+          <option value="leveling">Leveling</option>
+          <option value="tips">Tips & Tricks</option>
+          <option value="collectibles">Collectibles</option>
+          <option value="phantom_liberty">Phantom Liberty</option>
+          <option value="beginner">New Player</option>
+          <option value="crafting">Crafting</option>
+          <option value="cyberware">Cyberware</option>
+          <option value="stealth">Stealth</option>
+          <option value="exploration">Exploration</option>
+        </select>
       </div>
-
-      <div class="guide-grid">
-        <div class="guide-card">
-          <div class="guide-badge">17 paths</div>
-          <span class="guide-icon">&#10084;&#65039;</span>
-          <div class="guide-name">Romance Guide</div>
-          <div class="guide-desc">Complete romance paths for Judy, Panam, River, and Kerry. Includes all dialogue choices, point-of-no-return triggers, and Phantom Liberty romances.</div>
-        </div>
-        <div class="guide-card">
-          <div class="guide-badge">7 endings</div>
-          <span class="guide-icon">&#127919;</span>
-          <div class="guide-name">Endings Guide</div>
-          <div class="guide-desc">All endings explained with exact requirements. Includes the secret ending, Phantom Liberty branches, and how your choices through the game affect each outcome.</div>
-        </div>
-        <div class="guide-card">
-          <div class="guide-badge">Updated 2.1</div>
-          <span class="guide-icon">&#128176;</span>
-          <div class="guide-name">Money Making Guide</div>
-          <div class="guide-desc">Best farming routes, high-paying gigs, crafting economy exploits, and NCPD scanner hustle routes. Go from broke to millionaire V efficiently.</div>
-        </div>
-        <div class="guide-card">
-          <div class="guide-badge">155 items</div>
-          <span class="guide-icon">&#128506;</span>
-          <div class="guide-name">Collectibles Tracker</div>
-          <div class="guide-desc">Track all tarot cards, iconic weapons, cyberpsycho sightings, and hidden gems. Mark items as found and see what you are missing by district.</div>
-        </div>
-        <div class="guide-card">
-          <div class="guide-badge">Tier S-F</div>
-          <span class="guide-icon">&#128170;</span>
-          <div class="guide-name">Build Optimizer</div>
-          <div class="guide-desc">Meta builds for every playstyle: Netrunner, Solo, Ninja, and Hybrid. Perk trees, cyberware synergies, and weapon loadouts for Very Hard difficulty.</div>
-        </div>
-        <div class="guide-card">
-          <div class="guide-badge">DLC</div>
-          <span class="guide-icon">&#127757;</span>
-          <div class="guide-name">Phantom Liberty Guide</div>
-          <div class="guide-desc">Complete walkthrough for the Dogtown expansion. All new endings, Relic skill trees, unique rewards, and the Songbird vs. Reed decision tree.</div>
-        </div>
-      </div>
+      <div id="guide-list"></div>
     </div>
 
     <!-- ============ TAB: CHEATS ============ -->
     <div id="cheats" class="tab-content">
-      <div class="warning-banner">
-        <div class="warning-banner-icon">&#9888;&#65039;</div>
-        <div>
-          <div class="warning-banner-title warning-banner-text">Memory cheats (WeMod-style) are not possible on GeForce Now</div>
-          <div class="warning-banner-text">Cloud gaming streams the game from remote servers. Memory injection tools like WeMod, Cheat Engine, or Cyber Engine Tweaks cannot access the remote process. The workarounds below use different approaches.</div>
+      <!-- GFN Warning banner -->
+      <div class="card" style="border-color:var(--red);margin-bottom:14px;background:var(--red-dim);">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:20px;">⚠️</span>
+          <div>
+            <div style="font-family:var(--font-d);font-weight:700;font-size:13px;color:var(--red);">GeForce Now Limitation</div>
+            <div style="font-size:11px;color:var(--text);margin-top:2px;">Memory-based cheats (WeMod, Cheat Engine, trainers) are impossible on cloud gaming. The game runs on NVIDIA's servers — there's no local process to modify. Below are workarounds that DO work.</div>
+          </div>
         </div>
       </div>
 
-      <div class="section-head" style="margin-top:20px;">Available Workarounds</div>
+      <div style="display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap;">
+        <button class="btn btn-sm cheat-filter active" onclick="filterCheatsTab('all',this)" style="background:var(--card);color:var(--text);">All</button>
+        <button class="btn btn-sm cheat-filter" onclick="filterCheatsTab('works',this)" style="background:var(--green-dim);color:var(--green);">Works on GFN</button>
+        <button class="btn btn-sm cheat-filter" onclick="filterCheatsTab('partial',this)" style="background:var(--yellow-dim);color:var(--yellow);">Partial</button>
+        <button class="btn btn-sm cheat-filter" onclick="filterCheatsTab('impossible',this)" style="background:var(--red-dim);color:var(--red);">Not Possible</button>
+      </div>
 
-      <div class="workaround-item">
-        <div class="workaround-icon">&#128187;</div>
-        <div class="workaround-info">
-          <div class="workaround-name">Save File Editor</div>
-          <div class="workaround-desc">Edit save files locally before syncing back to the cloud. Modify eddies, attribute points, inventory items, and quest flags directly.</div>
-        </div>
-        <span class="workaround-tag">Works on GFN</span>
-      </div>
-      <div class="workaround-item">
-        <div class="workaround-icon">&#128268;</div>
-        <div class="workaround-info">
-          <div class="workaround-name">Cyber Engine Tweaks (Local Only)</div>
-          <div class="workaround-desc">Console commands and Lua scripting for local installs. Spawn items, teleport, god mode, and more via an in-game overlay.</div>
-        </div>
-        <span class="workaround-tag">Local only</span>
-      </div>
-      <div class="workaround-item">
-        <div class="workaround-icon">&#128295;</div>
-        <div class="workaround-info">
-          <div class="workaround-name">Mod Manager (Vortex / Manual)</div>
-          <div class="workaround-desc">Install mods that alter game behavior like enhanced crafting, unlimited carry weight, or adjusted difficulty scaling. Works with redMod framework.</div>
-        </div>
-        <span class="workaround-tag">Local only</span>
-      </div>
-      <div class="workaround-item">
-        <div class="workaround-icon">&#127922;</div>
-        <div class="workaround-info">
-          <div class="workaround-name">In-Game Exploits</div>
-          <div class="workaround-desc">Known duplication glitches, XP farming loops, and infinite money methods that work even on cloud gaming. Patch-version dependent.</div>
-        </div>
-        <span class="workaround-tag">Works on GFN</span>
-      </div>
-      <div class="workaround-item">
-        <div class="workaround-icon">&#128190;</div>
-        <div class="workaround-info">
-          <div class="workaround-name">Cloud Save Manipulation</div>
-          <div class="workaround-desc">Download cloud saves, modify with hex editor or specialized tools, re-upload. Works across all platforms that support cloud sync.</div>
-        </div>
-        <span class="workaround-tag">Works on GFN</span>
-      </div>
+      <div id="cheats-list"></div>
     </div>
 
   </div>
@@ -913,6 +769,10 @@ function go(name) {
   );
   document.getElementById('topbar-title').textContent = tabTitles[name] || name;
   if (name === 'map') { setTimeout(() => { if (!mapInitialized) initMap(); else if (ncMap) ncMap.invalidateSize(); }, 100); }
+  if (name === 'quests' && !questsLoaded) loadQuests();
+  if (name === 'database' && !dbLoaded) loadDb();
+  if (name === 'guides' && !guidesLoaded) loadGuides();
+  if (name === 'cheats' && !cheatsLoaded) loadCheats();
 }
 
 // ── OVERWATCH / SCREEN MONITOR ──
@@ -1651,24 +1511,232 @@ function loadScript(src) {
   });
 }
 
-// ── DATABASE SUB-TABS ──
-function setDbTab(tab) {
-  document.querySelectorAll('#db-subtabs .db-subtab').forEach(t =>
-    t.classList.toggle('active', t.textContent.trim().toLowerCase() === tab)
-  );
-  // For now, all show the same placeholder weapons
-  toast(`${tab.charAt(0).toUpperCase() + tab.slice(1)} database coming soon`);
+// ════════════════════════════════════════
+// QUEST HELPER & DIALOGUE COACH
+// ════════════════════════════════════════
+
+let questData = [];
+let dialogueData = [];
+let questsLoaded = false;
+
+async function loadQuests() {
+  if (questsLoaded) return;
+  questsLoaded = true;
+  const [qRes, dRes] = await Promise.all([
+    fetch('/api/quests'), fetch('/api/dialogues')
+  ]);
+  questData = await qRes.json();
+  dialogueData = await dRes.json();
+  renderQuests();
 }
 
-// ── QUEST FILTER ──
-function filterQuests() {
-  const q = document.getElementById('quest-search').value.toLowerCase();
-  document.querySelectorAll('#quest-list .quest-item').forEach(item => {
-    const name = item.querySelector('.quest-name').textContent.toLowerCase();
-    const desc = item.querySelector('.quest-desc').textContent.toLowerCase();
-    item.style.display = (name.includes(q) || desc.includes(q)) ? '' : 'none';
+function renderQuests() {
+  const container = document.getElementById('quest-list');
+  const search = (document.getElementById('quest-search')?.value || '').toLowerCase();
+  const typeFilter = document.getElementById('quest-type-filter')?.value || '';
+
+  let filtered = questData.filter(q => {
+    if (typeFilter && q.type !== typeFilter) return false;
+    if (search && !q.name.toLowerCase().includes(search) &&
+        !(q.description||'').toLowerCase().includes(search) &&
+        !(q.giver||'').toLowerCase().includes(search)) return false;
+    return true;
   });
+
+  // Also search dialogues
+  let matchedDialogues = [];
+  if (search) {
+    matchedDialogues = dialogueData.filter(d =>
+      d.quest_name.toLowerCase().includes(search) ||
+      d.options.some(o => o.text.toLowerCase().includes(search) || o.outcome.toLowerCase().includes(search))
+    );
+  }
+
+  const typeBadge = {main_job:'MAIN JOB',side_job:'SIDE JOB',gig:'GIG'};
+  const typeColor = {main_job:'var(--yellow)',side_job:'var(--cyan)',gig:'var(--green)'};
+
+  let html = '';
+  filtered.forEach(q => {
+    const relatedDialogues = dialogueData.filter(d => d.quest_id === q.id);
+    const badge = typeBadge[q.type] || q.type.toUpperCase();
+    const color = typeColor[q.type] || 'var(--dim)';
+
+    html += `<div class="card" style="cursor:pointer;" onclick="this.querySelector('.quest-details').classList.toggle('hidden')">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:var(--font-d);font-weight:700;font-size:14px;">${q.name}</span>
+            <span class="badge" style="background:${color}20;color:${color};">${badge}</span>
+            ${q.point_of_no_return ? '<span class="badge" style="background:var(--red-dim);color:var(--red);">⚠ POINT OF NO RETURN</span>' : ''}
+          </div>
+          <div style="font-size:11px;color:var(--dim);margin-top:2px;">${q.giver ? 'From: ' + q.giver + ' — ' : ''}${q.district || ''}</div>
+        </div>
+        ${relatedDialogues.length ? '<span style="font-family:var(--font-m);font-size:9px;color:var(--yellow);">💬 '+relatedDialogues.length+' choices</span>' : ''}
+      </div>
+      <div class="quest-details hidden" onclick="event.stopPropagation();" style="margin-top:10px;border-top:1px solid var(--border);padding-top:10px;">
+        <div style="font-size:12px;color:var(--text);margin-bottom:8px;">${q.description}</div>
+        ${q.objectives && q.objectives.length ? '<div style="margin-bottom:8px;"><div class="section-head">Objectives</div>' + q.objectives.map(o => '<div style="font-size:11px;color:var(--dim);padding:2px 0;">• '+o+'</div>').join('') + '</div>' : ''}
+        ${q.tips ? '<div style="font-size:11px;color:var(--yellow);margin-bottom:8px;">💡 '+q.tips+'</div>' : ''}
+        ${q.rewards && q.rewards.length ? '<div style="font-size:11px;color:var(--green);">Rewards: '+q.rewards.join(', ')+'</div>' : ''}
+        ${relatedDialogues.length ? '<div style="margin-top:10px;"><div class="section-head">Key Dialogue Choices</div>' + relatedDialogues.map(d => renderDialogueCard(d)).join('') + '</div>' : ''}
+      </div>
+    </div>`;
+  });
+
+  // Show matched dialogues separately if searching
+  if (search && matchedDialogues.length && !filtered.length) {
+    html += '<div class="section-head" style="margin-top:16px;">Dialogue Matches</div>';
+    matchedDialogues.forEach(d => { html += renderDialogueCard(d); });
+  }
+
+  if (!html) html = '<div style="text-align:center;color:var(--dim);padding:40px;">No quests found</div>';
+  container.innerHTML = html;
 }
+
+function renderDialogueCard(d) {
+  const impColor = {critical:'var(--red)',high:'var(--yellow)',medium:'var(--cyan)',low:'var(--dim)'};
+  let html = '<div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);padding:10px;margin-bottom:6px;">';
+  html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">';
+  html += '<span style="font-family:var(--font-d);font-weight:600;font-size:12px;">💬 '+d.scene+'</span>';
+  html += '<span class="badge" style="background:'+(impColor[d.importance]||'var(--dim)')+'20;color:'+(impColor[d.importance]||'var(--dim)')+';">'+d.importance.toUpperCase()+'</span>';
+  html += '</div>';
+  d.options.forEach(o => {
+    const recStyle = o.recommended ? 'border-left:2px solid var(--green);padding-left:8px;' : 'border-left:2px solid var(--muted);padding-left:8px;';
+    html += '<div style="'+recStyle+'margin-bottom:4px;font-size:11px;">';
+    html += '<div style="color:var(--text);">'+(o.recommended?'✅ ':'')+'<strong>"'+o.text+'"</strong></div>';
+    html += '<div style="color:var(--dim);margin-top:1px;">→ '+o.outcome+'</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+function searchQuests() { renderQuests(); }
+function filterQuests() { renderQuests(); }
+
+// ════════════════════════════════════════
+// GAME DATABASE
+// ════════════════════════════════════════
+
+let dbCache = {};
+let dbTab = 'weapons';
+let dbLoaded = false;
+
+async function loadDb() {
+  if (dbLoaded) return;
+  dbLoaded = true;
+  const endpoints = ['weapons','cyberware','quickhacks','vehicles','builds'];
+  const results = await Promise.all(endpoints.map(e => fetch('/api/'+e).then(r=>r.json())));
+  endpoints.forEach((e,i) => dbCache[e] = results[i]);
+  renderDb();
+}
+
+function switchDbTab(tab, el) {
+  dbTab = tab;
+  document.querySelectorAll('.db-subtab').forEach(b => b.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderDb();
+}
+
+function renderDb() {
+  const data = dbCache[dbTab] || [];
+  const search = (document.getElementById('db-search')?.value || '').toLowerCase();
+  const container = document.getElementById('db-content');
+
+  const filtered = data.filter(item => {
+    if (!search) return true;
+    return JSON.stringify(item).toLowerCase().includes(search);
+  });
+
+  let html = '';
+  if (dbTab === 'weapons') {
+    filtered.forEach(w => {
+      const rClass = w.iconic ? 'rarity-iconic' : 'rarity-'+(w.rarity||'common');
+      html += `<div class="card ${rClass}" style="padding:12px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-family:var(--font-d);font-weight:700;font-size:14px;">${w.name}</div>
+          <div style="display:flex;gap:4px;">
+            <span class="badge" style="background:var(--cyan-dim);color:var(--cyan);">${w.type}</span>
+            <span class="badge" style="background:var(--card);color:var(--dim);">${w.class}</span>
+            ${w.iconic?'<span class="badge" style="background:#ffd70020;color:#ffd700;">ICONIC</span>':''}
+          </div>
+        </div>
+        <div style="font-size:11px;color:var(--dim);margin-top:4px;">DPS: ${w.dps_range} | ${w.damage_type}</div>
+        ${w.special?'<div style="font-size:11px;color:var(--yellow);margin-top:4px;">'+w.special+'</div>':''}
+        <div style="font-size:11px;color:var(--green);margin-top:4px;">📍 ${w.location}</div>
+      </div>`;
+    });
+  } else if (dbTab === 'cyberware') {
+    filtered.forEach(c => {
+      html += `<div class="card rarity-${c.rarity||'common'}" style="padding:12px;">
+        <div style="display:flex;justify-content:space-between;">
+          <span style="font-family:var(--font-d);font-weight:700;font-size:14px;">${c.name}</span>
+          <span class="badge" style="background:var(--cyan-dim);color:var(--cyan);">${c.slot}</span>
+        </div>
+        <div style="font-size:11px;color:var(--text);margin-top:4px;">${(c.effects||[]).join(' • ')}</div>
+        <div style="font-size:11px;color:var(--dim);margin-top:4px;">Cost: $${(c.cost||0).toLocaleString()} | ${c.ripperdoc||'Various'}, ${c.district||''}</div>
+        ${c.requirements?'<div style="font-size:10px;color:var(--yellow);margin-top:2px;">Requires: '+c.requirements+'</div>':''}
+      </div>`;
+    });
+  } else if (dbTab === 'quickhacks') {
+    filtered.forEach(q => {
+      html += `<div class="card rarity-${q.rarity||'common'}" style="padding:12px;">
+        <div style="display:flex;justify-content:space-between;">
+          <span style="font-family:var(--font-d);font-weight:700;font-size:14px;">${q.name}</span>
+          <div><span class="badge" style="background:var(--cyan-dim);color:var(--cyan);">${q.type}</span>
+          <span class="badge" style="background:var(--red-dim);color:var(--red);">RAM: ${q.ram_cost}</span></div>
+        </div>
+        <div style="font-size:11px;color:var(--text);margin-top:4px;">${(q.effects||[]).join(' • ')}</div>
+        <div style="font-size:11px;color:var(--dim);margin-top:4px;">Upload: ${q.upload_time||'—'} | Cooldown: ${q.cooldown||'—'} | Duration: ${q.duration||'—'}</div>
+      </div>`;
+    });
+  } else if (dbTab === 'vehicles') {
+    filtered.forEach(v => {
+      html += `<div class="card" style="padding:12px;${v.free?'border-color:var(--green);':''}">
+        <div style="display:flex;justify-content:space-between;">
+          <span style="font-family:var(--font-d);font-weight:700;font-size:14px;">${v.name}</span>
+          <div><span class="badge" style="background:var(--cyan-dim);color:var(--cyan);">${v.type}</span>
+          ${v.free?'<span class="badge" style="background:var(--green-dim);color:var(--green);">FREE</span>':'<span class="badge" style="background:var(--card);color:var(--dim);">$'+((v.cost||0).toLocaleString())+'</span>'}</div>
+        </div>
+        <div style="font-size:11px;color:var(--text);margin-top:4px;">${v.description||''}</div>
+        <div style="font-size:11px;color:var(--yellow);margin-top:4px;">Speed: ${v.speed} | ${v.district||''}</div>
+        ${v.how_to_get?'<div style="font-size:11px;color:var(--green);margin-top:4px;">📍 '+v.how_to_get+'</div>':''}
+      </div>`;
+    });
+  } else if (dbTab === 'builds') {
+    filtered.forEach(b => {
+      html += `<div class="card" style="padding:14px;border-color:var(--yellow);">
+        <div style="font-family:var(--font-d);font-weight:700;font-size:16px;color:var(--yellow);">${b.name}</div>
+        <div style="font-size:12px;color:var(--cyan);margin-top:2px;">${b.archetype} — ${b.difficulty} difficulty</div>
+        <div style="font-size:12px;color:var(--text);margin-top:6px;">${b.description}</div>
+        <div style="display:flex;gap:16px;margin-top:10px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:120px;">
+            <div class="section-head">Attributes</div>
+            ${Object.entries(b.attributes||{}).map(([k,v])=>'<div style="display:flex;justify-content:space-between;font-size:11px;color:var(--dim);"><span>'+k.replace(/_/g,' ')+'</span><span style="color:var(--text);font-family:var(--font-m);">'+v+'</span></div>').join('')}
+          </div>
+          <div style="flex:1;min-width:120px;">
+            <div class="section-head">Key Perks</div>
+            ${(b.key_perks||[]).slice(0,5).map(p=>'<div style="font-size:11px;color:var(--text);">• '+p+'</div>').join('')}
+          </div>
+          <div style="flex:1;min-width:120px;">
+            <div class="section-head">Recommended Gear</div>
+            ${(b.recommended_weapons||[]).map(w=>'<div style="font-size:11px;color:var(--yellow);">⚔ '+w+'</div>').join('')}
+            ${(b.recommended_cyberware||[]).slice(0,3).map(c=>'<div style="font-size:11px;color:var(--cyan);">🔧 '+c+'</div>').join('')}
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;margin-top:8px;">
+          <div style="flex:1;"><div class="section-head" style="color:var(--green);">Pros</div>${(b.pros||[]).map(p=>'<div style="font-size:11px;color:var(--green);">+ '+p+'</div>').join('')}</div>
+          <div style="flex:1;"><div class="section-head" style="color:var(--red);">Cons</div>${(b.cons||[]).map(c=>'<div style="font-size:11px;color:var(--red);">- '+c+'</div>').join('')}</div>
+        </div>
+      </div>`;
+    });
+  }
+
+  if (!html) html = '<div style="text-align:center;color:var(--dim);padding:40px;">No results found</div>';
+  container.innerHTML = html;
+}
+
+function searchDb() { renderDb(); }
 
 // ── INIT ──
 // ════════════════════════════════════════
@@ -1828,6 +1896,119 @@ function updateMapProgress() {
 }
 
 function searchMap() { renderMapMarkers(); }
+
+// ════════════════════════════════════════
+// GUIDES & TRACKERS
+// ════════════════════════════════════════
+
+let guideData = [];
+let guidesLoaded = false;
+
+async function loadGuides() {
+  if (guidesLoaded) return;
+  guidesLoaded = true;
+  guideData = await (await fetch('/api/guides')).json();
+  renderGuides();
+}
+
+function renderGuides() {
+  const container = document.getElementById('guide-list');
+  const search = (document.getElementById('guide-search')?.value || '').toLowerCase();
+  const catFilter = document.getElementById('guide-cat-filter')?.value || '';
+
+  let filtered = guideData.filter(g => {
+    if (catFilter && g.category !== catFilter) return false;
+    if (search && !g.title.toLowerCase().includes(search) &&
+        !g.content.some(s => s.text.toLowerCase().includes(search) || s.heading.toLowerCase().includes(search))) return false;
+    return true;
+  });
+
+  const catColors = {romance:'#ec8fe6',endings:'#ff003c',money:'#00e676',leveling:'#38bdf8',tips:'#fcee09',collectibles:'#a78bfa',phantom_liberty:'#ff8c00',beginner:'#00f0ff',crafting:'#facc15',cyberware:'#00f0ff',stealth:'#a78bfa',exploration:'#00e676'};
+
+  let html = '';
+  filtered.forEach(g => {
+    const color = catColors[g.category] || 'var(--dim)';
+    html += `<div class="card" style="cursor:pointer;margin-bottom:10px;" onclick="this.querySelector('.guide-body').classList.toggle('hidden')">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:24px;">${g.icon||'📖'}</span>
+        <div style="flex:1;">
+          <div style="font-family:var(--font-d);font-weight:700;font-size:15px;">${g.title}</div>
+          <span class="badge" style="background:${color}20;color:${color};margin-top:2px;">${g.category.toUpperCase().replace(/_/g,' ')}</span>
+        </div>
+        <span style="font-size:12px;color:var(--muted);">▼</span>
+      </div>
+      <div class="guide-body hidden" onclick="event.stopPropagation();" style="margin-top:12px;border-top:1px solid var(--border);padding-top:12px;">
+        ${g.content.map(s => `
+          <div style="margin-bottom:12px;">
+            <div style="font-family:var(--font-d);font-weight:600;font-size:12px;color:${color};letter-spacing:0.5px;margin-bottom:4px;">${s.heading}</div>
+            <div style="font-size:12px;color:var(--text);line-height:1.6;white-space:pre-line;">${s.text}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>`;
+  });
+
+  if (!html) html = '<div style="text-align:center;color:var(--dim);padding:40px;">No guides found</div>';
+  container.innerHTML = html;
+}
+
+// ════════════════════════════════════════
+// CHEAT WORKAROUNDS
+// ════════════════════════════════════════
+
+let cheatsData = [];
+let cheatsLoaded = false;
+let cheatsFilter = 'all';
+
+async function loadCheats() {
+  if (cheatsLoaded) return;
+  cheatsLoaded = true;
+  cheatsData = await (await fetch('/api/cheats')).json();
+  renderCheats();
+}
+
+function filterCheatsTab(filter, el) {
+  cheatsFilter = filter;
+  document.querySelectorAll('.cheat-filter').forEach(b => b.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderCheats();
+}
+
+function renderCheats() {
+  const container = document.getElementById('cheats-list');
+  let filtered = cheatsData;
+  if (cheatsFilter === 'works') filtered = cheatsData.filter(c => c.works_on_gfn === true);
+  else if (cheatsFilter === 'partial') filtered = cheatsData.filter(c => c.patched === 'partially');
+  else if (cheatsFilter === 'impossible') filtered = cheatsData.filter(c => c.works_on_gfn === false);
+
+  let html = '';
+  filtered.forEach(c => {
+    const statusColor = c.works_on_gfn ? 'var(--green)' : 'var(--red)';
+    const statusText = c.works_on_gfn ? '✅ WORKS ON GFN' : '❌ NOT ON GFN';
+    const patchBadge = c.patched === 'yes' ? '<span class="badge" style="background:var(--red-dim);color:var(--red);">PATCHED</span>' :
+                       c.patched === 'partially' ? '<span class="badge" style="background:var(--yellow-dim);color:var(--yellow);">PARTIAL</span>' : '';
+
+    html += `<div class="card" style="cursor:pointer;border-left:3px solid ${statusColor};" onclick="this.querySelector('.cheat-body').classList.toggle('hidden')">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-family:var(--font-d);font-weight:700;font-size:14px;">${c.name}</div>
+          <div style="font-size:11px;color:var(--dim);margin-top:2px;">${c.category.toUpperCase().replace(/_/g,' ')} ${patchBadge}</div>
+        </div>
+        <span style="font-size:10px;font-family:var(--font-m);color:${statusColor};">${statusText}</span>
+      </div>
+      <div class="cheat-body hidden" onclick="event.stopPropagation();" style="margin-top:10px;border-top:1px solid var(--border);padding-top:10px;">
+        <div style="font-size:12px;color:var(--text);margin-bottom:8px;">${c.description}</div>
+        ${c.steps && c.steps.length ? '<div style="margin-bottom:8px;">' + c.steps.map((s,i) => '<div style="font-size:11px;color:var(--dim);padding:2px 0;"><span style="color:var(--yellow);font-family:var(--font-m);">'+(i+1)+'.</span> '+s+'</div>').join('') + '</div>' : ''}
+        ${c.notes ? '<div style="font-size:11px;color:var(--yellow);margin-bottom:4px;">⚡ '+c.notes+'</div>' : ''}
+        ${c.version_notes ? '<div style="font-size:10px;color:var(--muted);">Version: '+c.version_notes+'</div>' : ''}
+        <div style="font-size:10px;color:var(--dim);margin-top:4px;">Risk: ${c.risk||'None'}</div>
+      </div>
+    </div>`;
+  });
+
+  if (!html) html = '<div style="text-align:center;color:var(--dim);padding:40px;">No workarounds found</div>';
+  container.innerHTML = html;
+}
 
 // ── INIT ──
 function init() {

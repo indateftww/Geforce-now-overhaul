@@ -1,0 +1,422 @@
+[
+  {
+    "id": "g_romance_judy",
+    "title": "Romance Guide: Judy Alvarez",
+    "category": "romance",
+    "icon": "💜",
+    "content": [
+      {
+        "heading": "Requirements",
+        "text": "You must be playing as Female V with a feminine body type and feminine voice tone. Judy is exclusively interested in women, so male V players cannot pursue this romance. There are no attribute or skill checks required."
+      },
+      {
+        "heading": "Quest Progression",
+        "text": "Judy's romance arc spans several main and side quests: Both Sides of the Blade, Ex-Factor, Talkin' Bout a Revolution, Pisces, and finally Pyramid Song. You must complete each quest as they become available. Do not skip or ignore Judy's calls and messages between quests — responding promptly shows interest."
+      },
+      {
+        "heading": "Critical Choice: Pisces",
+        "text": "During the Pisces quest, you must side with Judy and NOT support Maiko's plan to take over Clouds. If you let Maiko execute her plan or accept her payment, Judy will be furious and the romance will fail. Tell Maiko her plan is off, or let Judy handle the situation. After the confrontation, comfort Judy on the rooftop."
+      },
+      {
+        "heading": "Pyramid Song: The Romance Scene",
+        "text": "After Pisces, Judy will call V for a trip to her childhood home at Laguna Bend. Accept the invitation. During the dive sequence, explore the submerged town together. That night at the cabin, when Judy opens up emotionally, choose 'The beginning of something amazing' and then the romantic dialogue options. Stay the night with her — do NOT leave early."
+      },
+      {
+        "heading": "After Romance & Ending Impact",
+        "text": "Once romanced, Judy can be found at her apartment in Kabuki, Watson. You can visit, sleep there, and she will send affectionate texts. For the best outcome, choose The Star ending (Aldecaldo path). Judy will leave Night City with V and the Aldecaldos. In The Sun ending, she leaves a sad voicemail. In Temperance and Devil endings, the outcome is bittersweet or tragic."
+      }
+    ]
+  },
+  {
+    "id": "g_romance_panam",
+    "title": "Romance Guide: Panam Palmer",
+    "category": "romance",
+    "icon": "🧡",
+    "content": [
+      {
+        "heading": "Requirements",
+        "text": "You must be playing as Male V with a masculine body type. Panam is only romanceable by male V. Voice tone does not matter, only body type. No attribute checks are required."
+      },
+      {
+        "heading": "Quest Progression",
+        "text": "Panam's questline begins with Riders on the Storm (rescue Saul from the Raffen Shiv), continues with With a Little Help from My Friends (recover the Basilisk panzer), and concludes with Queen of the Highway. Always help Panam and support her decisions. Take her side over Saul when conflicts arise."
+      },
+      {
+        "heading": "The Basilisk Scene",
+        "text": "During Queen of the Highway, you and Panam will test the Basilisk's neural link together. When she suggests syncing your nervous systems through the tank's braindance-like interface, agree enthusiastically. This leads to the iconic intimate scene inside the Basilisk. Choose all romantic and flirty dialogue options throughout."
+      },
+      {
+        "heading": "Cementing the Romance",
+        "text": "After the Basilisk scene, Panam will ask about what this means for you both. Choose dialogue that commits to the relationship. She will then be found at the Aldecaldo camp in the Badlands. Visit her regularly. She sends texts and will call V periodically."
+      },
+      {
+        "heading": "Ending Impact",
+        "text": "Panam is essential for The Star ending, widely considered the best ending in the game. If romanced, she leads the Aldecaldos to storm Arasaka Tower and helps V escape Night City. V leaves with Panam and the nomads, heading to Arizona to find a cure. In other endings, Panam calls V and expresses concern or sadness."
+      }
+    ]
+  },
+  {
+    "id": "g_romance_river",
+    "title": "Romance Guide: River Ward",
+    "category": "romance",
+    "icon": "💙",
+    "content": [
+      {
+        "heading": "Requirements",
+        "text": "You must be playing as Female V. Any body type works for River's romance — he is interested in female V regardless of body configuration. No skill checks are needed."
+      },
+      {
+        "heading": "Quest Progression",
+        "text": "River's arc begins with I Fought the Law (investigating Mayor Rhyne's death), continues into The Hunt (searching for his nephew Randy), and culminates in Following the River. Complete all quests and be supportive of River's personal mission."
+      },
+      {
+        "heading": "The Hunt: Save Randy",
+        "text": "During The Hunt, you must successfully find and rescue River's nephew Randy from Peter Pan (Anthony Harris). Use the braindance clues carefully to locate the farm. Saving Randy is critical — if Randy dies, River becomes too grief-stricken for romance. Examine all BD clues: the laptop, the messages, and environmental details to pinpoint the location."
+      },
+      {
+        "heading": "Water Tower Romance",
+        "text": "In Following the River, River invites V to dinner with his family. Accept the invitation. After dinner, follow River to the water tower. When he opens up about his life and feelings, choose romantic dialogue options. When the moment comes, kiss River on the water tower. This is the defining romantic moment."
+      },
+      {
+        "heading": "After Romance & Ending Impact",
+        "text": "River can be found at his trailer near the Sunset Motel after romancing him. He has relatively minor impact on endings compared to Judy or Panam — he calls V during the ending sequences and expresses his feelings, but does not play a direct role in any ending path. He fits best narratively with The Sun or The Star endings."
+      }
+    ]
+  },
+  {
+    "id": "g_romance_kerry",
+    "title": "Romance Guide: Kerry Eurodyne",
+    "category": "romance",
+    "icon": "💛",
+    "content": [
+      {
+        "heading": "Requirements",
+        "text": "You must be playing as Male V with a masculine body type. Kerry is only interested in male V. His questline is also the longest romance arc in the game, requiring completion of many side quests in sequence."
+      },
+      {
+        "heading": "Quest Progression",
+        "text": "Kerry's questline is extensive: Holdin' On, Second Conflict, A Like Supreme, Rebel Rebel, I Don't Wanna Hear It, Off the Leash, and finally Boat Drinks. These quests unlock sequentially after completing the Tapeworm main quest and certain Johnny Silverhand storyline missions. You must complete every single one — skipping any will lock you out."
+      },
+      {
+        "heading": "Building the Relationship",
+        "text": "Throughout Kerry's quests, support his musical ambitions and be understanding of his rivalry with Us Cracks. In A Like Supreme, play the gig with Kerry and enjoy the concert. During Rebel Rebel, help him deal with the Us Cracks situation. Always pick dialogue that shows genuine interest in Kerry as a person, not just Johnny's old bandmate."
+      },
+      {
+        "heading": "Boat Drinks: The Romance",
+        "text": "The final quest, Boat Drinks, takes place on Kerry's yacht. After dealing with the events on the boat, Kerry and V have a private moment. Choose all romantic dialogue options. This is the only chance to lock in the romance — there are no second chances. The scene is intimate and heartfelt."
+      },
+      {
+        "heading": "After Romance & Ending Impact",
+        "text": "Kerry can be found at his mansion in North Oak, Westbrook after being romanced. Like River, Kerry's ending impact is relatively minor — he calls V during ending sequences. He pairs narratively well with The Sun ending where V becomes a Night City legend, which fits Kerry's rockstar lifestyle."
+      }
+    ]
+  },
+  {
+    "id": "g_all_endings",
+    "title": "All Endings Guide: How to Unlock Every Ending",
+    "category": "endings",
+    "icon": "🌟",
+    "content": [
+      {
+        "heading": "The Sun (Path of Glory)",
+        "text": "Choose to attack Arasaka with Rogue and Johnny. At the point of no return (Nocturne Op55N1), take the Omega Blockers and let Johnny take over V's body. Johnny and Rogue assault Arasaka Tower. V survives and becomes a Night City legend, taking on a dangerous final gig in the Crystal Palace space casino. The bittersweet catch: V only has six months to live. Best for players who want V to go out in a blaze of glory."
+      },
+      {
+        "heading": "The Star (All Along the Watchtower)",
+        "text": "Choose to storm Arasaka with the Aldecaldos. This requires completing Panam's full questline (Riders on the Storm, With a Little Help from My Friends, Queen of the Highway). At Nocturne Op55N1, call Panam. The Aldecaldos assault Arasaka, and V escapes Night City with the nomads. Widely considered the best ending — V has hope, community, and a chance at a cure. Romanced Judy or Panam will come along."
+      },
+      {
+        "heading": "Temperance (New Dawn Fades)",
+        "text": "Same initial path as The Sun (attack with Rogue), but at the decision point inside Mikoshi, let Johnny keep V's body. V dies or enters cyberspace, and Johnny gets a second chance at life. He leaves Night City, giving up his rockstar identity. A melancholy but redemptive ending for Johnny. Choose this if you believe Johnny deserves another shot."
+      },
+      {
+        "heading": "The Devil (Where Is My Mind?)",
+        "text": "Accept Hanako Arasaka's offer at Embers. Side with Arasaka and go to the Arasaka space station for the engram procedure. V is subjected to extensive testing and offered a choice: return to a dying body with months to live, or have their engram stored in Mikoshi (essentially dying). The darkest ending — V is a corporate pawn. Unlocked by simply following Hanako's plan at Nocturne Op55N1."
+      },
+      {
+        "heading": "Secret Ending (Don't Fear the Reaper)",
+        "text": "The secret ending requires high friendship with Johnny Silverhand (70%+ relationship). Key choices: during Chippin' In, visit Johnny's grave and scatter his dog tags, pick dialogue showing genuine empathy. At Nocturne Op55N1 on the rooftop, WAIT and do not pick any option for about 5 minutes. Johnny will eventually suggest storming Arasaka solo. This is the hardest ending — no allies, no saves during the assault, and death means game over. If you survive, you get The Sun ending variant. Considered the 'true' ending by many fans."
+      }
+    ]
+  },
+  {
+    "id": "g_money_making",
+    "title": "Money Making Guide: Get Rich in Night City",
+    "category": "money",
+    "icon": "💰",
+    "content": [
+      {
+        "heading": "NCPD Scanner Hustle Grinding",
+        "text": "NCPD Scanner Hustles (blue markers on the map) are the most consistent money source. Each pays 1,000-5,000 eddies plus lootable weapons and items from enemies. Watson and Santo Domingo have dense clusters. Clear a district systematically, sell all loot to vendors or drop points, then move to the next area. A full sweep of Watson alone can net 50,000+ eddies."
+      },
+      {
+        "heading": "Crafting for Profit",
+        "text": "With the Crafting skill leveled and relevant perks, you can buy cheap common components, craft green/blue items, and sell them at a profit. The profit margin increases significantly with higher-tier crafting. Epic and Legendary items sell for enormous amounts. Focus on crafting Nekomata sniper rifles or similar high-value weapons. The crafting XP also levels your Technical Ability."
+      },
+      {
+        "heading": "Access Point Breach Protocol",
+        "text": "Every area has access points (network jacks on walls, antennas, and terminals). Use Breach Protocol on them to extract eddies directly. With the Advanced Datamine and Extended Network Interface perks in the Intelligence tree, each access point can yield 800-3,000+ eddies. Combined with NCPD grinding, this adds up fast. Always breach every access point you find."
+      },
+      {
+        "heading": "Selling Strategy",
+        "text": "Vendors have limited cash (typically 20,000 eddies). Sell to a vendor until they run out, then skip time 24 hours — their cash refreshes. Drop points (found everywhere) also accept items but have the same cash limit. Sell weapons and clothing you do not need. Junk items can be sold freely unless they are worth disassembling for crafting components. Enable the 'auto-disassemble junk' option only if you do NOT need the money from selling junk."
+      },
+      {
+        "heading": "Gig Completion & Side Jobs",
+        "text": "Fixers pay well for completing gigs (yellow markers). Higher Street Cred unlocks better-paying gigs. Regina Jones, Wakako, and El Capitan offer some of the most lucrative gigs. Side jobs from major characters also pay generously. Completing all gigs in a district earns a thank-you call from the fixer and sometimes a bonus reward. Prioritize gigs alongside NCPD hustles for maximum income."
+      }
+    ]
+  },
+  {
+    "id": "g_xp_leveling",
+    "title": "XP & Leveling: Fast Progression Guide",
+    "category": "leveling",
+    "icon": "📈",
+    "content": [
+      {
+        "heading": "Understanding XP Types",
+        "text": "Cyberpunk 2077 has three progression systems: Character XP (levels V up, increases attribute points), Skill XP (levels individual skills like Handguns, Stealth, etc., earned by using that skill), and Street Cred (unlocks gigs, vendors, and items). Main missions give the most Character XP. Skill XP comes from gameplay actions. Street Cred comes from side content."
+      },
+      {
+        "heading": "Fastest Character XP Methods",
+        "text": "Main story missions give the largest XP chunks. Side jobs from named characters (Panam, Judy, etc.) also give massive XP. NCPD Scanner Hustles and gigs provide steady XP for open-world grinding. Cyberpsycho Sightings give large XP rewards. For raw speed: push the main story and complete high-value side jobs between main missions."
+      },
+      {
+        "heading": "Skill Progression Tips",
+        "text": "Each skill levels by using it. Handguns skill increases by killing with handguns. Stealth increases by sneaking and takedowns. Athletics increases by sprinting, sliding, and melee combat. To power-level a skill: focus exclusively on that playstyle. For Crafting, mass-craft cheap items. For Quickhacking, breach every access point and use quickhacks in every combat encounter. Skill shards found in the world can also grant free skill XP."
+      },
+      {
+        "heading": "Street Cred Farming",
+        "text": "Street Cred unlocks access to higher-tier gigs, better vendor inventories, and cyberware. It increases from completing any side content: gigs, NCPD hustles, cyberpsycho sightings, and side jobs. The fastest way to raise Street Cred is to clear gigs and NCPD encounters district by district. Street Cred caps at 50 and is usually maxed well before you hit the level cap."
+      },
+      {
+        "heading": "Post-Update 2.0 Leveling Changes",
+        "text": "After the 2.0 update, the leveling system was overhauled. The level cap increased to 60 (with Phantom Liberty). Skill trees were completely reworked. Perk points are now more impactful. Focus on one or two weapon/approach skills rather than spreading thin. Respec is available at any time for a small cost, so do not worry about experimenting early on."
+      }
+    ]
+  },
+  {
+    "id": "g_combat_tips",
+    "title": "Combat Tips: Weapons, Quickhacks & Tactics",
+    "category": "tips",
+    "icon": "🔫",
+    "content": [
+      {
+        "heading": "Weapon Types Overview",
+        "text": "Power weapons ricochet bullets off walls (great for hitting enemies behind cover). Tech weapons charge up and penetrate walls and cover. Smart weapons auto-track targets after investing in a Smart Link cyberware hand mod. Melee weapons include katanas, mantis blades, gorilla arms, and the monowire. Each weapon type scales with different attributes: Handguns and Assault with Reflexes, Shotguns and Blunt with Body, Blades with Reflexes, Sniper Rifles with Cool."
+      },
+      {
+        "heading": "Quickhack Combos",
+        "text": "Quickhacking is devastatingly powerful with investment. Key combos: use Ping to reveal all enemies on a network, then apply Contagion (spreads between enemies), Short Circuit (massive damage to one target and anything electronic), or Synapse Burnout for lethal takedowns. Cyberpsychosis forces an enemy to attack their allies. System Reset instantly knocks out one target. Queue multiple quickhacks for combo damage multipliers in the 2.0 system."
+      },
+      {
+        "heading": "Enemy Weaknesses",
+        "text": "Robots and mechs are vulnerable to Short Circuit and EMP quickhacks. Netrunners should be prioritized — they can hack YOU back. Animals gang members are highly resistant to melee but weak to quickhacks. Maelstrom cyborgs are weak to EMP effects. Arasaka soldiers have strong netrunning defenses. Scavengers are generally the weakest. Always scan enemies with your optics to reveal weaknesses and resistances before engaging."
+      },
+      {
+        "heading": "Sandevistan & Berserk",
+        "text": "Sandevistan (operating system cyberware) slows time, allowing you to dodge bullets and deal massive damage. It replaces quickhacking but is incredible for melee and reflex builds. The QianT Sandevistan Mk.4 and Militech Falcon are top tier. Berserk boosts melee damage and damage resistance — ideal for gorilla arms and shotgun builds. Choose your operating system based on your build: Cyberdeck for hacking, Sandevistan for speed, Berserk for tank."
+      },
+      {
+        "heading": "General Combat Tactics",
+        "text": "Always use cover — V is fragile at lower levels. Grenades are extremely powerful and often overlooked. Headshots deal 2x damage minimum with most weapons. Use the environment: exploding barrels, electrical panels, and gas pipes can wipe groups. Invest in at least one healing cyberware (like the Blood Pump) for sustained fights. Keep your weapons and cyberware upgraded to your current level — damage scaling is significant."
+      }
+    ]
+  },
+  {
+    "id": "g_collectibles",
+    "title": "Collectibles Guide: Tarot, Cyberpsychos & Iconic Weapons",
+    "category": "collectibles",
+    "icon": "🗂️",
+    "content": [
+      {
+        "heading": "Tarot Card Graffiti Murals",
+        "text": "There are 20 tarot graffiti murals scattered across Night City, tied to Misty's questline (Fool on the Hill). They appear as glowing blue street art visible only with your scanner. Locations span all districts. Finding all 20 rewards unique dialogue with Misty and the Temperance tarot card. Use your scanner frequently near walls and overpasses — they are easy to miss. Each one adds lore about V's journey."
+      },
+      {
+        "heading": "Cyberpsycho Sightings",
+        "text": "Regina Jones assigns 17 Cyberpsycho Sighting gigs. Each involves finding and neutralizing a cyberpsycho — you are encouraged to incapacitate rather than kill them (use non-lethal mods or quickhacks like System Reset). Completing all 17 and reporting back to Regina unlocks the full Psycho Killer side job resolution. The reward is substantial XP, eddies, and unique lore about the cyberpsychosis epidemic."
+      },
+      {
+        "heading": "Iconic Weapons Overview",
+        "text": "Iconic weapons are unique named weapons with special abilities. Key iconics include: Skippy (smart pistol that talks), Johnny's Malorian Arms 3516 (from Chippin' In), Lizzie (tech pistol from Judy's questline), Overwatch (silenced sniper from Panam), Divided We Stand (smart assault rifle from Stadium Love), Fenrir (power SMG that applies burn), Comrade's Hammer (one-shot tech revolver), and Doom Doom (fast-firing revolver from Fingers)."
+      },
+      {
+        "heading": "Where to Find Key Iconics",
+        "text": "Many iconic weapons are quest rewards: complete character questlines to receive them. Others are found in specific locations: the Apparition revolver is in a hidden Badlands cave, Ba Xing Chong smart shotgun drops from Adam Smasher, Plan B is in a Heywood gig. Some are missable — Skippy must be picked up from a specific alley in Vista del Rey. Always explore thoroughly during missions, as some iconics are only available during specific quests."
+      },
+      {
+        "heading": "Other Collectibles",
+        "text": "Additional collectibles include: fast travel data terminals (unlocking map teleport points), readable shards with lore, hidden gem locations (free vehicles, secret rooms), and Johnny Silverhand items (his jacket, car, gun, boots — all from his questline). The game also tracks completed gigs, NCPD hustles, and reported crimes per district. Completing all side content in a district triggers a fixer acknowledgement call."
+      }
+    ]
+  },
+  {
+    "id": "g_phantom_liberty",
+    "title": "Phantom Liberty: Dogtown & New Content Guide",
+    "category": "phantom_liberty",
+    "icon": "🦅",
+    "content": [
+      {
+        "heading": "Getting to Dogtown",
+        "text": "Phantom Liberty is accessed during Act 2 of the main game. After a specific point in the story, V receives a mysterious message leading to Dogtown, a walled-off combat zone in Pacifica ruled by Kurt Hansen. The expansion adds a massive new area, new story missions, new gigs, and raises the level cap to 60. You can start it mid-game — recommended level is 15+."
+      },
+      {
+        "heading": "The Main Conflict: Songbird vs Reed",
+        "text": "The central story revolves around Song So Mi (Songbird), a rogue FIA netrunner, and Solomon Reed (Idris Elba), a loyal FIA sleeper agent. Both want V's help, but their goals diverge. Songbird wants to escape and find a cure for her condition. Reed wants to bring Songbird in and restore his standing. Your choices between them determine the expansion's ending and unlock a potential new main game ending."
+      },
+      {
+        "heading": "Expansion Endings",
+        "text": "There are two main Phantom Liberty endings. Siding with Reed: you help capture Songbird, Reed is reinstated, and you gain access to contacts who may help V. Siding with Songbird: you help her escape to the moon, but Reed becomes your enemy. There is also a variation where Songbird betrays you regardless. Each path has different final missions, rewards, and consequences."
+      },
+      {
+        "heading": "New Ending: The Tower",
+        "text": "Completing Phantom Liberty's Reed path unlocks a new main game ending called The Tower (also known as Slightly Damaged). In this ending, V undergoes experimental surgery by the FIA that removes the Relic but also wipes out V's combat abilities and cyberware. V survives but must live as a normal person. It is the only ending where V definitively lives beyond six months, but at the cost of everything that made V a mercenary."
+      },
+      {
+        "heading": "New Features & Content",
+        "text": "Phantom Liberty adds: Relic skill tree (powerful new perks), vehicular combat, new iconic weapons (Her Majesty pistol, Erebus SMG, Wild Dog AR), new cyberware, new gigs from Mr. Hands (Dogtown fixer), Airdrops (dynamic combat encounters), and the Stadium area. The Relic tree includes abilities like optical camo, enhanced Mantis Blades, and arm cannon overcharge. All new gigs are among the best-designed in the game."
+      }
+    ]
+  },
+  {
+    "id": "g_new_player",
+    "title": "New Player Guide: First Steps in Night City",
+    "category": "beginner",
+    "icon": "🆕",
+    "content": [
+      {
+        "heading": "Lifepath Choice",
+        "text": "You choose between Nomad, Street Kid, or Corpo at the start. This affects your prologue (30-60 minutes of unique content), some dialogue options throughout the game, and minor quest variations. It does NOT lock you out of any endings, romances, or major content. Choose based on roleplay preference. Street Kid fits the Night City vibe naturally, Nomad offers a great outsider perspective, and Corpo provides unique corporate lore."
+      },
+      {
+        "heading": "Early Build Advice",
+        "text": "Do not spread attribute points evenly — focus on 2-3 attributes. Popular starter builds: Reflexes + Cool (gunslinger/stealth), Intelligence + Cool (netrunner), Body + Reflexes (tank/brawler), Reflexes + Technical Ability (tech weapon specialist). You cannot respec attribute points, only perk points. Plan ahead or accept your first playthrough as experimental. Level 60 gives you enough points to max about 2.5 attributes."
+      },
+      {
+        "heading": "What to Do First",
+        "text": "After the prologue and Act 1 (The Heist), the game opens up enormously. Do NOT rush the main story — explore, take gigs, and build your character. Visit a ripperdoc early (Viktor in Watson) to upgrade your cyberware. Pick up NCPD Scanner Hustles for easy XP and money. Start Panam and Judy's questlines when available. Buy the double jump cyberware (Fortified Ankles or Reinforced Tendons) as soon as possible — it transforms exploration."
+      },
+      {
+        "heading": "GeForce Now (GFN) Settings",
+        "text": "If playing on GeForce Now: set graphics to High or Ultra (the cloud PC handles it). Enable Ray Tracing if available on your tier. Set DLSS to Quality or Balanced. Turn off motion blur and film grain for clarity. Cap FPS to 60 for stability. Cloud saves sync automatically via GOG/Steam/Epic. Input lag can be reduced by using a wired connection and setting the streaming quality to Balanced in the GFN app. Disable HDR in the GFN overlay if colors look washed out."
+      },
+      {
+        "heading": "Common Beginner Mistakes",
+        "text": "Do not sell iconic weapons — they are unique and cannot be re-obtained. Do not ignore phone calls from fixers and quest characters. Do not hoard perk points — spend them as you get them. Quicksave often (the game autosaves infrequently during exploration). Do not skip the tutorials about Breach Protocol and scanning — these are essential mechanics. Finally, do not ignore cyberware upgrades; they are more impactful than gear in the 2.0 system."
+      }
+    ]
+  },
+  {
+    "id": "g_crafting",
+    "title": "Crafting Guide: Items, Upgrades & Profit",
+    "category": "crafting",
+    "icon": "🔧",
+    "content": [
+      {
+        "heading": "How Crafting Works (2.0 System)",
+        "text": "Crafting in the post-2.0 update is tied to the Technical Ability attribute. With enough points in Technical Ability, you unlock crafting perks that allow you to craft higher-tier items. You need components (Common, Uncommon, Rare, Epic, Legendary) which are obtained by disassembling items, looting the world, and purchasing from vendors. Open the Crafting tab in your menu to see available blueprints."
+      },
+      {
+        "heading": "Best Items to Craft",
+        "text": "High-value weapons like Nekomata sniper rifles and Omaha pistols at high tiers sell for excellent eddies. Crafting armadillo mods provides consistent defensive bonuses. Healing items (MaxDoc, Bounce Back) are worth crafting in bulk for tough fights. If you find blueprints for grenades (especially EMP and Incendiary), craft those — they are expensive to buy but cheap to make."
+      },
+      {
+        "heading": "Iconic Weapon Upgrades",
+        "text": "Iconic weapons can be upgraded to higher tiers through crafting (Common to Uncommon to Rare to Epic to Legendary). This requires the weapon plus tier-appropriate components. NEVER disassemble an iconic weapon — you cannot get it back. Upgrading iconic weapons to Legendary tier unlocks an additional mod slot and significantly boosts their unique abilities. Prioritize upgrading your favorite iconic weapon to Legendary as soon as you can afford the components."
+      },
+      {
+        "heading": "Component Farming",
+        "text": "The best source of components is disassembling loot from NCPD hustles and gigs. Enemies drop weapons and clothing — disassemble anything you would not sell. Vendors sell component packs directly. Higher-tier components can sometimes be crafted from lower-tier ones with the right perks. Some locations have guaranteed legendary components — check hidden rooms and boss areas."
+      },
+      {
+        "heading": "Crafting for Money",
+        "text": "The crafting-to-money loop: buy cheap common components from vendors, craft green or blue tier weapons, sell the weapons for a profit. The margin increases with higher crafting perks. This loop was more exploitable pre-2.0 but still works. Combine it with the vendor refresh trick (skip 24 hours to reset vendor cash) for continuous income. Crafting also levels your Technical Ability skill, so it is doubly productive."
+      }
+    ]
+  },
+  {
+    "id": "g_cyberware",
+    "title": "Cyberware Optimization: Best Combos & Tips",
+    "category": "cyberware",
+    "icon": "🦾",
+    "content": [
+      {
+        "heading": "Cyberware Capacity System",
+        "text": "After the 2.0 update, cyberware uses a capacity system instead of slot-based limits. Each piece of cyberware has a capacity cost, and your total capacity is determined by your level and Technical Ability attribute. Higher Technical Ability means more cyberware capacity. Cyberware capacity shards found in the world permanently increase your limit. Seek these out — they are in hidden locations, NCPD hustles, and quest rewards."
+      },
+      {
+        "heading": "Best Cyberware Combos",
+        "text": "Netrunner build: Raven Microcyber Mk.4 cyberdeck + Synaptic Accelerator + Ex-Disk. Sandevistan build: QianT Sandevistan Mk.4 + Kerenzikov + Dense Marrow. Tank build: Berserk Mk.5 + Second Heart + Bionic Lungs + Gorilla Arms. Stealth build: Militech Falcon Sandevistan + Optical Camo + Lynx Paws (silent movement). Mix and match based on playstyle — the key is synergy between your operating system and supporting cyberware."
+      },
+      {
+        "heading": "Must-Have Cyberware",
+        "text": "Regardless of build, these are near-universal recommendations: Reinforced Tendons OR Fortified Ankles (double jump or charge jump — essential for exploration), Kiroshi Optics Mk.3 (scanner upgrades), Blood Pump (heal on demand), Second Heart (auto-revive on death, once per cooldown), and Kerenzikov (slow time while dodging, works with nearly every build). These should be your first purchases."
+      },
+      {
+        "heading": "Ripperdoc Rankings",
+        "text": "Different ripperdocs sell different cyberware. The best ripperdocs: Viktor in Watson (early game staple, good prices due to friendship), the ripperdoc in Wellsprings (Heywood) stocks rare items, Doc Cassius in Northside has high-end combat ware, and the Dogtown ripperdoc sells Phantom Liberty exclusives. Fingers in Japantown has unique stock but romancing Judy may lead you to punch him, locking his shop. Check every ripperdoc — inventory varies."
+      },
+      {
+        "heading": "Capacity Optimization Tips",
+        "text": "To maximize your cyberware loadout: invest in Technical Ability to raise base capacity. Find all cyberware capacity shards in the open world (there are dozens). Use cyberware with lower capacity costs when possible — sometimes a Mk.3 is more capacity-efficient than a Mk.4. Some perks reduce cyberware capacity costs for specific categories. Plan your loadout around your operating system choice first, then fill supporting slots."
+      }
+    ]
+  },
+  {
+    "id": "g_stealth",
+    "title": "Stealth Guide: Silent Night City",
+    "category": "stealth",
+    "icon": "🥷",
+    "content": [
+      {
+        "heading": "Stealth Fundamentals",
+        "text": "Stealth in Cyberpunk 2077 revolves around the Cool attribute and its associated perks. Crouch to enter stealth mode. Enemy detection is based on line of sight, noise, and proximity. The minimap shows enemy vision cones. Use cover, stay in shadows (lighting matters post-2.0), and move slowly near enemies. Invest in Cool early if stealth is your preferred approach."
+      },
+      {
+        "heading": "Silent Weapon Options",
+        "text": "Silenced weapons are essential for stealth. Attach a silencer mod to any power pistol or revolver. The Overwatch sniper rifle (from Panam's questline) comes pre-silenced. Throwing knives (Cool perk) are silent one-hit kills. The Widow Maker precision rifle is silent by default. For melee stealth, knives and katanas can one-shot from stealth with the right perks. Mantis Blades also work for stealth takedowns."
+      },
+      {
+        "heading": "Quickhack Stealth Combos",
+        "text": "Quickhacking and stealth combine powerfully. Key stealth hacks: Distract Enemies (lure guards away), Request Backup (group enemies together), Reboot Optics (blind a target temporarily), Sonic Shock (prevent a target from alerting others), Memory Wipe (makes an alerted enemy forget you), and System Reset (instant non-lethal takedown). Chain Sonic Shock into System Reset for completely silent eliminations from across the map."
+      },
+      {
+        "heading": "Optical Camo & Stealth Cyberware",
+        "text": "Optical Camo (integumentary system cyberware) turns V invisible for several seconds. Combined with Lynx Paws (leg cyberware, silent footsteps), you become nearly undetectable. The Relic tree in Phantom Liberty adds enhanced optical camo. Synaptic Accelerator slows time when detected, giving you a window to escape. Use these together for a ghost playstyle where enemies never know you were there."
+      },
+      {
+        "heading": "Stealth Mission Approach",
+        "text": "Before entering any mission area: scan all enemies through walls using Ping quickhack. Identify cameras and turrets — disable them with quickhacks or destroy them. Plan a route through the area using verticality (double jump to reach high ground). Take out isolated enemies first with stealth takedowns, hide bodies in dumpsters and containers. If detected, use Memory Wipe or flee and wait for the alert to end. Most missions can be completed without any combat detection."
+      }
+    ]
+  },
+  {
+    "id": "g_driving_exploration",
+    "title": "Driving & Exploration: Hidden Gems of Night City",
+    "category": "exploration",
+    "icon": "🚗",
+    "content": [
+      {
+        "heading": "Free Vehicles",
+        "text": "Several vehicles can be obtained for free. The Rayfield Caliburn (one of the fastest cars) spawns in the tunnel near the Aldecaldo camp in the Badlands after completing Panam's Ghost Town quest — just drive into the tunnel and find it. The Arch Nazare motorcycle is given by Wakako after completing all her gigs. Various vehicles are quest rewards from fixer storylines. Always check garages and marked locations after completing gig chains."
+      },
+      {
+        "heading": "Hidden Locations & Easter Eggs",
+        "text": "Night City is packed with secrets. Notable hidden spots: the secret dev room accessible via a rooftop in Corpo Plaza, the Witcher 3 easter egg in a junkyard, the Blade Runner reference on a rooftop in Japantown, a hidden cave in the Badlands with legendary loot, underwater locations you can explore with specific cyberware, and the rooftop garden above Judy's apartment. Explore vertically — many secrets are above or below street level."
+      },
+      {
+        "heading": "Driving Tips",
+        "text": "Motorcycles are generally easier to handle than cars in Night City's dense streets. The Kusanagi CT-3X and Arch Nazare are the best bikes. For cars, the Rayfield Caliburn, Porsche 911 II (Johnny's car), and Herrera Outlaw GTS handle well. Slow down before turns — the driving model is arcade-style but punishes high-speed cornering. Use first-person view for bikes and third-person for cars. Fast travel points are plentiful if you hate driving."
+      },
+      {
+        "heading": "Photo Mode Guide",
+        "text": "Cyberpunk 2077 has an excellent photo mode accessible from the pause menu. You can adjust camera position, focal length, aperture, and color grading. Add poses, expressions, and effects. Best photo spots: Japantown at night (neon reflections), the Badlands at sunset, Corpo Plaza skyline, the waterfront in Pacifica, and Dogtown's chaotic streets. Use the selfie camera for close-ups with V. Ray tracing dramatically improves photo quality."
+      },
+      {
+        "heading": "Exploration Priorities",
+        "text": "Focus exploration on: gig and NCPD marker completion per district (reveals hidden content), finding all fast travel points (there are over 150), locating ripperdocs in every district, discovering hidden iconic weapon locations, and finding cyberware capacity shards. Use the NCPD scanner feature to highlight nearby points of interest. The open world is best explored organically between missions — do not try to 100% one district before moving on, as some content unlocks based on story progression."
+      }
+    ]
+  }
+]
